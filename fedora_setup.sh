@@ -8,6 +8,17 @@ alias clrswap='sudo swapoff -a && sudo swapon -a'
 ytclip () {
   ffmpeg -i "$(youtube-dl -f best -g "$3")" -ss $1 -to $2 -async 1 ~/Videos/clip.mp4
 }
+
+vibrance () {
+  if [[ $(nvidia-settings -q "DigitalVibrance" | grep "Attribute.*512\.") ]] 
+  then
+    nvidia-settings -a "DigitalVibrance=0" > /dev/null
+    echo "Vibrance Disabled"
+  else
+    nvidia-settings -a "DigitalVibrance=512" > /dev/null
+    echo "Vibrance Enabled"
+  fi
+}
 EOF
 source ~/.bashrc
 
