@@ -27,7 +27,7 @@ gsettings set org.gnome.desktop.interface clock-format 12h
 gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.desktop.interface clock-show-weekday true
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-gsettings set org.gnome.desktop.interface monospace-font-name "Source Code Pro Semibold 10"
+gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro Semibold 10'
 gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
 gsettings set org.gnome.desktop.privacy remember-recent-files false
 gsettings set org.gnome.gedit.preferences.editor display-line-numbers true
@@ -36,6 +36,7 @@ gsettings set org.gnome.gedit.preferences.editor insert-spaces true
 gsettings set org.gnome.gedit.preferences.editor scheme 'tango'
 gsettings set org.gnome.gedit.preferences.editor tabs-size uint32 2
 gsettings set org.gnome.nautilus.icon-view default-zoom-level 'standard'
+gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 0
 gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 
 # speed up dnf
