@@ -78,11 +78,13 @@ sudo dnf -y groupupdate core
 sudo dnf -y groupupdate Multimedia
 
 # install/remove software:
-sudo dnf -y install ffmpeg ffmpeg-libs mpv youtube-dl gnome-music transmission-gtk xorg-x11-drv-nvidia akmod-nvidia discord steam
+sudo dnf -y install ffmpeg ffmpeg-libs mpv youtube-dl gnome-music transmission-gtk akmod-nvidia
 sudo dnf -y remove gnome-maps gnome-photos rhythmbox gnome-weather cheese gnome-clocks gnome-contacts gnome-documents totem gdouros-symbola-fonts
 
 # enable Flathub and install software:
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub com.discordapp.Discord -y
+flatpak install flathub com.valvesoftware.Steam -y
 flatpak install flathub com.spotify.Client -y
 
 # update the system:
