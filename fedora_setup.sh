@@ -37,6 +37,7 @@ gsettings set org.gnome.gedit.preferences.editor scheme 'tango'
 gsettings set org.gnome.gedit.preferences.editor tabs-size uint32 2
 gsettings set org.gnome.nautilus.icon-view default-zoom-level 'standard'
 gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 0
+gsettings set org.gnome.shell disable-user-extensions true
 gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 
 # speed up dnf
