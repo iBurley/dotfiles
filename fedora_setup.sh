@@ -34,7 +34,7 @@ gsettings set org.gnome.gedit.preferences.editor display-line-numbers true
 gsettings set org.gnome.gedit.preferences.editor display-overview-map true
 gsettings set org.gnome.gedit.preferences.editor insert-spaces true
 gsettings set org.gnome.gedit.preferences.editor scheme 'tango'
-gsettings set org.gnome.gedit.preferences.editor tabs-size uint32 2
+gsettings set org.gnome.gedit.preferences.editor tabs-size 2
 gsettings set org.gnome.nautilus.icon-view default-zoom-level 'standard'
 gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 0
 gsettings set org.gnome.shell disable-user-extensions true
