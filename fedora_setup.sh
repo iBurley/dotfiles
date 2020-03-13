@@ -79,7 +79,7 @@ sudo dnf -y groupupdate core
 sudo dnf -y groupupdate Multimedia
 
 # install/remove software:
-sudo dnf -y install ffmpeg ffmpeg-libs mpv youtube-dl gnome-music transmission-gtk akmod-nvidia
+sudo dnf -y install ffmpeg mpv youtube-dl gnome-music transmission-gtk akmod-nvidia
 sudo dnf -y remove gnome-maps gnome-photos rhythmbox gnome-weather cheese gnome-clocks gnome-contacts gnome-documents totem gdouros-symbola-fonts
 
 # enable Flathub and install software:
