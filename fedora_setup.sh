@@ -4,6 +4,8 @@
 cat << 'EOF' >> ~/.bashrc
 alias pkgcount='dnf list installed | wc -l'
 alias clrswap='sudo swapoff -a && sudo swapon -a'
+alias xcopy='xclip -i -selection clipboard'
+alias xpaste='xclip -o -selection clipboard'
 
 ytclip () {
   ffmpeg -i "$(youtube-dl -f best -g "$3")" -ss $1 -to $2 -async 1 ~/Videos/clip.mp4
@@ -79,7 +81,7 @@ sudo dnf -y groupupdate core
 sudo dnf -y groupupdate Multimedia
 
 # install/remove software:
-sudo dnf -y install ffmpeg mpv youtube-dl gnome-music transmission-gtk akmod-nvidia
+sudo dnf -y install ffmpeg mpv youtube-dl gnome-music transmission-gtk akmod-nvidia xclip
 sudo dnf -y remove gnome-maps gnome-photos rhythmbox gnome-weather cheese gnome-clocks gnome-contacts gnome-documents totem gdouros-symbola-fonts
 
 # enable Flathub and install software:
