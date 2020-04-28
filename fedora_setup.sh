@@ -32,8 +32,9 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro Semibold 10'
 gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
 gsettings set org.gnome.desktop.privacy remember-recent-files false
+gsettings set org.gnome.gedit.preferences.editor bracket-matching false
 gsettings set org.gnome.gedit.preferences.editor display-line-numbers true
-gsettings set org.gnome.gedit.preferences.editor display-overview-map true
+gsettings set org.gnome.gedit.preferences.editor highlight-current-line false
 gsettings set org.gnome.gedit.preferences.editor insert-spaces true
 gsettings set org.gnome.gedit.preferences.editor scheme 'tango'
 gsettings set org.gnome.gedit.preferences.editor tabs-size 2
@@ -82,7 +83,7 @@ sudo dnf -y groupupdate Multimedia
 
 # install/remove software:
 sudo dnf -y install ffmpeg mpv youtube-dl gnome-music transmission-gtk akmod-nvidia xclip
-sudo dnf -y remove gnome-maps gnome-photos rhythmbox gnome-weather cheese gnome-clocks gnome-contacts gnome-documents totem gdouros-symbola-fonts
+sudo dnf -y remove gnome-maps gnome-photos rhythmbox gnome-weather cheese gnome-clocks gnome-contacts totem
 
 # enable Flathub and install software:
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
