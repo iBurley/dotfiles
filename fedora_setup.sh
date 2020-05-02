@@ -73,6 +73,9 @@ echo 'exclude=gdouros-symbola-fonts' | sudo tee -a /etc/dnf/dnf.conf
 # disable "Modular" repos:
 sudo dnf -y config-manager --set-disabled *modular*
 
+# disable cisco-openh264 repo:
+sudo dnf -y config-manager --set-disabled fedora-cisco-openh264
+
 # enable RPM Fusion repos:
 sudo dnf --nogpgcheck -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf --nogpgcheck -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
