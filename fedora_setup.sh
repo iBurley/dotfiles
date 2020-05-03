@@ -85,8 +85,8 @@ sudo dnf -y groupupdate core
 sudo dnf -y groupupdate Multimedia
 
 # install/remove software:
-sudo dnf -y install ffmpeg mpv youtube-dl gnome-music transmission-gtk akmod-nvidia xclip
-sudo dnf -y remove gnome-maps gnome-photos rhythmbox gnome-weather cheese gnome-clocks gnome-contacts totem
+sudo dnf -y install akmod-nvidia ffmpeg fragments gnome-music mpv xclip youtube-dl
+sudo dnf -y remove cheese gnome-clocks gnome-contacts gnome-maps gnome-photos gnome-weather rhythmbox totem
 
 # enable Flathub and install software:
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
