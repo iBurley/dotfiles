@@ -53,7 +53,7 @@ sudo sysctl --system
 
 # auto-mount storage drive:
 sudo mkdir /mnt/Storage/
-echo 'UUID=a4b0ce89-01ec-4964-aeaf-be0d2b6a2ab3 /mnt/Storage ext4 defaults 0 0' | sudo tee -a /etc/fstab
+echo 'UUID=c315dd89-cf9a-44f7-ad3a-259f5062d085 /mnt/Storage ext4 defaults 0 0' | sudo tee -a /etc/fstab
 sudo mount -a
 
 # symlink music from storage drive
