@@ -10,17 +10,6 @@ alias xpaste='xclip -o -selection clipboard'
 ytclip () {
   ffmpeg -i "$(youtube-dl -f best -g "$3")" -ss $1 -to $2 -async 1 ~/Videos/clip.mp4
 }
-
-vibrance () {
-  if [[ $(nvidia-settings -q "DigitalVibrance" | grep "Attribute.*512\.") ]] 
-  then
-    nvidia-settings -a "DigitalVibrance=0" > /dev/null
-    echo "Vibrance Disabled"
-  else
-    nvidia-settings -a "DigitalVibrance=512" > /dev/null
-    echo "Vibrance Enabled"
-  fi
-}
 EOF
 source ~/.bashrc
 
@@ -85,7 +74,7 @@ sudo dnf -y groupupdate core
 sudo dnf -y groupupdate Multimedia
 
 # install/remove software:
-sudo dnf -y install akmod-nvidia ffmpeg fragments gnome-music mpv xclip youtube-dl
+sudo dnf -y install ffmpeg fragments gnome-music mpv xclip youtube-dl
 sudo dnf -y remove cheese gnome-clocks gnome-contacts gnome-maps gnome-photos gnome-weather rhythmbox totem
 
 # enable Flathub and install software:
