@@ -47,7 +47,7 @@ echo 'UUID=c315dd89-cf9a-44f7-ad3a-259f5062d085 /mnt/Storage ext4 defaults 0 0' 
 sudo mount -a
 
 # symlink music from storage drive
-ln -s /mnt/Storage/Music/ ~/Music/
+# ln -s /mnt/Storage/Music/ ~/Music/
 
 # fix font rendering:
 sudo ln -s /usr/share/fontconfig/conf.avail/10-hinting-slight.conf /etc/fonts/conf.d/
@@ -71,7 +71,7 @@ sudo dnf --nogpgcheck -y install https://download1.rpmfusion.org/free/fedora/rpm
 sudo dnf --nogpgcheck -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y groupupdate core
 
-# install multimedia codes:
+# install multimedia codecs:
 sudo dnf -y groupupdate Multimedia
 
 # install/remove software:
