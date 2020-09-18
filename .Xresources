@@ -7,7 +7,7 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 ! URXVT Config
-URxvt.font: xft:Hack-Regular:pixelsize=13
+URxvt.font: xft:Hack-Regular:pixelsize=12
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt.mouseWheelScrollPage: true
