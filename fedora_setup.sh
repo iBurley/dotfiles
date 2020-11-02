@@ -46,8 +46,8 @@ sudo mkdir /mnt/Storage/
 echo 'UUID=c315dd89-cf9a-44f7-ad3a-259f5062d085 /mnt/Storage ext4 defaults 0 0' | sudo tee -a /etc/fstab
 sudo mount -a
 
-# symlink music from storage drive
-# ln -s /mnt/Storage/Music/ ~/Music/
+# set music dir to storage drive
+xdg-user-dirs-update --set MUSIC /mnt/Storage/Music/
 
 # fix font rendering:
 sudo ln -s /usr/share/fontconfig/conf.avail/10-hinting-slight.conf /etc/fonts/conf.d/
