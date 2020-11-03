@@ -37,10 +37,6 @@ gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 echo 'fastestmirror=true' | sudo tee -a /etc/dnf/dnf.conf
 echo 'max_parallel_downloads=20' | sudo tee -a /etc/dnf/dnf.conf
 
-# set swappiness value to 10
-echo 'vm.swappiness = 10' | sudo tee -a /etc/sysctl.d/10-swappiness.conf
-sudo sysctl --system
-
 # auto-mount storage drive:
 sudo mkdir /mnt/Storage/
 echo 'UUID=c315dd89-cf9a-44f7-ad3a-259f5062d085 /mnt/Storage ext4 defaults 0 0' | sudo tee -a /etc/fstab
