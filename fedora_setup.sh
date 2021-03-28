@@ -1,12 +1,15 @@
 #!/bin/sh
 
 # add aliases:
-cat << 'EOF' >> ~/.bashrc
-alias pkgcount='dnf list installed | wc -l'
-alias clrswap='sudo swapoff -a && sudo swapon -a'
+mkdir ~/.bashrc.d/
+chmod 700 ~/.bashrc.d/
+echo "alias pkgcount='dnf list installed | wc -l'" | tee ~/.bashrc.d/pkgcount
+echo "alias clrswap='sudo swapoff -a && sudo swapon -a'" | tee ~/.bashrc.d/clrswap
+cat << 'EOF' >> ~/.bashrc.d/xclip
 alias xcopy='xclip -i -selection clipboard'
 alias xpaste='xclip -o -selection clipboard'
-
+EOF
+cat << 'EOF' >> ~/.bashrc.d/ytclip
 ytclip () {
   ffmpeg -i "$(youtube-dl -f best -g "$3")" -ss $1 -to $2 -async 1 ~/Videos/clip.mp4
 }
