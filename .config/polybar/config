@@ -30,7 +30,7 @@ font-1 = Font Awesome:size=10;2
 
 modules-left = bspwm
 modules-center = date time
-modules-right = cpu memory pulseaudio wlan eth user powermenu
+modules-right = cpu memory pulseaudio eth user powermenu
 
 wm-restack = bspwm
 override-redirect = true
@@ -59,6 +59,30 @@ label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 1
 
+[module/date]
+type = internal/date
+interval = 5
+
+date = "%a %b %d"
+
+format =  <label>
+format-foreground = ${colors.foreground-alt}
+
+label = %date%
+label-foreground = ${colors.foreground}
+
+[module/time]
+type = internal/date
+interval = 5
+
+time = "%I:%M"
+
+format =  <label>
+format-foreground = ${colors.foreground-alt}
+
+label = %time%
+label-foreground = ${colors.foreground}
+
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -79,6 +103,21 @@ format-foreground = ${colors.foreground-alt}
 label = %percentage_used%%
 label-foreground = ${colors.foreground}
 
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume =  <label-volume>
+format-volume-foreground = ${colors.foreground-alt}
+
+label-volume = %percentage%%
+label-volume-foreground = ${colors.foreground}
+
+format-muted =  <label-muted>
+format-muted-foreground = ${colors.foreground-alt}
+
+label-muted = Muted
+label-muted-foreground = ${colors.foreground}
+
 [module/eth]
 type = internal/network
 interface = enp1s0
@@ -95,45 +134,6 @@ format-disconnected-foreground = ${colors.foreground-alt}
 
 label-disconnected = "No Connection"
 label-disconnected-foreground = ${colors.foreground}
-
-[module/time]
-type = internal/date
-interval = 5
-
-time = "%I:%M"
-
-format =  <label>
-format-foreground = ${colors.foreground-alt}
-
-label = %time%
-label-foreground = ${colors.foreground}
-
-[module/date]
-type = internal/date
-interval = 5
-
-date = "%a %b %d"
-
-format =  <label>
-format-foreground = ${colors.foreground-alt}
-
-label = %date%
-label-foreground = ${colors.foreground}
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-format-volume =  <label-volume>
-format-volume-foreground = ${colors.foreground-alt}
-
-label-volume = %percentage%%
-label-volume-foreground = ${colors.foreground}
-
-format-muted =  <label-muted>
-format-muted-foreground = ${colors.foreground-alt}
-
-label-muted = Muted
-label-muted-foreground = ${colors.foreground}
 
 [module/user]
 type = custom/script
