@@ -3,8 +3,14 @@
 # add aliases:
 mkdir ~/.bashrc.d/
 chmod 700 ~/.bashrc.d/
-echo "alias pkgcount='dnf list installed | wc -l'" | tee ~/.bashrc.d/pkgcount
 echo "alias clrswap='sudo swapoff -a && sudo swapon -a'" | tee ~/.bashrc.d/clrswap
+echo "alias cp='cp -iv'" | tee ~/.bashrc.d/cp
+echo "alias diff='diff --color=auto'" | tee ~/.bashrc.d/diff
+echo "alias grep='grep --color=auto'" | tee ~/.bashrc.d/grep
+echo "alias ls='ls --color=auto --group-directories-first'" | tee ~/.bashrc.d/ls
+echo "alias mv='mv -iv'" | tee ~/.bashrc.d/mv
+echo "alias pkgcount='dnf list installed | wc -l'" | tee ~/.bashrc.d/pkgcount
+echo "alias rm='rm -iv'" | tee ~/.bashrc.d/rm
 cat << 'EOF' >> ~/.bashrc.d/xclip
 alias xcopy='xclip -i -selection clipboard'
 alias xpaste='xclip -o -selection clipboard'
