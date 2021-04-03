@@ -6,12 +6,9 @@
 }
 
 window {
-    anchor:     north;
-    location:   north;
-    yoffset:     8px;
     width:      1904px;
     border:     2px;
-    padding:    2px;
+    padding:    3px;
     children:   [ horibox ];
 }
 
