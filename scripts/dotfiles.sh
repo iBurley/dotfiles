@@ -12,7 +12,7 @@ mkdir -p ~/.config/{alacritty,bspwm,mpv,polybar,rofi,sxhkd}
 mkdir -p ~/.vim/colors
 
 # create symbolic links
-ln -s ~/.dotfiles/files/.config/alacritty/alacritty/yml ~/.config/alacritty/alacritty.yml
+ln -s ~/.dotfiles/files/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -s ~/.dotfiles/files/.config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
 ln -s ~/.dotfiles/files/.config/mpv/mpv.conf ~/.config/mpv/mpv.conf
 ln -s ~/.dotfiles/files/.config/polybar/config ~/.config/polybar/config
