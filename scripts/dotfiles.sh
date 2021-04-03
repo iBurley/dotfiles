@@ -18,7 +18,7 @@ ln -s ~/.dotfiles/files/.config/mpv/mpv.conf ~/.config/mpv/mpv.conf
 ln -s ~/.dotfiles/files/.config/polybar/config ~/.config/polybar/config
 ln -s ~/.dotfiles/files/.config/rofi/config.rasi ~/.config/rofi/config.rasi
 ln -s ~/.dotfiles/files/.config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
-ln -s ~/.dotfiles/files/.vimrc ~/.config/.vimrc
+ln -s ~/.dotfiles/files/.vimrc ~/.vimrc
 
 # download vim colorscheme
 curl -Lo ~/.vim/colors/base16-default-dark.vim "https://raw.githubusercontent.com/chriskempson/base16-vim/master/colors/base16-default-dark.vim"
