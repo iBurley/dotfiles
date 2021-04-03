@@ -4,7 +4,7 @@ background-alt = #282828
 foreground = #d8d8d8
 foreground-alt = #585858
 red = #ab4642
-yellow = f7ca88
+yellow = #f7ca88
 green = #a1b56c
 
 [bar/topbar]
@@ -121,7 +121,7 @@ label-muted-foreground = ${colors.foreground}
 [module/eth]
 type = internal/network
 interface = enp1s0
-interval = 3.0
+interval = 3
 
 format-connected =  <label-connected>
 format-connected-foreground = ${colors.foreground-alt}
