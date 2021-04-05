@@ -19,4 +19,4 @@ bspc config focused_border_color "#585858"
 xrandr --output Virtual-1 --mode 1920x1080
 xsetroot -solid '#383838'
 xsetroot -cursor_name left_ptr
-polybar topbar &
+~/.config/polybar/launch.sh
