@@ -75,7 +75,7 @@ label-foreground = ${colors.foreground}
 type = internal/date
 interval = 5
 
-time = "%I:%M"
+time = "%I:%M %p"
 
 format =  <label>
 format-foreground = ${colors.foreground-alt}
