@@ -6,6 +6,7 @@ git clone https://github.com/iBurley/dotfiles.git .dotfiles
 # chmod files
 chmod 755 ~/.dotfiles/files/.config/bspwm/bspwmrc
 chmod 644 ~/.dotfiles/files/.config/sxhkd/sxhkdrc
+chmod +x ~/.dotfiles/files/.config/polybar/launch.sh
 
 # create config directories
 mkdir -p ~/.config/{alacritty,bspwm,mpv,polybar,rofi,sxhkd}
@@ -16,6 +17,7 @@ ln -s ~/.dotfiles/files/.config/alacritty/alacritty.yml ~/.config/alacritty/alac
 ln -s ~/.dotfiles/files/.config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
 ln -s ~/.dotfiles/files/.config/mpv/mpv.conf ~/.config/mpv/mpv.conf
 ln -s ~/.dotfiles/files/.config/polybar/config ~/.config/polybar/config
+ln -s ~/.dotfiles/files/.config/polybar/launch.sh ~/.config/polybar/launch.sh
 ln -s ~/.dotfiles/files/.config/rofi/config.rasi ~/.config/rofi/config.rasi
 ln -s ~/.dotfiles/files/.config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
 ln -s ~/.dotfiles/files/.vimrc ~/.vimrc
