@@ -85,6 +85,7 @@ label-foreground = ${colors.foreground}
 
 [module/updates]
 type = custom/script
+interval = 600
 
 exec = pkcon get-updates -p | awk '/^Results:/,/^$/' | tail -n +2 | grep -v '^There are no updates available at this time\.' | wc -l
 
