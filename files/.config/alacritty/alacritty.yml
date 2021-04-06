@@ -65,3 +65,7 @@ colors:
     - { index: 19, color: '0x383838' }
     - { index: 20, color: '0xb8b8b8' }
     - { index: 21, color: '0xe8e8e8' }
+
+mouse:
+  url:
+    launcher: firefox
