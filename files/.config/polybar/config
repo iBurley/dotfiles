@@ -112,7 +112,7 @@ format-volume-foreground = ${colors.foreground-alt}
 label-volume = %percentage%%
 label-volume-foreground = ${colors.foreground}
 
-format-muted =  <label-muted>
+format-muted =  <label-muted>
 format-muted-foreground = ${colors.foreground-alt}
 
 label-muted = Muted
