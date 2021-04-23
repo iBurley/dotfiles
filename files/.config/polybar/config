@@ -30,7 +30,7 @@ font-1 = Font Awesome:size=10;2
 
 modules-left = bspwm
 modules-center = date time
-modules-right = updates cpu memory pulseaudio eth user powermenu
+modules-right = cpu memory pulseaudio eth user powermenu
 
 wm-restack = bspwm
 override-redirect = true
@@ -81,18 +81,6 @@ format =  <label>
 format-foreground = ${colors.foreground-alt}
 
 label = %time%
-label-foreground = ${colors.foreground}
-
-[module/updates]
-type = custom/script
-interval = 600
-
-exec = pkcon get-updates -p | awk '/^Results:/,/^$/' | tail -n +2 | grep -v '^There are no updates available at this time\.' | wc -l
-
-format =  <label>
-format-foreground = ${colors.foreground-alt}
-
-label = %output%
 label-foreground = ${colors.foreground}
 
 [module/cpu]
