@@ -58,10 +58,6 @@ sudo ln -s /usr/share/fontconfig/conf.avail/11-lcdfilter-default.conf /etc/fonts
 gsettings set org.gnome.desktop.interface font-antialiasing 'rgba'
 gsettings set org.gnome.desktop.interface font-hinting 'slight'
 
-# remove symbola font
-sudo dnf -y remove gdouros-symbola-fonts
-echo 'exclude=gdouros-symbola-fonts' | sudo tee -a /etc/dnf/dnf.conf
-
 # disable "Modular" repos:
 sudo dnf -y config-manager --set-disabled *modular*
 
@@ -74,7 +70,7 @@ sudo dnf --nogpgcheck -y install https://download1.rpmfusion.org/nonfree/fedora/
 sudo dnf -y groupupdate core
 
 # install multimedia codecs:
-sudo dnf -y groupupdate Multimedia
+# sudo dnf -y groupupdate Multimedia
 
 # install/remove software:
 sudo dnf -y install ffmpeg fragments gnome-music mpv xclip youtube-dl
