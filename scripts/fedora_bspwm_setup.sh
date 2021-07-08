@@ -23,6 +23,7 @@ EOF
 source ~/.bashrc
 
 # speed up dnf
+echo 'deltarpm=true' | sudo tee -a /etc/dnf/dnf.conf
 echo 'fastestmirror=true' | sudo tee -a /etc/dnf/dnf.conf
 echo 'max_parallel_downloads=20' | sudo tee -a /etc/dnf/dnf.conf
 
