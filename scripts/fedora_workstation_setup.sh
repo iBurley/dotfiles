@@ -40,7 +40,6 @@ gsettings set org.gnome.shell disable-user-extensions true
 gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 
 # speed up dnf
-echo 'deltarpm=true' | sudo tee -a /etc/dnf/dnf.conf
 echo 'fastestmirror=true' | sudo tee -a /etc/dnf/dnf.conf
 echo 'max_parallel_downloads=20' | sudo tee -a /etc/dnf/dnf.conf
 
