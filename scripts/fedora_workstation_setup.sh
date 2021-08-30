@@ -45,7 +45,7 @@ echo 'max_parallel_downloads=20' | sudo tee -a /etc/dnf/dnf.conf
 
 # auto-mount storage drive:
 sudo mkdir /mnt/Storage/
-echo 'UUID=c315dd89-cf9a-44f7-ad3a-259f5062d085 /mnt/Storage ext4 defaults 0 0' | sudo tee -a /etc/fstab
+echo 'UUID=05044ab0-bb11-47ff-b2f3-881d3bc4ac09 /mnt/Storage ext4 defaults 0 0' | sudo tee -a /etc/fstab
 sudo mount -a
 
 # set music dir to storage drive
@@ -71,6 +71,10 @@ sudo dnf -y groupupdate core
 
 # install multimedia codecs:
 # sudo dnf -y groupupdate Multimedia
+
+# remove symbola font
+sudo dnf -y remove gdouros-symbola-fonts
+echo 'exclude=gdouros-symbola-fonts' | sudo tee -a /etc/dnf/dnf.conf
 
 # install/remove software:
 sudo dnf -y install ffmpeg fragments gnome-music mpv xclip youtube-dl
