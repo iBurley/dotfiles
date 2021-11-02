@@ -78,7 +78,7 @@ echo 'exclude=gdouros-symbola-fonts' | sudo tee -a /etc/dnf/dnf.conf
 
 # install/remove software:
 sudo dnf -y install ffmpeg fragments gnome-music mpv xclip youtube-dl
-sudo dnf -y remove cheese gnome-clocks gnome-contacts gnome-maps gnome-photos gnome-tour gnome-weather rhythmbox totem
+sudo dnf -y remove cheese gnome-clocks gnome-contacts gnome-maps gnome-photos gnome-tour gnome-weather mediawriter rhythmbox totem
 
 # enable Flathub and install software:
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
