@@ -23,7 +23,6 @@ EOF
 source ~/.bashrc
 
 # apply gnome tweaks
-gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
 gsettings set org.gnome.desktop.interface clock-format 12h
 gsettings set org.gnome.desktop.interface clock-show-weekday true
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
