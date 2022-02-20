@@ -17,3 +17,9 @@ ln -s ~/.dotfiles/files/.bashrc.d/pkgcount ~/.bashrc.d/pkgcount
 ln -s ~/.dotfiles/files/.bashrc.d/rm ~/.bashrc.d/rm
 ln -s ~/.dotfiles/files/.bashrc.d/xclip ~/.bashrc.d/xclip
 ln -s ~/.dotfiles/files/.bashrc.d/ytclip ~/.bashrc.d/ytclip
+
+# create config directories
+mkdir -p ~/.config/mpv
+
+# symlink config files
+ln -s ~/.dotfiles/files/.config/mpv/mpv.conf ~/.config/mpv/mpv.conf
