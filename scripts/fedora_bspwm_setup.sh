@@ -27,3 +27,6 @@ xdg-user-dirs-update
 
 # run dotfile script
 bash <(curl https://raw.githubusercontent.com/iBurley/dotfiles/master/scripts/fedora_bspwm_dotfiles.sh)
+
+# update the system:
+sudo dnf -y upgrade
