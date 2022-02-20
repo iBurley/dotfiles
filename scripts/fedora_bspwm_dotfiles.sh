@@ -3,7 +3,22 @@
 # clone the repo
 git clone https://github.com/iBurley/dotfiles.git .dotfiles
 
-# chmod files
+# create bash alias directory
+mkdir ~/.bashrc.d/
+
+# symlink bash aliases
+ln -s ~/.dotfiles/files/.bashrc.d/clrswap ~/.bashrc.d/clrswap
+ln -s ~/.dotfiles/files/.bashrc.d/cp ~/.bashrc.d/cp
+ln -s ~/.dotfiles/files/.bashrc.d/diff ~/.bashrc.d/diff
+ln -s ~/.dotfiles/files/.bashrc.d/grep ~/.bashrc.d/grep
+ln -s ~/.dotfiles/files/.bashrc.d/ls ~/.bashrc.d/ls
+ln -s ~/.dotfiles/files/.bashrc.d/mv ~/.bashrc.d/mv
+ln -s ~/.dotfiles/files/.bashrc.d/pkgcount ~/.bashrc.d/pkgcount
+ln -s ~/.dotfiles/files/.bashrc.d/rm ~/.bashrc.d/rm
+ln -s ~/.dotfiles/files/.bashrc.d/xclip ~/.bashrc.d/xclip
+ln -s ~/.dotfiles/files/.bashrc.d/ytclip ~/.bashrc.d/ytclip
+
+# chmod config files
 chmod 755 ~/.dotfiles/files/.config/bspwm/bspwmrc
 chmod 644 ~/.dotfiles/files/.config/sxhkd/sxhkdrc
 chmod +x ~/.dotfiles/files/.config/polybar/launch.sh
@@ -12,7 +27,7 @@ chmod +x ~/.dotfiles/files/.config/polybar/launch.sh
 mkdir -p ~/.config/{alacritty,bspwm,mpv,polybar,rofi,sxhkd}
 mkdir -p ~/.vim/colors
 
-# create symbolic links
+# symlink config files
 ln -s ~/.dotfiles/files/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -s ~/.dotfiles/files/.config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
 ln -s ~/.dotfiles/files/.config/mpv/mpv.conf ~/.config/mpv/mpv.conf
