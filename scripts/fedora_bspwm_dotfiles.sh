@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# clone the repo
-git clone https://github.com/iBurley/dotfiles.git .dotfiles
-
 # create bash alias directory
 mkdir ~/.bashrc.d/
 
