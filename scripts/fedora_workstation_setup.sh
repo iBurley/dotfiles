@@ -63,8 +63,5 @@ flatpak install flathub com.discordapp.Discord -y
 flatpak install flathub com.valvesoftware.Steam -y
 flatpak install flathub com.spotify.Client -y
 
-# run dotfile script
-bash <(curl https://raw.githubusercontent.com/iBurley/dotfiles/master/scripts/fedora_workstation_dotfiles.sh)
-
 # update the system:
 sudo dnf -y upgrade
