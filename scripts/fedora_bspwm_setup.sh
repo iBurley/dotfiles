@@ -20,7 +20,7 @@ sudo dnf --nogpgcheck -y install https://download1.rpmfusion.org/free/fedora/rpm
 sudo dnf --nogpgcheck -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # install/remove software:
-sudo dnf -y install adobe-source-code-pro-fonts alacritty bspwm ffmpeg firefox fontawesome-fonts git mesa-dri-drivers mpv polkit polybar pulseaudio ranger rofi sxhkd sxiv vim-enhanced w3m-img xclip xdg-user-dirs xorg-x11-server-Xorg xorg-x11-xinit xrandr xsetroot youtube-dl
+sudo dnf -y install adobe-source-code-pro-fonts alacritty bspwm ffmpeg firefox fontawesome-fonts mesa-dri-drivers mpv polkit polybar pulseaudio ranger rofi sxhkd sxiv vim-enhanced w3m-img xclip xdg-user-dirs xorg-x11-server-Xorg xorg-x11-xinit xrandr xsetroot youtube-dl
 
 # set up xdg dirs
 xdg-user-dirs-update
