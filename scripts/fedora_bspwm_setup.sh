@@ -48,4 +48,4 @@ sudo dnf -y install adobe-source-code-pro-fonts alacritty bspwm ffmpeg firefox f
 xdg-user-dirs-update
 
 # run dotfile script
-bash <(curl https://raw.githubusercontent.com/iBurley/dotfiles/master/scripts/dotfiles.sh)
+bash <(curl https://raw.githubusercontent.com/iBurley/dotfiles/master/scripts/fedora_bspwm_dotfiles.sh)
