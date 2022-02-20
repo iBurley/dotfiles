@@ -5,6 +5,7 @@ git clone https://github.com/iBurley/dotfiles.git .dotfiles
 
 # create bash alias directory
 mkdir ~/.bashrc.d/
+chmod 700 ~/.bashrc.d/
 
 # symlink bash aliases
 ln -s ~/.dotfiles/files/.bashrc.d/clrswap ~/.bashrc.d/clrswap
