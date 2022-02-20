@@ -25,8 +25,5 @@ sudo dnf -y install adobe-source-code-pro-fonts alacritty bspwm ffmpeg firefox f
 # set up xdg dirs
 xdg-user-dirs-update
 
-# run dotfile script
-bash <(curl https://raw.githubusercontent.com/iBurley/dotfiles/master/scripts/fedora_bspwm_dotfiles.sh)
-
 # update the system:
 sudo dnf -y upgrade
