@@ -16,9 +16,6 @@ ln -s ~/.dotfiles/files/.bashrc.d/rm ~/.bashrc.d/rm
 ln -s ~/.dotfiles/files/.bashrc.d/xclip ~/.bashrc.d/xclip
 ln -s ~/.dotfiles/files/.bashrc.d/ytclip ~/.bashrc.d/ytclip
 
-# re-source bashrc to enable changes
-source ~/.bashrc
-
 # chmod config files
 chmod 755 ~/.dotfiles/files/.config/bspwm/bspwmrc
 chmod 644 ~/.dotfiles/files/.config/sxhkd/sxhkdrc
