@@ -1,1 +1,1 @@
-sudo grub2-reboot 4 && systemctl reboot
+alias winboot='sudo grub2-reboot 4 && systemctl reboot'
