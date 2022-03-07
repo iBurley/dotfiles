@@ -1,1 +1,1 @@
-`$ git clone https://github.com/iBurley/dotfiles.git .dotfiles`
+`$ git clone https://github.com/iBurley/dotfiles.git ~/.dotfiles`
