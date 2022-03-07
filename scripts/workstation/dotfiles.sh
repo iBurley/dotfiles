@@ -13,7 +13,8 @@ ln -s ~/.dotfiles/files/.bashrc.d/ls ~/.bashrc.d/ls
 ln -s ~/.dotfiles/files/.bashrc.d/mv ~/.bashrc.d/mv
 ln -s ~/.dotfiles/files/.bashrc.d/pkgcount ~/.bashrc.d/pkgcount
 ln -s ~/.dotfiles/files/.bashrc.d/rm ~/.bashrc.d/rm
-ln -s ~/.dotfiles/files/.bashrc.d/xclip ~/.bashrc.d/xclip
+ln -s ~/.dotfiles/files/.bashrc.d/xcopy ~/.bashrc.d/xcopy
+ln -s ~/.dotfiles/files/.bashrc.d/xpaste ~/.bashrc.d/xpaste
 ln -s ~/.dotfiles/files/.bashrc.d/ytclip ~/.bashrc.d/ytclip
 
 # create config directories
