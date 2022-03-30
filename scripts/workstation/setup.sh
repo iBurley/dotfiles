@@ -7,12 +7,7 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro Semibold 10'
 gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
 gsettings set org.gnome.desktop.privacy remember-recent-files false
-gsettings set org.gnome.gedit.preferences.editor bracket-matching false
-gsettings set org.gnome.gedit.preferences.editor highlight-current-line false
-gsettings set org.gnome.gedit.preferences.editor insert-spaces true
-gsettings set org.gnome.gedit.preferences.editor tabs-size 2
 gsettings set org.gnome.nautilus.icon-view default-zoom-level 'standard'
-gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 0
 gsettings set org.gnome.shell disable-user-extensions true
 gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 
