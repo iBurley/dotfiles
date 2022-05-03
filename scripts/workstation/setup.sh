@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# apply gnome tweaks
+# apply gnome tweaks:
 gsettings set org.gnome.desktop.interface clock-format 12h
 gsettings set org.gnome.desktop.interface clock-show-weekday true
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
@@ -11,7 +11,7 @@ gsettings set org.gnome.nautilus.icon-view default-zoom-level 'standard'
 gsettings set org.gnome.shell disable-user-extensions true
 gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 
-# speed up dnf
+# speed up dnf:
 echo 'fastestmirror=true' | sudo tee -a /etc/dnf/dnf.conf
 echo 'max_parallel_downloads=20' | sudo tee -a /etc/dnf/dnf.conf
 echo 'deltarpm=true' | sudo tee -a /etc/dnf/dnf.conf
@@ -21,7 +21,7 @@ sudo mkdir /mnt/Storage/
 echo 'UUID=05044ab0-bb11-47ff-b2f3-881d3bc4ac09 /mnt/Storage ext4 defaults 0 0' | sudo tee -a /etc/fstab
 sudo mount -a
 
-# set music dir to storage drive
+# set music dir to storage drive:
 xdg-user-dirs-update --set MUSIC /mnt/Storage/Music/
 
 # fix font rendering:
@@ -42,7 +42,7 @@ sudo dnf --nogpgcheck -y install https://download1.rpmfusion.org/free/fedora/rpm
 sudo dnf --nogpgcheck -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y groupupdate core
 
-# remove symbola font
+# remove symbola font:
 sudo dnf -y remove gdouros-symbola-fonts
 echo 'exclude=gdouros-symbola-fonts' | sudo tee -a /etc/dnf/dnf.conf
 
