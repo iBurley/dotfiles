@@ -14,6 +14,7 @@ gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 # speed up dnf
 echo 'fastestmirror=true' | sudo tee -a /etc/dnf/dnf.conf
 echo 'max_parallel_downloads=20' | sudo tee -a /etc/dnf/dnf.conf
+echo 'deltarpm=true' | sudo tee -a /etc/dnf/dnf.conf
 
 # auto-mount storage drive:
 sudo mkdir /mnt/Storage/
@@ -40,9 +41,6 @@ sudo dnf -y config-manager --set-disabled fedora-cisco-openh264
 sudo dnf --nogpgcheck -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf --nogpgcheck -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y groupupdate core
-
-# install multimedia codecs:
-# sudo dnf -y groupupdate Multimedia
 
 # remove symbola font
 sudo dnf -y remove gdouros-symbola-fonts
