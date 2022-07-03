@@ -47,7 +47,7 @@ sudo dnf -y remove gdouros-symbola-fonts
 echo 'exclude=gdouros-symbola-fonts' | sudo tee -a /etc/dnf/dnf.conf
 
 # install/remove software:
-sudo dnf -y install ffmpeg fragments gnome-music mpv xclip youtube-dl
+sudo dnf -y install ffmpeg fragments gnome-music mpv webp-pixbuf-loader xclip youtube-dl
 sudo dnf -y remove cheese gnome-clocks gnome-contacts gnome-maps gnome-photos gnome-tour gnome-weather mediawriter rhythmbox totem
 
 # enable Flathub and install software:
