@@ -52,6 +52,7 @@ sudo dnf -y remove cheese gnome-clocks gnome-contacts gnome-maps gnome-photos gn
 
 # enable Flathub and install software:
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-modify --enable flathub
 flatpak install flathub com.discordapp.Discord -y
 flatpak install flathub com.valvesoftware.Steam -y
 flatpak install flathub com.spotify.Client -y
