@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Check if the input is a file
+if [ -f "$1" ]; then
+    # Get the input file's name and extension
+    input_file="$1"
+    file_name=$(basename "$input_file")
+    file_extension="${file_name##*.}"
+
+    # Check if the file is a video
+    if [[ $(file -b --mime-type "$input_file") == video/* ]]; then
+        # Set output GIF file name
+        output_file="${file_name%.*}.gif"
+
+        # Convert video to GIF using FFmpeg
+        ffmpeg -i "$input_file" -vf "palettegen=max_colors=256" -y palette.png
+        ffmpeg -i "$input_file" -i palette.png -filter_complex "fps=10,scale=640:-1:flags=lanczos[x];[x][1:v]paletteuse" -y "$output_file"
+
+        # Check if the conversion was successful
+        if [ $? -eq 0 ]; then
+            notify-send "Conversion Successful" "Video converted to GIF: $output_file"
+        else
+            notify-send "Conversion Failed" "Failed to convert video to GIF"
+        fi
+
+        # Clean up temporary files
+        rm -f palette.png
+    else
+        notify-send "Error" "Selected file is not a video"
+    fi
+else
+    notify-send "Error" "No file selected"
+fi
