@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Imgur API endpoint
+IMGUR_API="https://api.imgur.com/3/upload"
+
+# Imgur API Client ID (replace 'YOUR_CLIENT_ID' with your actual client ID)
+CLIENT_ID="YOUR_CLIENT_ID"
+
+# Get the file path of the selected image
+IMAGE_PATH="$1"
+
+# Check if the selected file is an image
+if [ -z "$IMAGE_PATH" ] || ! [ -f "$IMAGE_PATH" ] || ! file --mime-type -b "$IMAGE_PATH" | grep -q "image/"; then
+    zenity --error --text="Please select an image file."
+    exit 1
+fi
+
+# Upload the image to Imgur using curl
+RESPONSE=$(curl -s --request POST --url "$IMGUR_API" --header "Authorization: Client-ID $CLIENT_ID" --form "image=@$IMAGE_PATH")
+
+# Extract the image link from the response using jq
+IMAGE_LINK=$(echo "$RESPONSE" | jq -r '.data.link')
+
+# Open the image link in a browser
+if [ -n "$IMAGE_LINK" ]; then
+    xdg-open "$IMAGE_LINK"
+else
+    zenity --error --text="Failed to upload the image to Imgur."
+fi
