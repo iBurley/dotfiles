@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Check if the input is a file
+if [ -f "$1" ]; then
+    # Get the input file's name and extension
+    input_file="$1"
+    file_name=$(basename "$input_file")
+    file_extension="${file_name##*.}"
+
+    # Check if the file is an image
+    if [[ $(file -b --mime-type "$input_file") == image/* ]]; then
+        # Convert image to JPEG using ImageMagick's convert tool
+        output_file="${file_name%.*}.jpg"
+        convert "$input_file" "$output_file"
+        
+        # Check if the conversion was successful
+        if [ $? -eq 0 ]; then
+            notify-send "Conversion Successful" "File converted to JPEG: $output_file"
+        else
+            notify-send "Conversion Failed" "Failed to convert file to JPEG"
+        fi
+    else
+        notify-send "Error" "Selected file is not an image"
+    fi
+else
+    notify-send "Error" "No file selected"
+fi
