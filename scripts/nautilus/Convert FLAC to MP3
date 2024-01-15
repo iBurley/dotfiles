@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for file in "$@"; do
+    if [[ "${file##*.}" == "flac" ]]; then
+        output="${file%.*}.mp3"
+        ffmpeg -i "$file" -b:a 320k "$output" && notify-send "Conversion Successful" "File: $file\nConverted to: $output"
+    fi
+done
