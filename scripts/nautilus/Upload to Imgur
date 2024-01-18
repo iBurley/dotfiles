@@ -1,29 +1,15 @@
 #!/bin/bash
 
-# Imgur API endpoint
-IMGUR_API="https://api.imgur.com/3/upload"
+API_KEY="YOUR_API_KEY_HERE"
 
-# Imgur API Client ID (replace 'YOUR_CLIENT_ID' with your actual client ID)
-CLIENT_ID="YOUR_CLIENT_ID"
-
-# Get the file path of the selected image
-IMAGE_PATH="$1"
-
-# Check if the selected file is an image
-if [ -z "$IMAGE_PATH" ] || ! [ -f "$IMAGE_PATH" ] || ! file --mime-type -b "$IMAGE_PATH" | grep -q "image/"; then
-    zenity --error --text="Please select an image file."
-    exit 1
-fi
-
-# Upload the image to Imgur using curl
-RESPONSE=$(curl -s --request POST --url "$IMGUR_API" --header "Authorization: Client-ID $CLIENT_ID" --form "image=@$IMAGE_PATH")
-
-# Extract the image link from the response using jq
-IMAGE_LINK=$(echo "$RESPONSE" | jq -r '.data.link')
-
-# Open the image link in a browser
-if [ -n "$IMAGE_LINK" ]; then
-    xdg-open "$IMAGE_LINK"
-else
-    zenity --error --text="Failed to upload the image to Imgur."
-fi
+for FILE in $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS; do
+  if file --mime-type "$FILE" | grep -q image; then
+    RESPONSE=$(curl -s -H "Authorization: Client-ID $API_KEY" -F "image=@$FILE" https://api.imgur.com/3/image)
+    LINK=$(echo $RESPONSE | jq -r '.data.link')
+    xdg-open "$LINK"
+    echo -n "$LINK" | xclip -selection clipboard
+    notify-send "Image uploaded to Imgur" "$LINK"
+  else
+    notify-send "Invalid file type" "$FILE is not an image"
+  fi
+done
