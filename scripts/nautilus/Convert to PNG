@@ -1,27 +1,12 @@
 #!/bin/bash
 
-# Check if the input is a file
-if [ -f "$1" ]; then
-    # Get the input file's name and extension
-    input_file="$1"
-    file_name=$(basename "$input_file")
-    file_extension="${file_name##*.}"
-
-    # Check if the file is an image
-    if [[ $(file -b --mime-type "$input_file") == image/* ]]; then
-        # Convert image to PNG using ImageMagick's convert tool
-        output_file="${file_name%.*}.png"
-        convert "$input_file" "$output_file"
-        
-        # Check if the conversion was successful
-        if [ $? -eq 0 ]; then
-            notify-send "Conversion Successful" "File converted to PNG: $output_file"
-        else
-            notify-send "Conversion Failed" "Failed to convert file to PNG"
-        fi
+IFS=$'\\n'
+for picture in $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS; do
+    if file -i "$picture" | grep -q image; then
+        png_file=`echo \"$picture\" | sed 's/\\.\\w*$/.png/'`
+        /usr/bin/convert \"$picture\" png:\"$png_file\"
+        notify-send "Conversion complete" "The file $picture has been converted to PNG format."
     else
-        notify-send "Error" "Selected file is not an image"
+        notify-send "Error" "The selected file is not an image file."
     fi
-else
-    notify-send "Error" "No file selected"
-fi
+done
