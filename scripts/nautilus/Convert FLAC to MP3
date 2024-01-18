@@ -1,8 +1,12 @@
 #!/bin/bash
 
-for file in "$@"; do
-    if [[ "${file##*.}" == "flac" ]]; then
-        output="${file%.*}.mp3"
-        ffmpeg -i "$file" -b:a 320k "$output" && notify-send "Conversion Successful" "File: $file\nConverted to: $output"
+IFS=$'\\n'
+for flac_file in $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS; do
+    if file -i "$flac_file" | grep -q audio; then
+        mp3_file=`echo \"$flac_file\" | sed 's/\\.flac$/.mp3/'`
+        /usr/bin/ffmpeg -i \"$flac_file\" -c:a libmp3lame -b:a 320k \"$mp3_file\"
+        notify-send "Conversion complete" "The file $flac_file has been converted to MP3 format at 320kbps with the highest possible audio quality."
+    else
+        notify-send "Error" "The selected file is not a FLAC audio file."
     fi
 done
