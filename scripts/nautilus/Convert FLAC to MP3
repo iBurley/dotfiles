@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Check if the file is a FLAC audio file
+file_type=$(file -b --mime-type "$1")
+
+if [[ $file_type == audio/flac ]]; then
+    # Convert FLAC to MP3 with 320kbps bitrate
+    ffmpeg -i "$1" -b:a 320k "${1%.*}.mp3"
+    notify-send "Conversion successful" "${1%.*}.mp3"
+else
+    notify-send "Not a FLAC audio file" "$1"
+fi
