@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Set your Imgur client ID
+IMGUR_CLIENT_ID="YOUR_IMGUR_CLIENT_ID"
+
+# Check if the file is an image
+file_type=$(file -b --mime-type "$1")
+
+if [[ $file_type == image* ]]; then
+    # Upload image to Imgur
+    response=$(curl -s --request POST --url https://api.imgur.com/3/upload --header "Authorization: Client-ID $IMGUR_CLIENT_ID" --form image=@"$1")
+
+    # Extract the image link from the Imgur API response
+    imgur_link=$(echo "$response" | jq -r '.data.link')
+
+    # Open the Imgur link in the default browser
+    xdg-open "$imgur_link"
+
+    # Copy the Imgur link to the clipboard
+    echo -n "$imgur_link" | xclip -selection clipboard
+
+    notify-send "Image uploaded to Imgur" "$imgur_link"
+else
+    notify-send "Not an image file" "$1"
+fi
