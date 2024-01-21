@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Check if the file is a video file
+file_type=$(file -b --mime-type "$1")
+
+if [[ $file_type == video* ]]; then
+    # Convert video to GIF with PNG palette
+    palette="/tmp/palette.png"
+    output_gif="${1%.*}.gif"
+
+    ffmpeg -i "$1" -vf "fps=15,scale=640:-1:flags=lanczos" -c:v png -q:v 2 "$palette"
+    ffmpeg -i "$1" -i "$palette" -filter_complex "paletteuse" -r 10 -y "$output_gif"
+
+    notify-send "Conversion successful" "$output_gif"
+else
+    notify-send "Not a video file" "$1"
+fi
