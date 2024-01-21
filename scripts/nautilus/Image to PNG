@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Check if the file is an image
+file_type=$(file -b --mime-type "$1")
+
+if [[ $file_type == image* ]]; then
+    # Convert the image to PNG
+    convert "$1" "${1%.*}.png"
+    notify-send "Conversion successful" "${1%.*}.png"
+else
+    notify-send "Not an image file" "$1"
+fi
