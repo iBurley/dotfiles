@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Set your Pastebin dev key
+PASTEBIN_DEV_KEY="YOUR_PASTEBIN_DEV_KEY"
+
+# Check if the file exists
+if [ -f "$1" ]; then
+    # Read file contents
+    file_contents=$(<"$1")
+
+    # Upload file contents to Pastebin
+    response=$(curl -s --request POST --url https://pastebin.com/api/api_post.php --data-urlencode "api_dev_key=$PASTEBIN_DEV_KEY" --data-urlencode "api_option=paste" --data-urlencode "api_paste_code=$file_contents")
+
+    # Extract the Pastebin link from the response
+    pastebin_link=$(echo "$response")
+
+    # Copy the Pastebin link to the clipboard
+    echo -n "$pastebin_link" | xclip -selection clipboard
+
+    # Open the Pastebin link in the default web browser
+    xdg-open "$pastebin_link"
+
+    notify-send "File contents uploaded to Pastebin" "$pastebin_link"
+else
+    notify-send "File not found" "$1"
+fi
