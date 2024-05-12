@@ -1,3 +1,3 @@
 ytclip () {
-  yt-dlp -f "bv[height<=1080]+ba" --download-sections "*$1-$2" --force-keyframes-at-cuts $3 -q -o ~/Videos/clip --remux-video mp4
+  yt-dlp -f "bv*[height<=1080]+ba/b" --download-sections "*$1-$2" --force-keyframes-at-cuts $3 -q -P "~/Videos" -o "clip - %(title)s.%(ext)s" --remux-video mp4
 }
