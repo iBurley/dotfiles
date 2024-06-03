@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Check if the file is an image
+file_type=$(file -b --mime-type "$1")
+
+if [[ $file_type == image* ]]; then
+    # Rotate the image 90 degrees to the right
+    convert "$1" -rotate 90 "$1"
+    notify-send "Image rotated 90 degrees to the right" "$1"
+else
+    notify-send "Not an image file" "$1"
+fi
