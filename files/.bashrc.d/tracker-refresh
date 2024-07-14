@@ -1,0 +1,1 @@
+alias tracker-refresh='xdg-user-dirs-update --set MUSIC ~/Music/;tracker3 reset -r;rm -rf ~/.cache/tracker3;xdg-user-dirs-update --set MUSIC /mnt/Storage/Music'
