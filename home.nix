@@ -1,0 +1,152 @@
+{ config, pkgs, ... }:
+
+{
+
+  home.username = "iburley";
+  home.homeDirectory = "/home/iburley";
+
+  home.packages = with pkgs; [
+    discord
+    epiphany
+    evince
+    ffmpeg
+    fragments
+    gnome-console
+    gnome-text-editor
+    gnome.gnome-boxes
+    gnome.gnome-calculator
+    gnome.gnome-calendar
+    gnome.gnome-clocks
+    gnome.gnome-disk-utility
+    gnome.gnome-font-viewer
+    gnome.gnome-logs
+    gnome.gnome-music
+    gnome.gnome-system-monitor
+    gnome.nautilus
+    gnome.simple-scan
+    mousai
+    newsflash
+    loupe
+    postman
+    spotify
+    steam
+    tree
+    vim
+    xclip
+    yt-dlp
+  ];
+
+  home.file = {
+    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
+    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
+    # # symlink to the Nix store copy.
+    # ".screenrc".source = dotfiles/screenrc;
+
+    # # You can also set the file content immediately.
+    # ".gradle/gradle.properties".text = ''
+    #   org.gradle.console=verbose
+    #   org.gradle.daemon.idletimeout=3600000
+    # '';
+  };
+
+  home.sessionVariables = {
+    EDITOR = "vim";
+    VISUAL = "vim";
+    XDG_CONFIG_HOME = ".config";
+    XKB_DEFAULT_LAYOUT = "us";
+  };
+
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      cp = "cp -iv";
+      ls = "ls -A --group-directories-first";
+      mv = "mv -iv";
+      rm = "rm -iv";
+      winboot = "sudo grub2-reboot 4 && systemctl reboot";
+      xcopy = "xclip -i -selection clipboard";
+      xpaste = "xclip -o -selection clipboard";
+      yt-clip = "yt-dlp -f 'bv*[height<=1080]+ba/b' --download-sections '*$1-$2' --force-keyframes-at-cuts $3 -q --no-warnings -P '~/Videos' -o 'Clip - %(title)s.%(ext)s' --remux-video mp4";
+      yt-mp3 = "yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 --output '%(title)s.%(ext)s'";
+    };
+  };
+
+  programs.firefox = {
+    enable = true;
+    profiles.iBurley = {
+      settings = {
+        "layers.acceleration.force-enabled" = true;
+        "media.hardware-video-decoding.force" = true;
+        "extensions.pocket.enabled" = false;
+      };
+    };
+  };
+
+  programs.mpv = {
+    enable = true;
+    config = {
+      profile = "high-quality";
+      vo = "gpu-next";
+      gpu-api = "vulkan";
+      hwdec = "vulkan-copy";
+      blend-subtitles = "yes";
+      video-sync = "display-resample";
+      interpolation = "yes";
+      tscale = "oversample";
+      volume = "50";
+      volume-max = "200";
+      alang = "en, eng, english";
+      slang = "en, eng, english";
+      screenshot-format = "png";
+      screenshot-png-compression = "1";
+      screenshot-template = "~/Pictures/%F - %p";
+      ytdl-format = "bv*+ba/b";
+      keep-open = "yes";
+      save-position-on-quit = "yes";
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/TextEditor" = {
+      auto-indent = true;
+      highlight-current-line = true;
+      indent-style = "space";
+      show-grid = false;
+      show-line-numbers = true;
+      show-map = true;
+      show-right-margin = false;
+      #tab-width = mkUint32 2; not currently working
+      use-system-font = true;
+    };
+    "org/gnome/desktop/app-folders/folders/Utilities" = {
+      apps = [ "org.gnome.DiskUtility.desktop" "org.gnome.Evince.desktop" "org.gnome.Extensions.desktop" "org.gnome.font-viewer.desktop" "org.gnome.Loupe.desktop" "org.gnome.Logs.desktop" "nixos-manual.desktop" "org.gnome.Tour.desktop" "cups.desktop" ];
+      categories = [ "X-GNOME-Utilities" ];
+      excluded-apps = [ "org.gnome.Console.desktop" ];
+      name = "X-GNOME-Utilities.directory";
+    };
+    "org/gnome/desktop/interface" = {
+      clock-format = "12h";
+      clock-show-weekday = true;
+      color-scheme = "prefer-dark";
+      font-antialiasing = "rgba";
+      monospace-font-name = "Source Code Pro Semi-Bold 10";
+    };
+    "org/gnome/desktop/peripherals/mouse" = {
+      accel-profile = "flat";
+    };
+    "org/gnome/desktop/privacy" = {
+      remember-recent-files = false;
+    };
+    "org/gnome/nautilus/icon-view" = {
+      default-zoom-level = "small-plus";
+    };
+    "org/gnome/shell" = {
+      app-picker-layout = [];
+      disable-user-extensions = true;
+      favorite-apps = [ "firefox.desktop" "discord.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Console.desktop" ];
+    };
+  };
+
+  home.stateVersion = "24.05";
+
+}
