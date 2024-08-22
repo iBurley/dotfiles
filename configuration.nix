@@ -7,10 +7,9 @@
       ./hardware-configuration.nix
     ];
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
-
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  
   networking.hostName = "desktop";
   networking.networkmanager.enable = true;
 
@@ -35,6 +34,10 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   services.gnome.core-utilities.enable = false;
+
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
 
   services.printing.enable = true;
 
