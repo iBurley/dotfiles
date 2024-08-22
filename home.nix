@@ -22,14 +22,15 @@
     gnome.gnome-logs
     gnome.gnome-music
     gnome.gnome-system-monitor
+    gnome.file-roller
     gnome.nautilus
     gnome.simple-scan
     mousai
     newsflash
+    libreoffice
     loupe
     postman
     spotify
-    steam
     tree
     vim
     xclip
@@ -52,7 +53,7 @@
   home.sessionVariables = {
     EDITOR = "vim";
     VISUAL = "vim";
-    XDG_CONFIG_HOME = ".config";
+    XDG_CONFIG_HOME = "/home/iburley/.config";
     XKB_DEFAULT_LAYOUT = "us";
   };
 
@@ -78,6 +79,8 @@
         "layers.acceleration.force-enabled" = true;
         "media.hardware-video-decoding.force" = true;
         "extensions.pocket.enabled" = false;
+        "browser.compactmode.show" = true;
+        "browser.uidensity" = 1;
       };
     };
   };
@@ -118,8 +121,12 @@
       #tab-width = mkUint32 2; not currently working
       use-system-font = true;
     };
+    "org/gnome/desktop/app-folders/folders/Office" = {
+      apps = [ "startcenter.desktop" "base.desktop" "calc.desktop" "draw.desktop" "impress.desktop" "math.desktop" "writer.desktop" ];
+      name = "Office";
+    };
     "org/gnome/desktop/app-folders/folders/Utilities" = {
-      apps = [ "org.gnome.DiskUtility.desktop" "org.gnome.Evince.desktop" "org.gnome.Extensions.desktop" "org.gnome.font-viewer.desktop" "org.gnome.Loupe.desktop" "org.gnome.Logs.desktop" "nixos-manual.desktop" "org.gnome.Tour.desktop" "cups.desktop" ];
+      apps = [ "org.gnome.DiskUtility.desktop" "org.gnome.Evince.desktop" "org.gnome.Extensions.desktop" "org.gnome.FileRoller.desktop" "org.gnome.font-viewer.desktop" "org.gnome.Loupe.desktop" "org.gnome.Logs.desktop" "nixos-manual.desktop" "cups.desktop" "org.gnome.Tour.desktop" ];
       categories = [ "X-GNOME-Utilities" ];
       excluded-apps = [ "org.gnome.Console.desktop" ];
       name = "X-GNOME-Utilities.directory";
@@ -141,7 +148,7 @@
       default-zoom-level = "small-plus";
     };
     "org/gnome/shell" = {
-      app-picker-layout = [];
+      #app-picker-layout = []; placeholder
       disable-user-extensions = true;
       favorite-apps = [ "firefox.desktop" "discord.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Console.desktop" ];
     };
