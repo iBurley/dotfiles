@@ -53,8 +53,13 @@
   home.sessionVariables = {
     EDITOR = "vim";
     VISUAL = "vim";
-    XDG_CONFIG_HOME = "/home/iburley/.config";
     XKB_DEFAULT_LAYOUT = "us";
+  };
+
+  xdg.configFile."user-dirs.dirs".force = true;
+  xdg.userDirs = {
+    enable = true;
+    music = "/mnt/Storage/Music";
   };
 
   programs.bash = {
@@ -64,12 +69,15 @@
       ls = "ls -A --group-directories-first";
       mv = "mv -iv";
       rm = "rm -iv";
-      winboot = "sudo grub2-reboot 4 && systemctl reboot";
       xcopy = "xclip -i -selection clipboard";
       xpaste = "xclip -o -selection clipboard";
-      yt-clip = "yt-dlp -f 'bv*[height<=1080]+ba/b' --download-sections '*$1-$2' --force-keyframes-at-cuts $3 -q --no-warnings -P '~/Videos' -o 'Clip - %(title)s.%(ext)s' --remux-video mp4";
       yt-mp3 = "yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 --output '%(title)s.%(ext)s'";
     };
+    initExtra = ''
+      yt-clip () {
+        yt-dlp -f "bv*[height<=1080]+ba/b" --download-sections "*$1-$2" --force-keyframes-at-cuts $3 -q --no-warnings -P '~/Videos' -o 'Clip - %(title)s.%(ext)s' --remux-video mp4
+      }
+    '';
   };
 
   programs.firefox = {
