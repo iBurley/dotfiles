@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
 
@@ -6,6 +6,7 @@
   home.homeDirectory = "/home/iburley";
 
   home.packages = with pkgs; [
+    bottles
     discord
     epiphany
     evince
@@ -85,7 +86,7 @@
     profiles.iBurley = {
       settings = {
         "layers.acceleration.force-enabled" = true;
-        "media.hardware-video-decoding.force" = true;
+        "media.hardware-video-decoding.force-enabled" = true;
         "extensions.pocket.enabled" = false;
         "browser.compactmode.show" = true;
         "browser.uidensity" = 1;
@@ -126,15 +127,34 @@
       show-line-numbers = true;
       show-map = true;
       show-right-margin = false;
-      #tab-width = mkUint32 2; not currently working
+      tab-width = lib.hm.gvariant.mkUint32 2;
       use-system-font = true;
     };
     "org/gnome/desktop/app-folders/folders/Office" = {
-      apps = [ "startcenter.desktop" "base.desktop" "calc.desktop" "draw.desktop" "impress.desktop" "math.desktop" "writer.desktop" ];
+      apps = [ 
+        "startcenter.desktop"
+        "base.desktop"
+        "calc.desktop"
+        "draw.desktop"
+        "impress.desktop"
+        "math.desktop"
+        "writer.desktop" 
+      ];
       name = "Office";
     };
     "org/gnome/desktop/app-folders/folders/Utilities" = {
-      apps = [ "org.gnome.DiskUtility.desktop" "org.gnome.Evince.desktop" "org.gnome.Extensions.desktop" "org.gnome.FileRoller.desktop" "org.gnome.font-viewer.desktop" "org.gnome.Loupe.desktop" "org.gnome.Logs.desktop" "nixos-manual.desktop" "cups.desktop" "org.gnome.Tour.desktop" ];
+      apps = [ 
+        "org.gnome.DiskUtility.desktop"
+        "org.gnome.Evince.desktop"
+        "org.gnome.Extensions.desktop"
+        "org.gnome.FileRoller.desktop"
+        "org.gnome.font-viewer.desktop"
+        "org.gnome.Loupe.desktop"
+        "org.gnome.Logs.desktop"
+        "nixos-manual.desktop"
+        "cups.desktop"
+        "org.gnome.Tour.desktop"
+      ];
       categories = [ "X-GNOME-Utilities" ];
       excluded-apps = [ "org.gnome.Console.desktop" ];
       name = "X-GNOME-Utilities.directory";
@@ -152,13 +172,22 @@
     "org/gnome/desktop/privacy" = {
       remember-recent-files = false;
     };
+    "org/gnome/mutter" = {
+      dynamic-workspaces = true;
+      edge-tiling = true;
+    };
     "org/gnome/nautilus/icon-view" = {
       default-zoom-level = "small-plus";
     };
     "org/gnome/shell" = {
       #app-picker-layout = []; placeholder
       disable-user-extensions = true;
-      favorite-apps = [ "firefox.desktop" "discord.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Console.desktop" ];
+      favorite-apps = [
+        "firefox.desktop"
+        "discord.desktop"
+        "org.gnome.Nautilus.desktop"
+        "org.gnome.Console.desktop"
+      ];
     };
   };
 
