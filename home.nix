@@ -6,7 +6,6 @@
   home.homeDirectory = "/home/iburley";
 
   home.packages = with pkgs; [
-    bottles
     discord
     epiphany
     evince
@@ -30,7 +29,6 @@
     newsflash
     libreoffice
     loupe
-    postman
     spotify
     tree
     vim
