@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
 
@@ -25,10 +25,11 @@
     gnome.file-roller
     gnome.nautilus
     gnome.simple-scan
-    mousai
-    newsflash
     libreoffice
     loupe
+    mousai
+    newsflash
+    prismlauncher
     spotify
     tree
     vim
@@ -178,7 +179,7 @@
       default-zoom-level = "small-plus";
     };
     "org/gnome/shell" = {
-      #app-picker-layout = []; placeholder
+      #app-picker-layout = []; # placeholder
       disable-user-extensions = true;
       favorite-apps = [
         "firefox.desktop"
