@@ -36,7 +36,7 @@
     xclip
     yt-dlp
   ]) ++ (with pkgs-unstable; [
-    alpaca
+    # unstable packages here
   ]);
 
   home.file = {
