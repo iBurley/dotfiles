@@ -1,11 +1,11 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgs-unstable, ... }:
 
 {
 
   home.username = "iburley";
   home.homeDirectory = "/home/iburley";
 
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     discord
     epiphany
     evince
@@ -35,7 +35,9 @@
     vim
     xclip
     yt-dlp
-  ];
+  ]) ++ (with pkgs-unstable; [
+    alpaca
+  ]);
 
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
