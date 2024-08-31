@@ -2,10 +2,9 @@
 
 {
 
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -16,6 +15,7 @@
 
   networking.hostName = "desktop";
   networking.networkmanager.enable = true;
+  #networking.wireless.enable = true;
 
   time.timeZone = "America/New_York";
 
@@ -33,7 +33,6 @@
   };
 
   services.xserver.enable = true;
-
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.gnome.core-utilities.enable = false;
