@@ -89,10 +89,16 @@
       DisablePocket = true;
       DisableTelemetry = true;
       DisplayBookmarksToolbar = "never";
-      DisplayMenuBar = "default-off";
+      EncryptedMediaExtensions = true;
+      HardwareAcceleration = true;
+      HttpsOnlyMode = "enabled";
+      NoDefaultBookmarks = true;
+      OfferToSaveLogins = false;
       OverrideFirstRunPage = "";
       OverridePostUpdatePage = "";
-      SearchBar = "separate";
+      PasswordManagerEnabled = false;
+      PrimaryPassword = false;
+      ShowHomeButton = true;
       Extensions.Install = [
         "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi"
         "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
