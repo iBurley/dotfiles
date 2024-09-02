@@ -9,7 +9,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }: {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
