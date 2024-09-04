@@ -29,6 +29,7 @@
     loupe
     mousai
     newsflash
+    OVMFFull
     prismlauncher
     spotify
     tree
@@ -85,11 +86,16 @@
   programs.firefox = {
     enable = true;
     policies = {
+      AutofillAddressEnabled = false;
+      AutofillCreditCardEnabled = false;
       DisableFirefoxStudies = true;
+      DisableFormHistory = true;
+      DisableMasterPasswordCreation = true;
       DisablePocket = true;
       DisableTelemetry = true;
       DisplayBookmarksToolbar = "never";
-      EncryptedMediaExtensions = true;
+      DisplayMenuBar = "default-off";
+      EncryptedMediaExtensions.Enabled = true;
       HardwareAcceleration = true;
       HttpsOnlyMode = "enabled";
       NoDefaultBookmarks = true;
@@ -97,13 +103,32 @@
       OverrideFirstRunPage = "";
       OverridePostUpdatePage = "";
       PasswordManagerEnabled = false;
+      PictureInPicture.Enabled = true;
+      PopupBlocking.Default = true;
       PrimaryPassword = false;
+      RequestedLocales = "en-US";
+      SearchBar = "unified";
+      SearchSuggestEnabled = false;
       ShowHomeButton = true;
+      TranslateEnabled = true;
       Extensions.Install = [
         "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi"
         "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
       ];
-      Preferences = { 
+      FirefoxSuggest = {
+        WebSuggestions = false;
+        SponsoredSuggestions = false;
+        ImproveSuggest = false;
+      };
+      Permissions = {
+        Autoplay.Default = "block-audio";
+        Camera.BlockNewRequests = true;
+        Location.BlockNewRequests = true;
+        Microphone.BlockNewRequests = true;
+        Notifications.BlockNewRequests = true;
+        VirtualReality.BlockNewRequests = true;
+      };
+      Preferences = {
         "layers.acceleration.force-enabled" = true;
         "media.hardware-video-decoding.force-enabled" = true;
         "browser.compactmode.show" = true;
