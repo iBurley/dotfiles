@@ -31,7 +31,6 @@
     loupe
     mousai
     newsflash
-    OVMFFull
     prismlauncher
     spotify
     tree
