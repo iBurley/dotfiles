@@ -25,10 +25,13 @@
     gnome.file-roller
     gnome.nautilus
     gnome.simple-scan
+    imagemagick
+    libnotify
     libreoffice
     loupe
     mousai
     newsflash
+    OVMFFull
     prismlauncher
     spotify
     tree
@@ -39,17 +42,45 @@
     # unstable packages here
   ]);
 
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+  home.file = let
+    nautilus-scripts = pkgs.fetchFromGitHub {
+      owner = "iBurley";
+      repo = "nautilus-scripts";
+      rev = "main";
+      sha256 = "sha256-N9hKmNSO0Ot314Iq/BT0ICE45fu6beWkkQsdQnbf4sQ=";
+    }; in {
+    ".local/share/nautilus/scripts/Convert to PNG" = {
+      source = "${nautilus-scripts}/convert-to-png";
+      executable = true;
+    };
+    ".local/share/nautilus/scripts/Convert to JPG" = {
+      source = "${nautilus-scripts}/convert-to-jpg";
+      executable = true;
+    };
+    ".local/share/nautilus/scripts/Convert to GIF" = {
+      source = "${nautilus-scripts}/convert-to-gif";
+      executable = true;
+    };
+    ".local/share/nautilus/scripts/Convert to MP4" = {
+      source = "${nautilus-scripts}/convert-to-mp4";
+      executable = true;
+    };
+    ".local/share/nautilus/scripts/Convert to MP3" = {
+      source = "${nautilus-scripts}/convert-to-mp3";
+      executable = true;
+    };
+    ".local/share/nautilus/scripts/Convert to PDF" = {
+      source = "${nautilus-scripts}/convert-to-pdf";
+      executable = true;
+    };
+    ".local/share/nautilus/scripts/Upload to Imgur" = {
+      source = "${nautilus-scripts}/upload-to-imgur";
+      executable = true;
+    };
+    ".local/share/nautilus/scripts/Upload to Pastebin" = {
+      source = "${nautilus-scripts}/upload-to-pastebin";
+      executable = true;
+    };
   };
 
   home.sessionVariables = {
@@ -128,10 +159,10 @@
         VirtualReality.BlockNewRequests = true;
       };
       Preferences = {
-        "layers.acceleration.force-enabled" = true;
-        "media.hardware-video-decoding.force-enabled" = true;
         "browser.compactmode.show" = true;
         "browser.uidensity" = 1;
+        "layers.acceleration.force-enabled" = true;
+        "media.hardware-video-decoding.force-enabled" = true;
       };
     };
   };
