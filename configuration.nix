@@ -13,9 +13,11 @@
     loader.timeout = 0;
   };
 
-  networking.hostName = "desktop";
-  networking.networkmanager.enable = true;
-  #networking.wireless.enable = true;
+  networking = {
+    hostName = "desktop";
+    networkmanager.enable = true;
+    #wireless.enable = true;
+  };
 
   time.timeZone = "America/New_York";
 
@@ -43,7 +45,23 @@
 
   services.printing.enable = true;
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation = {
+    libvirtd.enable = true;
+    spiceUSBRedirection.enable = true;
+  };
+
+  # Workaround to get UEFI working in GNOME Boxes
+  # Hopefully temporary
+  systemd.tmpfiles.rules =
+  let
+    firmware =
+      pkgs.runCommandLocal "qemu-firmware" { } ''
+        mkdir $out
+        cp ${pkgs.qemu}/share/qemu/firmware/*.json $out
+        substituteInPlace $out/*.json --replace ${pkgs.qemu} /run/current-system/sw
+      '';
+  in
+  [ "L+ /var/lib/qemu/firmware - - - - ${firmware}" ];
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -57,7 +75,7 @@
   users.users.iburley = {
     isNormalUser = true;
     description = "iBurley";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
   };
 
   services.xserver.excludePackages = with pkgs; [
