@@ -46,7 +46,7 @@
       owner = "iBurley";
       repo = "nautilus-scripts";
       rev = "main";
-      sha256 = "sha256-Az6GUPLWW/VsvDKMKkoYynpqMAAilyLr9DCh+3vbu7I=";
+      sha256 = "sha256-GeKgdCl7GNE6ifqV0Wxb+wZhpLjdKGr3Zg02ezjlr+Y=";
     }; in {
     ".local/share/nautilus/scripts/Convert to GIF" = {
       source = "${nautilus-scripts}/convert-to-gif";
