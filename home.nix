@@ -48,28 +48,28 @@
       rev = "main";
       sha256 = "sha256-N9hKmNSO0Ot314Iq/BT0ICE45fu6beWkkQsdQnbf4sQ=";
     }; in {
-    ".local/share/nautilus/scripts/Convert to PNG" = {
-      source = "${nautilus-scripts}/convert-to-png";
+    ".local/share/nautilus/scripts/Convert to GIF" = {
+      source = "${nautilus-scripts}/convert-to-gif";
       executable = true;
     };
     ".local/share/nautilus/scripts/Convert to JPG" = {
       source = "${nautilus-scripts}/convert-to-jpg";
       executable = true;
     };
-    ".local/share/nautilus/scripts/Convert to GIF" = {
-      source = "${nautilus-scripts}/convert-to-gif";
+    ".local/share/nautilus/scripts/Convert to MP3" = {
+      source = "${nautilus-scripts}/convert-to-mp3";
       executable = true;
     };
     ".local/share/nautilus/scripts/Convert to MP4" = {
       source = "${nautilus-scripts}/convert-to-mp4";
       executable = true;
     };
-    ".local/share/nautilus/scripts/Convert to MP3" = {
-      source = "${nautilus-scripts}/convert-to-mp3";
-      executable = true;
-    };
     ".local/share/nautilus/scripts/Convert to PDF" = {
       source = "${nautilus-scripts}/convert-to-pdf";
+      executable = true;
+    };
+    ".local/share/nautilus/scripts/Convert to PNG" = {
+      source = "${nautilus-scripts}/convert-to-png";
       executable = true;
     };
     ".local/share/nautilus/scripts/Upload to Imgur" = {
