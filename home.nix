@@ -117,7 +117,7 @@
     policies = {
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
-      Cookies.Behavior = "reject-tracker-and-partition-foreign"
+      Cookies.Behavior = "reject-tracker-and-partition-foreign";
       DisableBuiltinPDFViewer = true;
       DisableFirefoxStudies = true;
       DisableFormHistory = true;
@@ -147,7 +147,7 @@
         Enabled = true;
         Fallback = false;
         Locked = true;
-        ProviderURL = "https://mozilla.cloudflare-dns.com/dns-query"
+        ProviderURL = "https://mozilla.cloudflare-dns.com/dns-query";
       };
       EnableTrackingProtection = {
         Cryptomining = true;
