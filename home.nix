@@ -146,13 +146,11 @@
       DNSOverHTTPS = {
         Enabled = true;
         Fallback = false;
-        Locked = true;
         ProviderURL = "https://mozilla.cloudflare-dns.com/dns-query";
       };
       EnableTrackingProtection = {
         Cryptomining = true;
-        Fingerpringing = true;
-        Locked = true;
+        Fingerprinting = true;
         Value = true;
       };
       Extensions.Install = [
