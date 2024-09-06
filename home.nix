@@ -117,10 +117,13 @@
     policies = {
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
+      Cookies.Behavior = "reject-tracker-and-partition-foreign"
+      DisableBuiltinPDFViewer = true;
       DisableFirefoxStudies = true;
       DisableFormHistory = true;
       DisableMasterPasswordCreation = true;
       DisablePocket = true;
+      DisableSetDesktopBackground = true;
       DisableTelemetry = true;
       DisplayBookmarksToolbar = "never";
       DisplayMenuBar = "default-off";
@@ -140,14 +143,26 @@
       SearchSuggestEnabled = false;
       ShowHomeButton = true;
       TranslateEnabled = true;
+      DNSOverHTTPS = {
+        Enabled = true;
+        Fallback = false;
+        Locked = true;
+        ProviderURL = "https://mozilla.cloudflare-dns.com/dns-query"
+      };
+      EnableTrackingProtection = {
+        Cryptomining = true;
+        Fingerpringing = true;
+        Locked = true;
+        Value = true;
+      };
       Extensions.Install = [
         "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi"
         "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
       ];
       FirefoxSuggest = {
-        WebSuggestions = false;
-        SponsoredSuggestions = false;
         ImproveSuggest = false;
+        SponsoredSuggestions = false;
+        WebSuggestions = false;
       };
       Permissions = {
         Autoplay.Default = "block-audio";
