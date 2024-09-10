@@ -127,32 +127,12 @@
       DisableTelemetry = true;
       DisplayBookmarksToolbar = "never";
       DisplayMenuBar = "default-off";
-      EncryptedMediaExtensions.Enabled = true;
-      HardwareAcceleration = true;
-      HttpsOnlyMode = "enabled";
-      NoDefaultBookmarks = true;
-      OfferToSaveLogins = false;
-      OverrideFirstRunPage = "";
-      OverridePostUpdatePage = "";
-      PasswordManagerEnabled = false;
-      PictureInPicture.Enabled = true;
-      PopupBlocking.Default = true;
-      PrimaryPassword = false;
-      RequestedLocales = "en-US";
-      SearchBar = "unified";
-      SearchSuggestEnabled = false;
-      ShowHomeButton = true;
-      TranslateEnabled = true;
-      DNSOverHTTPS = {
-        Enabled = true;
-        Fallback = false;
-        ProviderURL = "https://mozilla.cloudflare-dns.com/dns-query";
-      };
       EnableTrackingProtection = {
         Cryptomining = true;
         Fingerprinting = true;
         Value = true;
       };
+      EncryptedMediaExtensions.Enabled = true;
       Extensions.Install = [
         "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi"
         "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
@@ -162,6 +142,13 @@
         SponsoredSuggestions = false;
         WebSuggestions = false;
       };
+      HardwareAcceleration = true;
+      HttpsOnlyMode = "enabled";
+      NoDefaultBookmarks = true;
+      OfferToSaveLogins = false;
+      OverrideFirstRunPage = "";
+      OverridePostUpdatePage = "";
+      PasswordManagerEnabled = false;
       Permissions = {
         Autoplay.Default = "block-audio";
         Camera.BlockNewRequests = true;
@@ -170,9 +157,55 @@
         Notifications.BlockNewRequests = true;
         VirtualReality.BlockNewRequests = true;
       };
-      Preferences = {
+      PictureInPicture.Enabled = true;
+      PopupBlocking.Default = true;
+      PrimaryPassword = false;
+      RequestedLocales = "en-US";
+      SearchBar = "unified";
+      SearchSuggestEnabled = false;
+      ShowHomeButton = true;
+      TranslateEnabled = true;
+    };
+    profiles.iBurley = {
+      search = {
+        default = "Google";
+        engines = {
+          "Arch Wiki" = {
+            definedAliases = [ "@aw" ];
+            urls = [{ template = "https://wiki.archlinux.org/index.php?search={searchTerms}"; }];
+          };
+          "GitHub" = {
+            definedAliases = [ "@gh" ];
+            urls = [{ template = "https://github.com/search?q={searchTerms}"; }];
+          };
+          "Home Manager" = {
+            definedAliases = [ "@hm" ];
+            urls = [{ template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-24.05"; }];
+          };
+          "MyNixOS" = {
+            definedAliases = [ "@mno" ];
+            urls = [{ template = "https://mynixos.com/search?q={searchTerms}"; }];
+          };
+          "NixOS Options" = {
+            definedAliases = [ "@no" ];
+            urls = [{ template = "https://search.nixos.org/options?channel=24.05&query={searchTerms}"; }];
+          };
+          "NixOS Packages" = {
+            definedAliases = [ "@np" ];
+            urls = [{ template = "https://search.nixos.org/packages?channel=24.05&query={searchTerms}"; }];
+          };
+          "YouTube" = {
+            definedAliases = [ "@yt" ];
+            urls = [{ template = "https://www.youtube.com/results?search_query={searchTerms}"; }];
+          };
+        };
+        force = true;
+      };
+      settings = {
         "browser.compactmode.show" = true;
+        "browser.tabs.firefox-view" = false;
         "browser.uidensity" = 1;
+        "general.autoScroll" = true;
         "layers.acceleration.force-enabled" = true;
         "media.hardware-video-decoding.force-enabled" = true;
       };
@@ -201,6 +234,10 @@
       keep-open = "yes";
       save-position-on-quit = "yes";
     };
+    scripts = with pkgs.mpvScripts; [
+      inhibit-gnome
+      mpris
+    ];
   };
 
   dconf.settings = {
@@ -240,9 +277,7 @@
         "cups.desktop"
         "org.gnome.Tour.desktop"
       ];
-      categories = [ "X-GNOME-Utilities" ];
-      excluded-apps = [ "org.gnome.Console.desktop" ];
-      name = "X-GNOME-Utilities.directory";
+      name = "Utilities";
     };
     "org/gnome/desktop/interface" = {
       clock-format = "12h";
