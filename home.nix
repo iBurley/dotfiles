@@ -182,10 +182,6 @@
             definedAliases = [ "@hm" ];
             urls = [{ template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-24.05"; }];
           };
-          "MyNixOS" = {
-            definedAliases = [ "@mno" ];
-            urls = [{ template = "https://mynixos.com/search?q={searchTerms}"; }];
-          };
           "NixOS Options" = {
             definedAliases = [ "@no" ];
             urls = [{ template = "https://search.nixos.org/options?channel=24.05&query={searchTerms}"; }];
