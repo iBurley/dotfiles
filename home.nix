@@ -137,6 +137,15 @@
         "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi"
         "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
       ];
+      FirefoxHome = {
+        Highlights = false;
+        Pocket = false;
+        Search = false;
+        Snippets = false;
+        SponsoredPocket = false;
+        SponsoredTopSites = false;
+        TopSites = true;
+      };
       FirefoxSuggest = {
         ImproveSuggest = false;
         SponsoredSuggestions = false;
@@ -199,7 +208,6 @@
       };
       settings = {
         "browser.compactmode.show" = true;
-        "browser.tabs.firefox-view" = false;
         "browser.uidensity" = 1;
         "general.autoScroll" = true;
         "layers.acceleration.force-enabled" = true;
@@ -304,6 +312,16 @@
         "org.gnome.Nautilus.desktop"
         "org.gnome.Console.desktop"
       ];
+    };
+    "org/gtk/gtk4/settings/file-chooser" = {
+      sort-column = "modified"
+      sort-directories-first = true;
+      sort-order = "descending"
+    };
+    "org/gtk/settings/file-chooser" = {
+      sort-column = "modified"
+      sort-directories-first = true;
+      sort-order = "descending"
     };
   };
 
