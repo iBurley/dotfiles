@@ -214,6 +214,7 @@
           { title = "YouTube"; url = "https://youtube.com/feed/subscriptions"; }
           { title = "Twitch"; url = "https://twitch.tv/directory/following/live"; }
           { title = "GitHub"; url = "https://github.com"; }
+          { title = "Email"; url = "https://outlook.live.com"; }
         ];
         "browser.uidensity" = 1;
         "general.autoScroll" = true;
