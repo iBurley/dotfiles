@@ -209,6 +209,8 @@
       };
       settings = {
         "browser.compactmode.show" = true;
+        "browser.newtabpage.activity-stream.system.showWeather" = false;
+        "browser.newtabpage.activity-stream.topSitesRows" = 2;
         "browser.newtabpage.pinned" = [
           { label = "Reddit"; url = "https://Reddit.com"; }
           { label = "YouTube"; url = "https://youtube.com/feed/subscriptions"; }
