@@ -119,6 +119,7 @@
       AutofillCreditCardEnabled = false;
       Cookies.Behavior = "reject-tracker-and-partition-foreign";
       DisableBuiltinPDFViewer = true;
+      DisableFirefoxAccounts = true;
       DisableFirefoxStudies = true;
       DisableFormHistory = true;
       DisableMasterPasswordCreation = true;
@@ -208,6 +209,12 @@
       };
       settings = {
         "browser.compactmode.show" = true;
+        "browser.newtabpage.pinned" = [
+          { title = "Reddit"; url = "https://Reddit.com"; }
+          { title = "YouTube"; url = "https://youtube.com/feed/subscriptions"; }
+          { title = "Twitch"; url = "https://twitch.tv/directory/following/live"; }
+          { title = "GitHub"; url = "https://github.com"; }
+        ];
         "browser.uidensity" = 1;
         "general.autoScroll" = true;
         "layers.acceleration.force-enabled" = true;
@@ -314,14 +321,14 @@
       ];
     };
     "org/gtk/gtk4/settings/file-chooser" = {
-      sort-column = "modified"
+      sort-column = "modified";
       sort-directories-first = true;
-      sort-order = "descending"
+      sort-order = "descending";
     };
     "org/gtk/settings/file-chooser" = {
-      sort-column = "modified"
+      sort-column = "modified";
       sort-directories-first = true;
-      sort-order = "descending"
+      sort-order = "descending";
     };
   };
 
