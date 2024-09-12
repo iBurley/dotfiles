@@ -172,7 +172,6 @@
       PrimaryPassword = false;
       RequestedLocales = "en-US";
       SearchBar = "unified";
-      SearchEngines.Remove = [ "Amazon" "Bing" "DuckDuckGo" "eBay" "Wikipedia" ];
       SearchSuggestEnabled = false;
       ShowHomeButton = true;
       TranslateEnabled = true;
