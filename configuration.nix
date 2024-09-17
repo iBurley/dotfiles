@@ -13,6 +13,8 @@
     loader.timeout = 0;
   };
 
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   networking = {
     hostName = "desktop";
     networkmanager.enable = true;
