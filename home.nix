@@ -176,10 +176,14 @@
       search = {
         default = "Google";
         engines = {
+          "Amazon.com".metaData.hidden = true;
           "Arch Wiki" = {
             definedAliases = [ "@aw" ];
             urls = [{ template = "https://wiki.archlinux.org/index.php?search={searchTerms}"; }];
           };
+          "Bing".metaData.hidden = true;
+          "DuckDuckGo".metaData.hidden = true;
+          "eBay".metaData.hidden = true;
           "Flathub" = {
             definedAliases = [ "@fh" ];
             urls = [{ template = "https://flathub.org/apps/search?q={searchTerms}"; }];
@@ -188,6 +192,7 @@
             definedAliases = [ "@gh" ];
             urls = [{ template = "https://github.com/search?q={searchTerms}"; }];
           };
+          "Google".metaData.hidden = true;
           "Home Manager" = {
             definedAliases = [ "@hm" ];
             urls = [{ template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-24.05"; }];
@@ -200,6 +205,11 @@
             definedAliases = [ "@np" ];
             urls = [{ template = "https://search.nixos.org/packages?channel=24.05&query={searchTerms}"; }];
           };
+          "NixOS Wiki" = {
+            definedAliases = [ "@nw" ];
+            urls = [{ template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; }];
+          };
+          "Wikipedia (en)".metaData.hidden = true;
           "YouTube" = {
             definedAliases = [ "@yt" ];
             urls = [{ template = "https://www.youtube.com/results?search_query={searchTerms}"; }];
