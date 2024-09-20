@@ -38,7 +38,9 @@
     xclip
     yt-dlp
   ]) ++ (with pkgs-unstable; [
-    # unstable packages here
+    (alpaca.override {
+      ollama = ollama-rocm;
+    })
   ]);
 
   home.file = let
@@ -82,12 +84,6 @@
     };
   };
 
-  home.sessionVariables = {
-    EDITOR = "vim";
-    VISUAL = "vim";
-    XKB_DEFAULT_LAYOUT = "us";
-  };
-
   xdg.configFile."user-dirs.dirs".force = true;
   xdg.userDirs = {
     enable = true;
@@ -107,7 +103,7 @@
     };
     initExtra = ''
       yt-clip () {
-        yt-dlp -f "bv*[height<=1080]+ba/b" --download-sections "*$1-$2" --force-keyframes-at-cuts $3 -q --no-warnings -P '~/Videos' -o 'Clip - %(title)s.%(ext)s' --remux-video mp4
+        yt-dlp -f "bv*[height<=1080]+ba/b" --download-sections "*$1-$2" --force-keyframes-at-cuts $3 -q --no-warnings -P '~/Videos' -o 'Clip - %(title)s.mp4'
       }
     '';
   };
@@ -271,19 +267,19 @@
       use-system-font = true;
     };
     "org/gnome/desktop/app-folders/folders/Office" = {
-      apps = [ 
+      apps = [
         "startcenter.desktop"
         "base.desktop"
         "calc.desktop"
         "draw.desktop"
         "impress.desktop"
         "math.desktop"
-        "writer.desktop" 
+        "writer.desktop"
       ];
       name = "Office";
     };
     "org/gnome/desktop/app-folders/folders/Utilities" = {
-      apps = [ 
+      apps = [
         "org.gnome.DiskUtility.desktop"
         "org.gnome.Evince.desktop"
         "org.gnome.Extensions.desktop"
