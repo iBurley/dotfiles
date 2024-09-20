@@ -192,6 +192,10 @@
             definedAliases = [ "@gh" ];
             urls = [{ template = "https://github.com/search?q={searchTerms}"; }];
           };
+          "GitHub Nix Config" = {
+            definedAliases = [ "@gn" ];
+            urls = [{ template = "https://github.com/search?q=language%3ANix+NOT+is%3Afork+{searchTerms}&type=code"; }];
+          };
           "Google".metaData.hidden = true;
           "Home Manager" = {
             definedAliases = [ "@hm" ];
