@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
 
@@ -18,7 +18,6 @@
   networking = {
     hostName = "desktop";
     networkmanager.enable = true;
-    #wireless.enable = true;
   };
 
   time.timeZone = "America/New_York";
@@ -36,15 +35,37 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
   services.gnome.core-utilities.enable = false;
 
-  programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
-  programs.gamemode.enable = true;
-
+  programs = {
+    steam.enable = true;
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
+    gamemode = {
+      enable = true;
+      settings = {
+        general = {
+          desiredgov = "performance";
+          renice = 10;
+          ioprio = 0;
+          inhibit_screensaver = 1;
+        };
+        gpu = {
+          apply_gpu_optimisations = "accept-responsibility";
+          gpu_device = 1;
+          amd_performance_level = "high";
+        };
+      };
+    };
+  };
+  
   services.printing.enable = true;
 
   virtualisation = {
@@ -77,12 +98,12 @@
   users.users.iburley = {
     isNormalUser = true;
     description = "iBurley";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "gamemode" "libvirtd" "networkmanager" "wheel" ];
   };
 
   services.xserver.excludePackages = with pkgs; [
     xterm
-  ]; 
+  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
