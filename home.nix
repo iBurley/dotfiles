@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, ... }:
+{ config, lib, nautilus-scripts, pkgs, pkgs-unstable,  ... }:
 
 {
 
@@ -13,6 +13,7 @@
     fragments
     gnome-console
     gnome-text-editor
+    gnome.file-roller
     gnome.gnome-boxes
     gnome.gnome-calculator
     gnome.gnome-calendar
@@ -22,7 +23,6 @@
     gnome.gnome-logs
     gnome.gnome-music
     gnome.gnome-system-monitor
-    gnome.file-roller
     gnome.nautilus
     gnome.simple-scan
     imagemagick
@@ -33,23 +33,15 @@
     newsflash
     prismlauncher
     spotify
-    tree
-    vim
     xclip
     yt-dlp
   ]) ++ (with pkgs-unstable; [
-    (alpaca.override {
-      ollama = ollama-rocm;
-    })
+    #(alpaca.override {
+    #  ollama = ollama-rocm;
+    #})
   ]);
 
-  home.file = let
-    nautilus-scripts = pkgs.fetchFromGitHub {
-      owner = "iBurley";
-      repo = "nautilus-scripts";
-      rev = "main";
-      sha256 = "sha256-fHJrLbLIDWmNZAg5xkmWcK3shLc0pjtdfz6PKus10DA=";
-    }; in {
+  home.file = {
     ".local/share/nautilus/scripts/Convert to GIF" = {
       source = "${nautilus-scripts}/convert-to-gif";
       executable = true;
@@ -93,10 +85,6 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      cp = "cp -iv";
-      ls = "ls -A --group-directories-first";
-      mv = "mv -iv";
-      rm = "rm -iv";
       xcopy = "xclip -i -selection clipboard";
       xpaste = "xclip -o -selection clipboard";
       yt-mp3 = "yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 --output '%(title)s.%(ext)s'";
@@ -243,24 +231,24 @@
   programs.mpv = {
     enable = true;
     config = {
-      profile = "high-quality";
-      vo = "gpu-next";
+      alang = "en, eng, english";
+      blend-subtitles = "yes";
       gpu-api = "vulkan";
       hwdec = "vulkan-copy";
-      blend-subtitles = "yes";
-      video-sync = "display-resample";
       interpolation = "yes";
-      tscale = "oversample";
-      volume = "50";
-      volume-max = "200";
-      alang = "en, eng, english";
-      slang = "en, eng, english";
+      keep-open = "yes";
+      profile = "high-quality";
+      save-position-on-quit = "yes";
       screenshot-format = "png";
       screenshot-png-compression = "1";
       screenshot-template = "~/Pictures/%F - %p";
+      slang = "en, eng, english";
+      tscale = "oversample";
+      video-sync = "display-resample";
+      vo = "gpu-next";
+      volume = "50";
+      volume-max = "200";
       ytdl-format = "bv*+ba/b";
-      keep-open = "yes";
-      save-position-on-quit = "yes";
     };
     scripts = with pkgs.mpvScripts; [
       inhibit-gnome
