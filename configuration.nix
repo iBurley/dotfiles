@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, lib, pkgs, pkgs-unstable, ... }:
 
 {
 
@@ -8,9 +8,10 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable = true;
     loader.timeout = 0;
+    tmp.cleanOnBoot = true;
   };
 
   systemd.services.NetworkManager-wait-online.enable = false;
@@ -37,25 +38,19 @@
 
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+    displayManager.gdm.enable = true;
   };
   services.gnome.core-utilities.enable = false;
 
   programs = {
-    steam.enable = true;
-    gamescope = {
-      enable = true;
-      capSysNice = true;
-    };
     gamemode = {
       enable = true;
       settings = {
         general = {
+          defaultgov = "balanced";
           desiredgov = "performance";
           renice = 10;
-          ioprio = 0;
-          inhibit_screensaver = 1;
         };
         gpu = {
           apply_gpu_optimisations = "accept-responsibility";
@@ -64,8 +59,13 @@
         };
       };
     };
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
+    steam.enable = true;
   };
-  
+
   services.printing.enable = true;
 
   virtualisation = {
@@ -96,9 +96,9 @@
   };
 
   users.users.iburley = {
-    isNormalUser = true;
     description = "iBurley";
     extraGroups = [ "gamemode" "libvirtd" "networkmanager" "wheel" ];
+    isNormalUser = true;
   };
 
   services.xserver.excludePackages = with pkgs; [
