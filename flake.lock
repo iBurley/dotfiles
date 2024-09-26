@@ -24,11 +24,11 @@
     "nautilus-scripts": {
       "flake": false,
       "locked": {
-        "lastModified": 1725511716,
-        "narHash": "sha256-fHJrLbLIDWmNZAg5xkmWcK3shLc0pjtdfz6PKus10DA=",
+        "lastModified": 1727324508,
+        "narHash": "sha256-3cEnXQ/t5JTP76QoXlpkqf1zAMUDZm7QJA/5EE07nPo=",
         "owner": "iBurley",
         "repo": "nautilus-scripts",
-        "rev": "26edb8cd9911a7c73e13b139007d63eb73a3629e",
+        "rev": "30c28b19d69dcc2c46b12acdb51fa5bae518659a",
         "type": "github"
       },
       "original": {
