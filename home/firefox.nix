@@ -105,7 +105,15 @@
             definedAliases = [ "@nw" ];
             urls = [{ template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; }];
           };
-          "Wikipedia (en)".metaData.hidden = true;
+          "Reddit" = {
+            definedAliases = [ "@rd" ];
+            urls = [{ template = "https://www.reddit.com/search/?q={searchTerms}"; }];
+          };
+          "Stack Overflow" = {
+            definedAliases = [ "@so" ];
+            urls = [{ template = "https://stackoverflow.com/search?q={searchTerms}"; }];
+          };
+          "Wikipedia (en)".metaData.alias = "@wk";
           "YouTube" = {
             definedAliases = [ "@yt" ];
             urls = [{ template = "https://www.youtube.com/results?search_query={searchTerms}"; }];
