@@ -44,9 +44,9 @@
     "org/gnome/desktop/interface" = {
       clock-format = "12h";
       clock-show-weekday = true;
-      color-scheme = "prefer-dark";
+      color-scheme = "prefer-dark"; # disable when using Stylix
       font-antialiasing = "rgba";
-      monospace-font-name = "Source Code Pro Semi-Bold 10";
+      monospace-font-name = "SauceCodePro NFM Semibold 10"; # disable when using Stylix
     };
     "org/gnome/desktop/peripherals/mouse" = {
       accel-profile = "flat";
