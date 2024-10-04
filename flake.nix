@@ -13,7 +13,7 @@
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    #stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = { self, home-manager, nautilus-scripts, nixpkgs, nixpkgs-unstable, stylix, ... }: {
