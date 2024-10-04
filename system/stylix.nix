@@ -16,7 +16,7 @@
         package = pkgs.cantarell-fonts;
       };
       monospace = {
-        name = "SauceCodePro NFM Semibold 10";
+        name = "SauceCodePro NFM Semibold";
         package = pkgs.nerdfonts.override { fonts = [ "SourceCodePro" ]; };
       };
       emoji = {
