@@ -4,6 +4,8 @@
 
   imports = [
     ./hardware-configuration.nix
+    ./system/steam.nix
+    #./system/stylix.nix
   ];
 
   boot = {
@@ -42,29 +44,6 @@
     displayManager.gdm.enable = true;
   };
   services.gnome.core-utilities.enable = false;
-
-  programs = {
-    gamemode = {
-      enable = true;
-      settings = {
-        general = {
-          defaultgov = "balanced";
-          desiredgov = "performance";
-          renice = 10;
-        };
-        gpu = {
-          apply_gpu_optimisations = "accept-responsibility";
-          gpu_device = 1;
-          amd_performance_level = "high";
-        };
-      };
-    };
-    gamescope = {
-      enable = true;
-      capSysNice = true;
-    };
-    steam.enable = true;
-  };
 
   services.printing.enable = true;
 
