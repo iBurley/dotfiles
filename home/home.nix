@@ -3,10 +3,11 @@
 {
 
   imports = [
-    ./home/dconf.nix
-    ./home/firefox.nix
-    ./home/mpv.nix
-    ./home/nautilus-scripts.nix
+    ./dconf.nix
+    ./firefox.nix
+    ./mpv.nix
+    ./nautilus-scripts.nix
+    ./neovim.nix
   ];
 
   home.username = "iburley";
@@ -37,15 +38,16 @@
     libreoffice
     loupe
     mousai
+    (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
     newsflash
     prismlauncher
     spotify
     xclip
     yt-dlp
   ]) ++ (with pkgs-unstable; [
-    #(alpaca.override {
-    #  ollama = ollama-rocm;
-    #})
+    (alpaca.override { ollama = ollama-rocm; })
+    celluloid
+    zed-editor
   ]);
 
   xdg.configFile."user-dirs.dirs".force = true;
