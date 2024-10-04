@@ -4,8 +4,8 @@
 
   imports = [
     ./hardware-configuration.nix
-    ./system/steam.nix
-    #./system/stylix.nix
+    ./steam.nix
+    #./stylix.nix
   ];
 
   boot = {
