@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.neovim = {
@@ -16,12 +16,18 @@
       vim.opt.number = true
       vim.opt.cursorline = true
       vim.g.mapleader = " "
+      vim.opt.showmode = false
 
       -- colorscheme
       require("kanagawa").load("wave")
 
       -- statusline
-      require('lualine').setup()
+      require('lualine').setup {
+        options = {
+          component_separators = { left = "", right = ""},
+          section_separators = { left = "", right  = ""},
+        }
+      }
 
       -- treesitter
       local treesitter_path = vim.fn.expand("$HOME/.local/share/nvim/treesitter")
