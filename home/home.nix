@@ -14,6 +14,7 @@
   home.homeDirectory = "/home/iburley";
 
   home.packages = (with pkgs; [
+    celluloid
     discord
     epiphany
     evince
@@ -40,13 +41,13 @@
     mousai
     (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
     newsflash
+    noto-fonts-emoji
     prismlauncher
     spotify
     xclip
     yt-dlp
   ]) ++ (with pkgs-unstable; [
     (alpaca.override { ollama = ollama-rocm; })
-    celluloid
     zed-editor
   ]);
 
