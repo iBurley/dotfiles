@@ -13,10 +13,9 @@
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, home-manager, nautilus-scripts, nixpkgs, nixpkgs-unstable, stylix, ... }: {
+  outputs = { self, home-manager, nautilus-scripts, nixpkgs, nixpkgs-unstable, ... }: {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
@@ -39,7 +38,6 @@
             home-manager.users.iburley = import ./home/home.nix;
             home-manager.extraSpecialArgs = specialArgs;
           }
-          #stylix.nixosModules.stylix
         ];
       };
     };
