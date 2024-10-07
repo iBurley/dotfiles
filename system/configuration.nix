@@ -5,7 +5,6 @@
   imports = [
     ./hardware-configuration.nix
     ./steam.nix
-    #./stylix.nix
   ];
 
   boot = {
@@ -45,7 +44,7 @@
   };
   services.gnome.core-utilities.enable = false;
 
-  services.printing.enable = true;
+  #services.printing.enable = true;
 
   virtualisation = {
     libvirtd.enable = true;
