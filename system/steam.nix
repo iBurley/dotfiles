@@ -4,7 +4,6 @@
     enable = true;
     settings = {
       general = {
-        defaultgov = "balanced";
         desiredgov = "performance";
         renice = 10;
       };
