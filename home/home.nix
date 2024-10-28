@@ -14,7 +14,6 @@
   home.homeDirectory = "/home/iburley";
 
   home.packages = (with pkgs; [
-    celluloid
     discord
     epiphany
     evince
@@ -48,6 +47,7 @@
     yt-dlp
   ]) ++ (with pkgs-unstable; [
     (alpaca.override { ollama = ollama-rocm; })
+    celluloid
     zed-editor
   ]);
 
