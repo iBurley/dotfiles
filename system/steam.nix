@@ -17,4 +17,6 @@
 
   programs.steam.enable = true;
 
+  users.users.iburley = { extraGroups = [ "gamemode" ]; };
+
 }
