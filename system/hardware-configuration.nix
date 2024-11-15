@@ -1,73 +1,47 @@
-{ config, lib, pkgs, pkgs-unstable, ... }:
+{ config, lib, modulesPath, ... }:
 
 {
 
   imports = [
-    ./hardware-configuration.nix
-    ./steam.nix
-    ./virtualization.nix
+    (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    loader.efi.canTouchEfiVariables = true;
-    loader.systemd-boot.enable = true;
-    loader.timeout = 0;
-    tmp.cleanOnBoot = true;
+    extraModulePackages = [ ];
+    initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+    initrd.kernelModules = [ ];
+    kernelModules = [ "kvm-amd" ];
   };
 
-  systemd.services.NetworkManager-wait-online.enable = false;
-
-  networking = {
-    hostName = "desktop";
-    networkmanager.enable = true;
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/ece2361d-660c-4e0b-8c62-b5317705ec02";
+    fsType = "ext4";
+    options = [ "discard" ];
   };
 
-  time.timeZone = "America/New_York";
-
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/3ACB-F43E";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=0022" "discard" ];
   };
 
-  services.xserver = {
-    enable = true;
-    desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
-  };
-  services.gnome.core-utilities.enable = false;
-
-  #services.printing.enable = true;
-
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+  fileSystems."/mnt/Storage" = {
+    device = "/dev/disk/by-uuid/05044ab0-bb11-47ff-b2f3-881d3bc4ac09";
+    fsType = "ext4";
   };
 
-  users.users.iburley = {
-    description = "iBurley";
-    extraGroups = [ "networkmanager" "wheel" ];
-    isNormalUser = true;
+  fileSystems."/mnt/Games" = {
+    device = "/dev/disk/by-uuid/a9e88f8e-0fab-47eb-a095-43c1aa17dfb6";
+    fsType = "ext4";
+    options = [ "discard" ];
   };
 
-  services.xserver.excludePackages = with pkgs; [
-    xterm
-  ];
+  swapDevices = [ ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  services.fstrim.enable = true;
 
-  system.stateVersion = "24.05";
+  networking.useDHCP = lib.mkDefault true;
+
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
 }
