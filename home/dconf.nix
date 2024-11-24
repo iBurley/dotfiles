@@ -3,17 +3,6 @@
 {
 
   dconf.settings = {
-    "org/gnome/TextEditor" = {
-      auto-indent = true;
-      highlight-current-line = true;
-      indent-style = "space";
-      show-grid = false;
-      show-line-numbers = true;
-      show-map = true;
-      show-right-margin = false;
-      tab-width = lib.hm.gvariant.mkUint32 2;
-      use-system-font = true;
-    };
     "org/gnome/desktop/app-folders/folders/Office" = {
       apps = [
         "startcenter.desktop"
@@ -54,6 +43,27 @@
     "org/gnome/desktop/privacy" = {
       remember-recent-files = false;
     };
+    "org/gnome/desktop/wm/keybindings" = {
+      activate-window-menu = [];
+      begin-resize = [];
+      cycle-group = [];
+      cycle-group-backward = [];
+      cycle-panels = [];
+      cycle-panels-backward = [];
+      cycle-windows = [];
+      cycle-windows-backward = [];
+      minimize = [];
+      move-to-workspace-1 = [];
+      move-to-workspace-last = [];
+      switch-group = [];
+      switch-group-backward = [];
+      switch-panels = [];
+      switch-panels-backward = [];
+      switch-to-workspace-1 = [];
+      switch-to-workspace-last = [];
+      toggle-fullscreen = [ "F11" ];
+      toggle-maximized = [];
+    };
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
       edge-tiling = true;
@@ -70,6 +80,17 @@
         "org.gnome.Nautilus.desktop"
         "org.gnome.Console.desktop"
       ];
+    };
+    "org/gnome/TextEditor" = {
+      auto-indent = true;
+      highlight-current-line = true;
+      indent-style = "space";
+      show-grid = false;
+      show-line-numbers = true;
+      show-map = true;
+      show-right-margin = false;
+      tab-width = lib.hm.gvariant.mkUint32 2;
+      use-system-font = true;
     };
     "org/gtk/gtk4/settings/file-chooser" = {
       sort-column = "modified";
