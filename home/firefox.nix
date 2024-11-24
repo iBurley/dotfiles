@@ -105,6 +105,10 @@
             definedAliases = [ "@nw" ];
             urls = [{ template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; }];
           };
+          "ProtonDB" = {
+            definedAliases = [ "@pd" ];
+            urls = [{ template = "https://www.protondb.com/search?q={searchTerms}"; }];
+          };
           "Reddit" = {
             definedAliases = [ "@rd" ];
             urls = [{ template = "https://www.reddit.com/search/?q={searchTerms}"; }];
