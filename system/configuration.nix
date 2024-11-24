@@ -66,7 +66,17 @@
     xterm
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 7d";
+    persistent = true;
+  };
+  
+  nix.settings = {
+    auto-optimise-store = true;
+    experimental-features = [ "nix-command" "flakes" ];
+  };
 
   system.stateVersion = "24.05";
 
