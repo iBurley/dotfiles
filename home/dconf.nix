@@ -43,27 +43,6 @@
     "org/gnome/desktop/privacy" = {
       remember-recent-files = false;
     };
-    "org/gnome/desktop/wm/keybindings" = {
-      activate-window-menu = [];
-      begin-resize = [];
-      cycle-group = [];
-      cycle-group-backward = [];
-      cycle-panels = [];
-      cycle-panels-backward = [];
-      cycle-windows = [];
-      cycle-windows-backward = [];
-      minimize = [];
-      move-to-workspace-1 = [];
-      move-to-workspace-last = [];
-      switch-group = [];
-      switch-group-backward = [];
-      switch-panels = [];
-      switch-panels-backward = [];
-      switch-to-workspace-1 = [];
-      switch-to-workspace-last = [];
-      toggle-fullscreen = [ "F11" ];
-      toggle-maximized = [];
-    };
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
       edge-tiling = true;
