@@ -7,31 +7,31 @@
     epiphany
     evince
     ffmpeg
-    fragments
-    gnome-builder
-    gnome-console
-    gnome-text-editor
     file-roller
+    fragments
     gnome-boxes
+    gnome-builder
     gnome-calculator
     gnome-calendar
     gnome-clocks
+    gnome-console
     gnome-disk-utility
     gnome-font-viewer
     gnome-logs
     gnome-music
     gnome-system-monitor
-    nautilus
-    simple-scan
+    gnome-text-editor
     imagemagick
     libnotify
     libreoffice
     loupe
     mousai
+    nautilus
     (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
     newsflash
     noto-fonts-emoji
     prismlauncher
+    simple-scan
     spotify
     xclip
     yt-dlp
