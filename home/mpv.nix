@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs-unstable, ... }:
 
 {
 
@@ -24,10 +24,7 @@
       volume-max = "200";
       ytdl-format = "bv*+ba/b";
     };
-    scripts = with pkgs.mpvScripts; [
-      inhibit-gnome
-      mpris
-    ];
+    package = pkgs-unstable.celluloid;
   };
 
 }
