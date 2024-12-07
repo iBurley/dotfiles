@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable,  ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
 
@@ -8,20 +8,21 @@
     evince
     ffmpeg
     fragments
+    gnome-builder
     gnome-console
     gnome-text-editor
-    gnome.file-roller
-    gnome.gnome-boxes
-    gnome.gnome-calculator
-    gnome.gnome-calendar
-    gnome.gnome-clocks
-    gnome.gnome-disk-utility
-    gnome.gnome-font-viewer
-    gnome.gnome-logs
-    gnome.gnome-music
-    gnome.gnome-system-monitor
-    gnome.nautilus
-    gnome.simple-scan
+    file-roller
+    gnome-boxes
+    gnome-calculator
+    gnome-calendar
+    gnome-clocks
+    gnome-disk-utility
+    gnome-font-viewer
+    gnome-logs
+    gnome-music
+    gnome-system-monitor
+    nautilus
+    simple-scan
     imagemagick
     libnotify
     libreoffice
@@ -36,7 +37,7 @@
     yt-dlp
   ]) ++ (with pkgs-unstable; [
     (alpaca.override { ollama = ollama-rocm; })
-    celluloid
+    bottles
     zed-editor
   ]);
 
