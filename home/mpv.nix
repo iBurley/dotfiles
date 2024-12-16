@@ -27,4 +27,17 @@
     package = pkgs-unstable.celluloid;
   };
 
+  dconf.settings = {
+    "io/github/celluloid-player/celluloid" = {
+      always-show-title-buttons = false;
+      always-use-floating-controls = true;
+      always-use-floating-header-bar = true;
+      autofit-enable = true;
+      csd-enable = true;
+      draggable-video-area-enable = true;
+      mpv-config-enable = true;
+      mpv-config-file = "file:///home/iburley/.config/mpv/mpv.conf";
+    };
+  };
+
 }
