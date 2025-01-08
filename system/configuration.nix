@@ -45,7 +45,9 @@
   };
   services.gnome.core-utilities.enable = false;
 
-  #services.printing.enable = true;
+  services.flatpak.enable = true;
+
+  services.printing.enable = true;
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -72,7 +74,7 @@
     options = "--delete-older-than 7d";
     persistent = true;
   };
-  
+
   nix.settings = {
     auto-optimise-store = true;
     experimental-features = [ "nix-command" "flakes" ];
