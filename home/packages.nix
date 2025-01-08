@@ -3,6 +3,8 @@
 {
 
   home.packages = (with pkgs; [
+    (alpaca.override { ollama = ollama-rocm; })
+    bottles
     discord
     epiphany
     evince
@@ -10,7 +12,6 @@
     file-roller
     fragments
     gnome-boxes
-    gnome-builder
     gnome-calculator
     gnome-calendar
     gnome-clocks
@@ -25,7 +26,6 @@
     libnotify
     libreoffice
     loupe
-    mousai
     nautilus
     (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
     newsflash
@@ -35,10 +35,9 @@
     spotify
     xclip
     yt-dlp
-  ]) ++ (with pkgs-unstable; [
-    (alpaca.override { ollama = ollama-rocm; })
-    bottles
     zed-editor
+  ]) ++ (with pkgs-unstable; [
+    # unstable packages here
   ]);
 
 }
