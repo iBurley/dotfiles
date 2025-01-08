@@ -45,8 +45,6 @@
   };
   services.gnome.core-utilities.enable = false;
 
-  services.flatpak.enable = true;
-
   services.printing.enable = true;
 
   hardware.pulseaudio.enable = false;
