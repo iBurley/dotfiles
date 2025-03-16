@@ -95,7 +95,7 @@
           };
           "NixOS Options" = {
             definedAliases = [ "@no" ];
-            urls = [{ template = "https://search.nixos.org/options?channel=24.05&query={searchTerms}"; }];
+            urls = [{ template = "https://search.nixos.org/options?channel=24.11&query={searchTerms}"; }];
           };
           "NixOS Packages" = {
             definedAliases = [ "@np" ];
