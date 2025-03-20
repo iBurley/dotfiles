@@ -35,9 +35,8 @@
     spotify
     xclip
     yt-dlp
-    zed-editor
   ]) ++ (with pkgs-unstable; [
-    # unstable packages here
+    zed-editor
   ]);
 
 }
