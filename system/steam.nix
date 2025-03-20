@@ -15,6 +15,8 @@
     };
   };
 
+  programs.gamescope.enable = true;
+
   programs.steam.enable = true;
 
   users.users.iburley = { extraGroups = [ "gamemode" ]; };
