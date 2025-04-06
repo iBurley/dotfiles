@@ -25,6 +25,7 @@
       Extensions.Install = [
         "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi"
         "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
+        "https://addons.mozilla.org/firefox/downloads/latest/youtube_auto_like/latest.xpi"
       ];
       FirefoxHome = {
         Highlights = false;
