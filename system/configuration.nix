@@ -45,7 +45,7 @@
   };
   services.gnome.core-utilities.enable = false;
 
-  services.printing.enable = true;
+  #services.printing.enable = true;
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
