@@ -1,5 +1,7 @@
 {
 
+  hardware.opengl.driSupport32Bit = true;
+
   programs.gamemode = {
     enable = true;
     settings = {
