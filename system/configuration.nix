@@ -66,6 +66,8 @@
     xterm
   ];
 
+  nix.optimise.automatic = true;
+
   nix.gc = {
     automatic = true;
     dates = "daily";
