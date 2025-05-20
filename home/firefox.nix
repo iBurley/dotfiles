@@ -92,7 +92,7 @@
           "google".metaData.hidden = true;
           "homemanager" = {
             definedAliases = [ "@hm" ];
-            urls = [{ template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-24.05"; }];
+            urls = [{ template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-25.05"; }];
           };
           "nixopts" = {
             definedAliases = [ "@no" ];
