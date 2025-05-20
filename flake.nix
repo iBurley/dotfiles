@@ -34,13 +34,13 @@
           modules = [
             ./system/configuration.nix
             home-manager.nixosModules.home-manager {
-              nixpkgs.pkgs = pkgs;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.iburley = import ./home/home.nix;
               home-manager.extraSpecialArgs = {
                 inherit nautilus-scripts pkgs-unstable;
               };
+              nixpkgs.pkgs = pkgs;
             }
           ];
         };
