@@ -67,59 +67,59 @@
     };
     profiles.iBurley = {
       search = {
-        default = "Google";
+        default = "google";
         engines = {
-          "Amazon.com".metaData.hidden = true;
-          "Arch Wiki" = {
+          "amazondotcom-us".metaData.hidden = true;
+          "archwiki" = {
             definedAliases = [ "@aw" ];
             urls = [{ template = "https://wiki.archlinux.org/index.php?search={searchTerms}"; }];
           };
-          "Bing".metaData.hidden = true;
-          "DuckDuckGo".metaData.hidden = true;
-          "eBay".metaData.hidden = true;
-          "Flathub" = {
+          "bing".metaData.hidden = true;
+          "ddg".metaData.hidden = true;
+          "ebay".metaData.hidden = true;
+          "flathub" = {
             definedAliases = [ "@fh" ];
             urls = [{ template = "https://flathub.org/apps/search?q={searchTerms}"; }];
           };
-          "GitHub" = {
+          "github" = {
             definedAliases = [ "@gh" ];
             urls = [{ template = "https://github.com/search?q={searchTerms}"; }];
           };
-          "GitHub Nix Config" = {
+          "githubnix" = {
             definedAliases = [ "@gn" ];
             urls = [{ template = "https://github.com/search?q=language%3ANix+NOT+is%3Afork+{searchTerms}&type=code"; }];
           };
-          "Google".metaData.hidden = true;
-          "Home Manager" = {
+          "google".metaData.hidden = true;
+          "homemanager" = {
             definedAliases = [ "@hm" ];
             urls = [{ template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-24.05"; }];
           };
-          "NixOS Options" = {
+          "nixopts" = {
             definedAliases = [ "@no" ];
-            urls = [{ template = "https://search.nixos.org/options?channel=24.11&query={searchTerms}"; }];
+            urls = [{ template = "https://search.nixos.org/options?channel=25.05&query={searchTerms}"; }];
           };
-          "NixOS Packages" = {
+          "nixpkgs" = {
             definedAliases = [ "@np" ];
-            urls = [{ template = "https://search.nixos.org/packages?channel=24.11&query={searchTerms}"; }];
+            urls = [{ template = "https://search.nixos.org/packages?channel=25.05&query={searchTerms}"; }];
           };
-          "NixOS Wiki" = {
+          "nixoswiki" = {
             definedAliases = [ "@nw" ];
             urls = [{ template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; }];
           };
-          "ProtonDB" = {
+          "protondb" = {
             definedAliases = [ "@pd" ];
             urls = [{ template = "https://www.protondb.com/search?q={searchTerms}"; }];
           };
-          "Reddit" = {
+          "reddit" = {
             definedAliases = [ "@rd" ];
             urls = [{ template = "https://www.reddit.com/search/?q={searchTerms}"; }];
           };
-          "Stack Overflow" = {
+          "stackoverflow" = {
             definedAliases = [ "@so" ];
             urls = [{ template = "https://stackoverflow.com/search?q={searchTerms}"; }];
           };
-          "Wikipedia (en)".metaData.alias = "@wk";
-          "YouTube" = {
+          "wikipedia".metaData.alias = "@wk";
+          "youtube" = {
             definedAliases = [ "@yt" ];
             urls = [{ template = "https://www.youtube.com/results?search_query={searchTerms}"; }];
           };
