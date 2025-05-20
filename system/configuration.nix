@@ -43,11 +43,11 @@
     desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
   };
-  services.gnome.core-utilities.enable = false;
+  services.gnome.core-apps.enable = false;
 
   #services.printing.enable = true;
 
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
