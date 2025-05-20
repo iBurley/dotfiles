@@ -6,6 +6,7 @@
     (alpaca.override { ollama = ollama-rocm; })
     bottles
     discord
+    easyeffects
     epiphany
     evince
     ffmpeg
@@ -27,7 +28,7 @@
     libreoffice
     loupe
     nautilus
-    (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
+    nerd-fonts.sauce-code-pro
     newsflash
     noto-fonts-emoji
     prismlauncher
