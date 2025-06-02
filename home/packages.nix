@@ -4,7 +4,6 @@
 
   home.packages = (with pkgs; [
     (alpaca.override { ollama = ollama-rocm; })
-    bottles
     discord
     easyeffects
     epiphany
@@ -28,7 +27,7 @@
     libreoffice
     loupe
     nautilus
-    nerd-fonts.sauce-code-pro
+    nerd-fonts.symbols-only
     newsflash
     noto-fonts-emoji
     prismlauncher
