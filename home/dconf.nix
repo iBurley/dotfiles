@@ -31,11 +31,12 @@
       name = "Utilities";
     };
     "org/gnome/desktop/interface" = {
+      accent-color = "blue";
       clock-format = "12h";
       clock-show-weekday = true;
       color-scheme = "prefer-dark";
       font-antialiasing = "rgba";
-      monospace-font-name = "SauceCodePro NFM Semibold 10";
+      font-hinting = "slight";
     };
     "org/gnome/desktop/peripherals/mouse" = {
       accel-profile = "flat";
