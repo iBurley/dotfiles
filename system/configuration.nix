@@ -45,7 +45,7 @@
   };
   services.gnome.core-apps.enable = false;
 
-  #services.printing.enable = true;
+  services.printing.enable = true;
 
   services.clamav = {
     scanner.enable = true;
