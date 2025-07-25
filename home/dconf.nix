@@ -24,8 +24,9 @@
         "org.gnome.font-viewer.desktop"
         "org.gnome.Loupe.desktop"
         "org.gnome.Logs.desktop"
-        "nixos-manual.desktop"
         "cups.desktop"
+        "nixos-manual.desktop"
+        "org.gnome.Papers.desktop"
         "org.gnome.Tour.desktop"
       ];
       name = "Utilities";
