@@ -7,7 +7,6 @@
     discord
     easyeffects
     epiphany
-    evince
     ffmpeg
     file-roller
     fragments
@@ -30,6 +29,7 @@
     nerd-fonts.symbols-only
     newsflash
     noto-fonts-emoji
+    papers
     prismlauncher
     simple-scan
     spotify
