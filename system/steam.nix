@@ -1,6 +1,11 @@
+{ pkgs, ... }:
+
 {
 
-  hardware.graphics.enable32Bit = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   programs.gamemode = {
     enable = true;
@@ -17,7 +22,19 @@
     };
   };
 
-  programs.gamescope.enable = true;
+  programs.gamescope = {
+    enable = true;
+    args = [
+      "-W 1920"
+      "-H 1080"
+      "-r 144"
+      "-f"
+      "--force-grab-cursor"
+      "--immediate-flips"
+      "--rt"
+      "--expose-wayland"
+    ];
+  };
 
   programs.steam.enable = true;
 
