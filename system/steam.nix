@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
 
   hardware.graphics = {
