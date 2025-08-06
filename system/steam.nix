@@ -26,7 +26,6 @@
       "-W 1920"
       "-H 1080"
       "-r 144"
-      "-e"
       "-f"
       "--force-grab-cursor"
       "--immediate-flips"
