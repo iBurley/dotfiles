@@ -71,18 +71,18 @@
     xterm
   ];
 
-  nix.optimise.automatic = true;
-
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 7d";
-    persistent = true;
-  };
-
-  nix.settings = {
-    auto-optimise-store = true;
-    experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 7d";
+      persistent = true;
+    };
+    optimise.automatic = true;
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
+    };
   };
 
   system.stateVersion = "24.05";
