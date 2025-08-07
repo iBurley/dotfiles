@@ -4,7 +4,6 @@
 
   imports = [
     ./hardware-configuration.nix
-    ./razer.nix
     ./steam.nix
     ./virtualization.nix
   ];
