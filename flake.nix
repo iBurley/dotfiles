@@ -15,7 +15,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, home-manager, nautilus-scripts, nixpkgs, nixpkgs-unstable, ... }:
+  outputs = { home-manager, nautilus-scripts, nixpkgs, nixpkgs-unstable, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
