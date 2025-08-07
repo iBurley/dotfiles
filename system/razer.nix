@@ -6,7 +6,7 @@
 
   environment.systemPackages = with pkgs; [
     razer-cli
-    xrdb
+    xorg.xrdb
   ];
 
   users.users.iburley = { extraGroups = [ "openrazer" ]; };
