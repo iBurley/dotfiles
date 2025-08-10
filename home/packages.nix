@@ -3,10 +3,7 @@
 {
 
   home.packages = (with pkgs; [
-    (alpaca.override { ollama = ollama-rocm; })
-    (bottles.override { removeWarningPopup = true; })
     discord
-    easyeffects
     epiphany
     ffmpeg
     file-roller
@@ -38,6 +35,8 @@
     xclip
     yt-dlp
   ]) ++ (with pkgs-unstable; [
+    (alpaca.override { ollama = ollama-rocm; })
+    (bottles.override { removeWarningPopup = true; })
     zed-editor
   ]);
 
