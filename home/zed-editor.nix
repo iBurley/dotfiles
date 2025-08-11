@@ -7,7 +7,6 @@
     package = pkgs-unstable.zed-editor;
     extensions = [ "docker-compose" "html" "kanagawa" "nix" ];
     extraPackages = [ pkgs.nixd ];
-    themes = [ "kanagawa" ];
     userSettings = {
       theme = {
         mode = "system";
