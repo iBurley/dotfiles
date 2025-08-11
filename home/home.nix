@@ -7,6 +7,7 @@
     ./nautilus-scripts.nix
     ./neovim.nix
     ./packages.nix
+    ./zed-editor.nix
   ];
 
   home.username = "iburley";
