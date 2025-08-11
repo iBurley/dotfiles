@@ -10,8 +10,8 @@
     userSettings = {
       theme = {
         mode = "system";
-        light = "One Light";
-        dark = "Kanagawa";
+        light = "Kanagawa Lotus";
+        dark = "Kanagawa Wave";
       };
       buffer_font_family = "MonaspiceAr Nerd Font Mono";
       buffer_font_size = 12;
@@ -67,11 +67,6 @@
           breadcrumbs = false;
         };
         font_weight = 500;
-      };
-      auto_install_extensions = {
-        docker-compose = true;
-        html = true;
-        nix = true;
       };
       languages = {
         Nix = {
