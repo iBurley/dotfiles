@@ -5,8 +5,17 @@
   programs.zed-editor = {
     enable = true;
     package = pkgs-unstable.zed-editor;
-    extensions = [ "docker-compose" "html" "kanagawa" "nix" ];
-    extraPackages = [ pkgs.nixd ];
+    extensions = [
+      "docker-compose"
+      "html"
+      "kanagawa"
+      "nix"
+    ];
+    extraPackages = with pkgs; [
+      nil
+      nixd
+      nixfmt-rfc-style
+    ];
     userSettings = {
       theme = {
         mode = "system";
@@ -68,13 +77,17 @@
         };
         font_weight = 500;
       };
-      languages = {
-        Nix = {
-          language_servers = [ "!nil" "nixd" ];
-        };
-      };
       debugger = {
         button = false;
+      };
+      languages = {
+        Nix = {
+          formatter = {
+            external = {
+              command = "nixfmt";
+            };
+          };
+        };
       };
     };
   };
