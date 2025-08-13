@@ -38,6 +38,8 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  programs.nix-ld.enable = true;
+
   services.xserver = {
     enable = true;
     desktopManager.gnome.enable = true;
@@ -63,7 +65,10 @@
 
   users.users.iburley = {
     description = "iBurley";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     isNormalUser = true;
   };
 
@@ -81,7 +86,10 @@
     optimise.automatic = true;
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
 
