@@ -15,7 +15,14 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = { home-manager, nautilus-scripts, nixpkgs, nixpkgs-unstable, ... }:
+  outputs =
+    {
+      home-manager,
+      nautilus-scripts,
+      nixpkgs,
+      nixpkgs-unstable,
+      ...
+    }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -33,7 +40,8 @@
           inherit system;
           modules = [
             ./system/configuration.nix
-            home-manager.nixosModules.home-manager {
+            home-manager.nixosModules.home-manager
+            {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.iburley = import ./home/home.nix;

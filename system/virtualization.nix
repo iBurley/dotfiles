@@ -11,6 +11,8 @@
     spiceUSBRedirection.enable = true;
   };
 
-  users.users.iburley = { extraGroups = [ "libvirtd" ]; };
+  users.users.iburley = {
+    extraGroups = [ "libvirtd" ];
+  };
 
 }
