@@ -11,7 +11,6 @@
       DisableFirefoxStudies = true;
       DisableFormHistory = true;
       DisableMasterPasswordCreation = true;
-      DisablePocket = true;
       DisableSetDesktopBackground = true;
       DisableTelemetry = true;
       DisplayBookmarksToolbar = "never";
@@ -33,7 +32,9 @@
         Search = false;
         Snippets = false;
         SponsoredPocket = false;
+        SponsoredStories = false;
         SponsoredTopSites = false;
+        Stories = false;
         TopSites = true;
       };
       FirefoxSuggest = {
@@ -61,71 +62,26 @@
       PrimaryPassword = false;
       RequestedLocales = "en-US";
       SearchBar = "unified";
+      SearchEngines.Add = [
+        { Name = "Arch Wiki"; Alias = "@aw"; URLTemplate = "https://wiki.archlinux.org/index.php?search={searchTerms}"; IconURL = "https://wiki.archlinux.org/favicon.ico"; }
+        { Name = "Flathub"; Alias = "@fh"; URLTemplate = "https://flathub.org/apps/search?q={searchTerms}"; IconURL = "https://flathub.org/favicon.png"; }
+        { Name = "GitHub"; Alias = "@gh"; URLTemplate = "https://github.com/search?q={searchTerms}"; IconURL = "https://github.com/favicon.ico"; }
+        { Name = "GitHub Nix"; Alias = "@gn"; URLTemplate = "https://github.com/search?q=language%3ANix+NOT+is%3Afork+{searchTerms}&type=code"; IconURL = "https://github.com/favicon.ico"; }
+        { Name = "Home Manager"; Alias = "@hm"; URLTemplate = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-25.05"; IconURL = "https://home-manager-options.extranix.com/images/favicon.png"; }
+        { Name = "NixOS Options"; Alias = "@no"; URLTemplate = "https://search.nixos.org/options?channel=25.05&query={searchTerms}"; IconURL = "https://search.nixos.org/favicon.png"; }
+        { Name = "NixOS Packages"; Alias = "@np"; URLTemplate = "https://search.nixos.org/packages?channel=25.05&query={searchTerms}"; IconURL = "https://search.nixos.org/favicon.png"; }
+        { Name = "NixOS Wiki"; Alias = "@nw"; URLTemplate = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; IconURL = "https://wiki.nixos.org/favicon.ico"; }
+        { Name = "ProtonDB"; Alias = "@pd"; URLTemplate = "https://www.protondb.com/search?q={searchTerms}"; IconURL = "https://www.protondb.com/favicon.ico"; }
+        { Name = "Reddit"; Alias = "@rd"; URLTemplate = "https://www.reddit.com/search/?q={searchTerms}"; IconURL = "https://www.reddit.com/favicon.ico"; }
+        { Name = "Stack Overflow"; Alias = "@so"; URLTemplate = "https://stackoverflow.com/search?q={searchTerms}"; IconURL = "https://stackoverflow.com/favicon.ico"; }
+        { Name = "YouTube"; Alias = "@yt"; URLTemplate = "https://www.youtube.com/results?search_query={searchTerms}"; IconURL = "https://www.youtube.com/favicon.ico"; }
+      ];
       SearchSuggestEnabled = false;
       ShowHomeButton = true;
+      SkipTermsOfUse = true;
       TranslateEnabled = true;
     };
     profiles.iBurley = {
-      search = {
-        default = "google";
-        engines = {
-          "amazondotcom-us".metaData.hidden = true;
-          "archwiki" = {
-            definedAliases = [ "@aw" ];
-            urls = [{ template = "https://wiki.archlinux.org/index.php?search={searchTerms}"; }];
-          };
-          "bing".metaData.hidden = true;
-          "ddg".metaData.hidden = true;
-          "ebay".metaData.hidden = true;
-          "flathub" = {
-            definedAliases = [ "@fh" ];
-            urls = [{ template = "https://flathub.org/apps/search?q={searchTerms}"; }];
-          };
-          "github" = {
-            definedAliases = [ "@gh" ];
-            urls = [{ template = "https://github.com/search?q={searchTerms}"; }];
-          };
-          "githubnix" = {
-            definedAliases = [ "@gn" ];
-            urls = [{ template = "https://github.com/search?q=language%3ANix+NOT+is%3Afork+{searchTerms}&type=code"; }];
-          };
-          "google".metaData.hidden = true;
-          "homemanager" = {
-            definedAliases = [ "@hm" ];
-            urls = [{ template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-25.05"; }];
-          };
-          "nixopts" = {
-            definedAliases = [ "@no" ];
-            urls = [{ template = "https://search.nixos.org/options?channel=25.05&query={searchTerms}"; }];
-          };
-          "nixpkgs" = {
-            definedAliases = [ "@np" ];
-            urls = [{ template = "https://search.nixos.org/packages?channel=25.05&query={searchTerms}"; }];
-          };
-          "nixoswiki" = {
-            definedAliases = [ "@nw" ];
-            urls = [{ template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; }];
-          };
-          "protondb" = {
-            definedAliases = [ "@pd" ];
-            urls = [{ template = "https://www.protondb.com/search?q={searchTerms}"; }];
-          };
-          "reddit" = {
-            definedAliases = [ "@rd" ];
-            urls = [{ template = "https://www.reddit.com/search/?q={searchTerms}"; }];
-          };
-          "stackoverflow" = {
-            definedAliases = [ "@so" ];
-            urls = [{ template = "https://stackoverflow.com/search?q={searchTerms}"; }];
-          };
-          "wikipedia".metaData.alias = "@wk";
-          "youtube" = {
-            definedAliases = [ "@yt" ];
-            urls = [{ template = "https://www.youtube.com/results?search_query={searchTerms}"; }];
-          };
-        };
-        force = true;
-      };
       settings = {
        "browser.compactmode.show" = true;
        "browser.newtabpage.activity-stream.system.showWeather" = false;
