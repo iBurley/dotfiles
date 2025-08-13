@@ -3,7 +3,7 @@
   lib,
   modulesPath,
   ...
-}: # nixfmt: skip
+}:
 
 {
 
