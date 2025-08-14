@@ -22,6 +22,7 @@
       gnome-system-monitor
       gnome-text-editor
       imagemagick
+      jellyfin-media-player
       libnotify
       libreoffice
       loupe
