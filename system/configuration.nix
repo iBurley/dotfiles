@@ -6,7 +6,6 @@
     ./hardware-configuration.nix
     ./steam.nix
     ./virtualization.nix
-    ./wireguard.nix
   ];
 
   boot = {
