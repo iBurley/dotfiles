@@ -12,7 +12,6 @@
       "nix"
     ];
     extraPackages = with pkgs; [
-      nil
       nixd
       nixfmt-rfc-style
     ];
@@ -87,6 +86,10 @@
               command = "nixfmt";
             };
           };
+          language_servers = [
+            "nixd"
+            "!nil"
+          ];
         };
       };
     };
