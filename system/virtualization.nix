@@ -11,8 +11,20 @@
     spiceUSBRedirection.enable = true;
   };
 
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
   users.users.iburley = {
-    extraGroups = [ "libvirtd" ];
+    extraGroups = [
+      "libvirtd"
+      "podman"
+    ];
   };
 
 }
