@@ -67,7 +67,7 @@
         "browser.compactmode.show" = true;
         "browser.newtabpage.activity-stream.system.showWeather" = false;
         "browser.newtabpage.activity-stream.topSitesRows" = 2;
-        "browser.newtabpage.pinned" = [
+        "browser.newtabpage.pinned" = builtins.toJSON [
           {
             label = "Reddit";
             url = "https://Reddit.com";
