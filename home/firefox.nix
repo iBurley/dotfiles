@@ -16,8 +16,11 @@
       DisplayBookmarksToolbar = "never";
       DisplayMenuBar = "default-off";
       EnableTrackingProtection = {
+        Category = "strict";
         Cryptomining = true;
+        EmailTracking = true;
         Fingerprinting = true;
+        SuspectedFingerprinting = true;
         Value = true;
       };
       EncryptedMediaExtensions.Enabled = true;
@@ -55,10 +58,62 @@
         Location.BlockNewRequests = true;
         Microphone.BlockNewRequests = true;
         Notifications.BlockNewRequests = true;
+        ScreenShare.BlockNewRequests = true;
         VirtualReality.BlockNewRequests = true;
       };
       PictureInPicture.Enabled = true;
       PopupBlocking.Default = true;
+      Preferences = {
+        "browser.compactmode.show" = true;
+        "browser.newtabpage.activity-stream.system.showWeather" = false;
+        "browser.newtabpage.activity-stream.topSitesRows" = 2;
+        "browser.newtabpage.pinned" = [
+          {
+            label = "Reddit";
+            url = "https://Reddit.com";
+          }
+          {
+            label = "YouTube";
+            url = "https://youtube.com/feed/subscriptions";
+          }
+          {
+            label = "Twitch";
+            url = "https://twitch.tv/directory/following/live";
+          }
+          {
+            label = "GitHub";
+            url = "https://github.com";
+          }
+          {
+            label = "Email";
+            url = "https://outlook.live.com";
+          }
+        ];
+        "browser.tabs.firefox-view" = false;
+        "browser.tabs.tabmanager.enabled" = false;
+        "browser.uidensity" = 1;
+        "browser.uiCustomization.state" = builtins.toJSON {
+          placements = {
+            nav-bar = [
+              "back-button"
+              "forward-button"
+              "stop-reload-button"
+              "home-button"
+              "urlbar-container"
+              "downloads-button"
+              "unified-extensions-button"
+            ];
+            TabsToolbar = [
+              "tabbrowser-tabs"
+              "new-tab-button"
+            ];
+          };
+          currentVersion = 20;
+        };
+        "general.autoScroll" = true;
+        "layers.acceleration.force-enabled" = true;
+        "media.hardware-video-decoding.force-enabled" = true;
+      };
       PrimaryPassword = false;
       RequestedLocales = "en-US";
       SearchBar = "unified";
@@ -140,59 +195,6 @@
       ShowHomeButton = true;
       SkipTermsOfUse = true;
       TranslateEnabled = true;
-    };
-    profiles.iBurley = {
-      settings = {
-        "browser.compactmode.show" = true;
-        "browser.newtabpage.activity-stream.system.showWeather" = false;
-        "browser.newtabpage.activity-stream.topSitesRows" = 2;
-        "browser.newtabpage.pinned" = [
-          {
-            label = "Reddit";
-            url = "https://Reddit.com";
-          }
-          {
-            label = "YouTube";
-            url = "https://youtube.com/feed/subscriptions";
-          }
-          {
-            label = "Twitch";
-            url = "https://twitch.tv/directory/following/live";
-          }
-          {
-            label = "GitHub";
-            url = "https://github.com";
-          }
-          {
-            label = "Email";
-            url = "https://outlook.live.com";
-          }
-        ];
-        "browser.tabs.firefox-view" = false;
-        "browser.tabs.tabmanager.enabled" = false;
-        "browser.uidensity" = 1;
-        "browser.uiCustomization.state" = builtins.toJSON {
-          placements = {
-            nav-bar = [
-              "back-button"
-              "forward-button"
-              "stop-reload-button"
-              "home-button"
-              "urlbar-container"
-              "downloads-button"
-              "unified-extensions-button"
-            ];
-            TabsToolbar = [
-              "tabbrowser-tabs"
-              "new-tab-button"
-            ];
-          };
-          currentVersion = 20;
-        };
-        "general.autoScroll" = true;
-        "layers.acceleration.force-enabled" = true;
-        "media.hardware-video-decoding.force-enabled" = true;
-      };
     };
   };
 
