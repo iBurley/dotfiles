@@ -9,15 +9,22 @@
     vimdiffAlias = true;
     defaultEditor = true;
     extraLuaConfig = ''
-      -- general
+      -- map leader
+      vim.g.mapleader = " "
+      vim.g.maplocalleader = " "
+      vim.opt.cursorline = true
       vim.opt.expandtab = true
+      vim.opt.ignorecase = true
+      vim.opt.number = true
+      vim.opt.relativenumber = true
+      vim.opt.scrolloff = 10
       vim.opt.shiftwidth = 2
+      vim.opt.showmode = false
+      vim.opt.smartcase = true
+      vim.opt.smartindent = true
       vim.opt.softtabstop = 2
       vim.opt.tabstop = 2
-      vim.opt.number = true
-      vim.opt.cursorline = true
-      vim.g.mapleader = " "
-      vim.opt.showmode = false
+      vim.opt.wrap = false
 
       -- colorscheme
       require("kanagawa").load("wave")
