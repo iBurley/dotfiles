@@ -5,7 +5,8 @@
   programs.bash = {
     promptInit = ''
       source ${pkgs.git}/share/git/contrib/completion/git-prompt.sh
-      PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 "  %s")'; PS1='\[\e[1;32m\]\w''${PS1_CMD1}\[\e[0m\] \[\e[1;32m\]󰅂\[\e[0m\] '
+      PROMPT_COLOR="1;32m"
+      PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 "  %s")'; PS1='\[\033['$PROMPT_COLOR'\]\w''${PS1_CMD1} 󰅂\[\033[0m\] '
     '';
     shellAliases = {
       xcopy = "xclip -i -selection clipboard";
