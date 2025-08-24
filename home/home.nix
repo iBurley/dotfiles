@@ -16,8 +16,11 @@
   programs.git = {
     enable = true;
     extraConfig.init = {
-      defaultBranch = "main";
       credential.helper = "store";
+      defaultBranch = "main";
+      ignores = [
+        "*.env"
+      ];
     };
     userEmail = "10081177+iBurley@users.noreply.github.com";
     userName = "iBurley";
