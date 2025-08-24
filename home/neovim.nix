@@ -61,7 +61,6 @@
     '';
     extraPackages = with pkgs; [
       gcc
-      git
     ];
     plugins = with pkgs.vimPlugins; [
       kanagawa-nvim

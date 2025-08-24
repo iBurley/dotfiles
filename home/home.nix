@@ -13,6 +13,13 @@
   home.username = "iburley";
   home.homeDirectory = "/home/iburley";
 
+  programs.git = {
+    enable = true;
+    extraConfig.init.defaultBranch = "main";
+    userEmail = "10081177+iBurley@users.noreply.github.com";
+    userName = "iBurley";
+  };
+
   xdg.configFile."user-dirs.dirs".force = true;
   xdg.userDirs = {
     enable = true;

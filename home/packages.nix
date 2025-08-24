@@ -9,7 +9,6 @@
       ffmpeg
       file-roller
       fragments
-      git
       gnome-boxes
       gnome-calculator
       gnome-calendar
