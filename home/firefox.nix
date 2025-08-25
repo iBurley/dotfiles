@@ -125,6 +125,12 @@
           IconURL = "https://wiki.archlinux.org/favicon.ico";
         }
         {
+          Name = "Docker Hub";
+          Alias = "@dh";
+          URLTemplate = "https://hub.docker.com/search?q={searchTerms}";
+          IconURL = "https://hub.docker.com/favicon.ico";
+        }
+        {
           Name = "Flathub";
           Alias = "@fh";
           URLTemplate = "https://flathub.org/apps/search?q={searchTerms}";
