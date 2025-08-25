@@ -27,10 +27,12 @@
       "-H 1080"
       "-r 144"
       "-f"
+      "--expose-wayland"
       "--force-grab-cursor"
+      "--hdr-enabled"
+      "--hdr-itm-enable"
       "--immediate-flips"
       "--rt"
-      "--expose-wayland"
     ];
   };
 
