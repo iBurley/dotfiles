@@ -37,7 +37,7 @@
       color-scheme = "prefer-dark";
       font-antialiasing = "rgba";
       font-hinting = "slight";
-      monospace-font-name = "MonaspiceAr Nerd Font Mono Medium 11";
+      monospace-font-name = "JetBrainsMono Nerd Font Mono Medium 11";
     };
     "org/gnome/desktop/peripherals/mouse" = {
       accel-profile = "flat";

@@ -26,7 +26,7 @@
       libreoffice
       loupe
       nautilus
-      nerd-fonts.monaspace
+      nerd-fonts.jetbrains-mono
       newsflash
       noto-fonts-emoji
       papers
