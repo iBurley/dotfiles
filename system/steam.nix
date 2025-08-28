@@ -9,8 +9,8 @@
     enable = true;
     settings = {
       general = {
-        desiredgov = "performance";
         renice = 10;
+        softrealtime = "auto";
       };
       gpu = {
         apply_gpu_optimisations = "accept-responsibility";
