@@ -19,6 +19,11 @@
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    noto-fonts-emoji
+  ];
+
   networking = {
     hostName = "desktop";
     networkmanager.enable = true;

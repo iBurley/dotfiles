@@ -6,9 +6,11 @@
     promptInit = ''
       source ${pkgs.git}/share/git/contrib/completion/git-prompt.sh
       PROMPT_COLOR="1;32m"
-      PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 "  %s")'; PS1='\[\033['$PROMPT_COLOR'\]\w''${PS1_CMD1} 󰅂\[\033[0m\] '
+      PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 "  %s")'; PS1='\[\033['$PROMPT_COLOR'\]\w''${PS1_CMD1} 󰅂\[\033[0m\] '
     '';
     shellAliases = {
+      flkup = "nix flake update --flake ~/.dotfiles";
+      nixrb = "sudo nixos-rebuild switch --flake ~/.dotfiles";
       xcopy = "xclip -i -selection clipboard";
       xpaste = "xclip -o -selection clipboard";
       yt-mp3 = "yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 --output '%(title)s.%(ext)s'";

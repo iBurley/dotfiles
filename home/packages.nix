@@ -26,9 +26,7 @@
       libreoffice
       loupe
       nautilus
-      nerd-fonts.jetbrains-mono
       newsflash
-      noto-fonts-emoji
       papers
       prismlauncher
       simple-scan
