@@ -39,19 +39,13 @@
       font-hinting = "slight";
       monospace-font-name = "JetBrainsMono Nerd Font Mono Medium 11";
     };
-    "org/gnome/desktop/peripherals/mouse" = {
-      accel-profile = "flat";
-    };
-    "org/gnome/desktop/privacy" = {
-      remember-recent-files = false;
-    };
+    "org/gnome/desktop/peripherals/mouse".accel-profile = "flat";
+    "org/gnome/desktop/privacy".remember-recent-files = false;
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
       edge-tiling = true;
     };
-    "org/gnome/nautilus/icon-view" = {
-      default-zoom-level = "small-plus";
-    };
+    "org/gnome/nautilus/icon-view".default-zoom-level = "small-plus";
     "org/gnome/shell" = {
       #app-picker-layout = []; # placeholder
       disable-user-extensions = true;

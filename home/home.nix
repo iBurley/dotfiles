@@ -18,9 +18,7 @@
     extraConfig.init = {
       credential.helper = "store";
       defaultBranch = "main";
-      ignores = [
-        "*.env"
-      ];
+      ignores = [ "*.env" ];
     };
     userEmail = "10081177+iBurley@users.noreply.github.com";
     userName = "iBurley";

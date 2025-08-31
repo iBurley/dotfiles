@@ -157,7 +157,7 @@
     ];
   };
 
-  xdg.desktopEntries."nvim" = {
+  xdg.desktopEntries.nvim = {
     name = "Neovim wrapper";
     noDisplay = true;
   };
