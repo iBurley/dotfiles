@@ -46,23 +46,11 @@
         folds = false;
         min_line_number_digits = 1;
       };
-      indent_guides = {
-        enabled = false;
-      };
-      project_panel = {
-        indent_guides = {
-          show = "never";
-        };
-      };
-      collaboration_panel = {
-        button = false;
-      };
-      chat_panel = {
-        button = "never";
-      };
-      notification_panel = {
-        button = false;
-      };
+      indent_guides.enabled = false;
+      project_panel.indent_guides.show = "never";
+      collaboration_panel.button = false;
+      chat_panel.button = "never";
+      notification_panel.button = false;
       show_call_status_icon = false;
       tabs = {
         git_status = true;
@@ -70,22 +58,15 @@
       };
       tab_size = 2;
       disable_ai = true;
+      git.inline_blame.enabled = false;
       terminal = {
-        toolbar = {
-          breadcrumbs = false;
-        };
+        toolbar.breadcrumbs = false;
         font_weight = 500;
       };
-      debugger = {
-        button = false;
-      };
+      debugger.button = false;
       languages = {
         Nix = {
-          formatter = {
-            external = {
-              command = "nixfmt";
-            };
-          };
+          formatter.external.command = "nixfmt";
           language_servers = [
             "nixd"
             "!nil"
