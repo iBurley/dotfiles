@@ -29,11 +29,18 @@
       vim.opt.undofile = true
       vim.opt.wrap = false
 
+      -- window nav
+      vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+      vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to bottom window" })
+      vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to top window" })
+      vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+
+      -- window split
+      vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { desc = "Split window vertically" })
+      vim.keymap.set("n", "<leader>sh", ":split<CR>", { desc = "Split window horizontally" })
+
       -- colorscheme
       require("kanagawa").load("wave")
-
-      -- icons
-      require('nvim-web-devicons').setup()
 
       -- git signs
       require('gitsigns').setup()
@@ -43,12 +50,13 @@
         options = {
           component_separators = { left = "", right = "" },
           section_separators = { left = "", right = "" },
+          icons_enabled = false,
         },
         sections = {
-          lualine_b = {
-            { 'branch', icon = "" }
-          }
-        }
+          lualine_x = {
+            { 'filetype' }
+          },
+        },
       })
 
       -- tree
@@ -110,6 +118,13 @@
       }
       vim.lsp.enable('nixd')
 
+      -- LSP diagnostic signs
+      local signs = { Error = "󰅚", Warn = "󰀪", Hint = "󰌶", Info = "" }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+      end
+
       -- format on save
       vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = "*.nix",
@@ -131,9 +146,6 @@
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
       vim.keymap.set("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
-
-      -- which-key
-      require('which-key').setup()
     '';
 
     extraPackages = with pkgs; [
@@ -150,10 +162,8 @@
       nvim-autopairs
       nvim-cmp
       nvim-treesitter.withAllGrammars
-      nvim-web-devicons
       telescope-file-browser-nvim
       telescope-nvim
-      which-key-nvim
     ];
   };
 
