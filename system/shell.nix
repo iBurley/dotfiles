@@ -1,14 +1,29 @@
-{ pkgs, ... }:
-
 {
 
   programs.bash = {
     promptInit = ''
-      source ${pkgs.git}/share/git/contrib/completion/git-prompt.sh
-      PROMPT_COLOR="1;32m"
-      PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 "  %s")'; PS1='\[\033['$PROMPT_COLOR'\]\w''${PS1_CMD1} 󰅂\[\033[0m\] '
+      GREEN_BOLD="\[\033[1;32m\]"
+      YELLOW_BOLD="\[\033[1;33m\]"
+      RESET="\[\033[0m\]"
+
+      ARROW_GLYPH="󰅂"
+
+      set_prompt() {
+        local git_branch=$(git branch 2>/dev/null | grep '^*' | cut -d' ' -f2-)
+        local git_section=""
+
+        if [[ -n "$git_branch" ]]; then
+          git_section=" ''${YELLOW_BOLD}''${git_branch}''${RESET}"
+        fi
+
+        PS1="''${GREEN_BOLD}\w''${RESET}''${git_section} ''${GREEN_BOLD}''${ARROW_GLYPH}''${RESET} "
+        printf "\033[6 q"
+      }
+
+      PROMPT_COMMAND='set_prompt'
     '';
     shellAliases = {
+      dots = "nvim ~/.dotfiles";
       flkup = "nix flake update --flake ~/.dotfiles";
       nixrb = "sudo nixos-rebuild switch --flake ~/.dotfiles";
       xcopy = "xclip -i -selection clipboard";
