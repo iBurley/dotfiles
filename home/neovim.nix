@@ -39,6 +39,72 @@
       vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { desc = "Split window vertically" })
       vim.keymap.set("n", "<leader>sh", ":split<CR>", { desc = "Split window horizontally" })
 
+      -- auto pairs
+      vim.keymap.set('i', '(', '()<Left>', { desc = 'Auto-close parentheses' })
+      vim.keymap.set('i', '{', '{}<Left>', { desc = 'Auto-close braces' })
+      vim.keymap.set('i', '[', '[]<Left>', { desc = 'Auto-close brackets' })
+      vim.keymap.set('i', '"', '""<Left>', { desc = 'Auto-close double quotes' })
+      vim.keymap.set('i', "'", "'''<Left>", { desc = 'Auto-close single quotes' })
+      vim.keymap.set('i', '(;', '();<Left><Left>', { desc = 'Auto-close parentheses with semicolon' })
+      vim.keymap.set('i', '{;', '{};<Left><Left>', { desc = 'Auto-close braces with semicolon' })
+      vim.keymap.set('i', '[;', '[];<Left><Left>', { desc = 'Auto-close brackets with semicolon' })
+
+      -- skip closing character if already present
+      vim.keymap.set('i', ')', function()
+        local col = vim.api.nvim_win_get_cursor(0)[2]
+        local line = vim.api.nvim_get_current_line()
+        local char = line:sub(col + 1, col + 1)
+        if char == ')' then
+          return '<Right>'
+        else
+          return ')'
+        end
+      end, { expr = true, desc = 'Skip or insert closing parenthesis' })
+
+      vim.keymap.set('i', '}', function()
+        local col = vim.api.nvim_win_get_cursor(0)[2]
+        local line = vim.api.nvim_get_current_line()
+        local char = line:sub(col + 1, col + 1)
+        if char == '}' then
+          return '<Right>'
+        else
+          return '}'
+        end
+      end, { expr = true, desc = 'Skip or insert closing brace' })
+
+      vim.keymap.set('i', ']', function()
+        local col = vim.api.nvim_win_get_cursor(0)[2]
+        local line = vim.api.nvim_get_current_line()
+        local char = line:sub(col + 1, col + 1)
+        if char == ']' then
+          return '<Right>'
+        else
+          return ']'
+        end
+      end, { expr = true, desc = 'Skip or insert closing bracket' })
+
+      -- delete pairs together with backspace
+      vim.keymap.set('i', '<BS>', function()
+        local col = vim.api.nvim_win_get_cursor(0)[2]
+        local line = vim.api.nvim_get_current_line()
+        local prev_char = line:sub(col, col)
+        local next_char = line:sub(col + 1, col + 1)
+
+        local pairs = {
+          ['('] = ')',
+          ['{'] = '}',
+          ['['] = ']',
+          ['"'] = '"',
+          ["'''"] = "'''"
+        }
+
+      if pairs[prev_char] and next_char == pairs[prev_char] then
+          return '<BS><Del>'
+        else
+          return '<BS>'
+        end
+      end, { expr = true, desc = 'Delete matching pairs' })
+
       -- colorscheme
       require("kanagawa").load("wave")
 
@@ -49,12 +115,23 @@
       require('lualine').setup({
         options = {
           component_separators = { left = "", right = "" },
-          section_separators = { left = "", right = "" },
-          icons_enabled = false,
+          section_separators = { left = "", right = "" }
         },
         sections = {
+          lualine_b = {
+            { 'branch', icon = "" },
+            { 'diff' },
+            { 'diagnostics',
+              symbols = {
+                error = ' ',
+                warn = ' ',
+                info = ' ',
+                hint = ' '
+              }
+            }
+          },
           lualine_x = {
-            { 'filetype' }
+            { 'filetype', icon = "" }
           },
         },
       })
@@ -67,37 +144,6 @@
           require("neo-tree.command").execute({ action = "show" })
         end
       })
-
-      -- completion
-      local cmp = require('cmp')
-      cmp.setup({
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'path' },
-          { name = 'buffer' },
-        }),
-        mapping = cmp.mapping.preset.insert({
-          ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
-        }),
-        formatting = {
-          format = function(entry, vim_item)
-            vim_item.menu = ({
-              nvim_lsp = "[LSP]",
-              buffer = "[Buffer]",
-              path = "[Path]",
-            })[entry.source.name]
-            return vim_item
-          end,
-        },
-      })
-
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       -- lsp config
       vim.lsp.config.nixd = {
@@ -118,12 +164,59 @@
       }
       vim.lsp.enable('nixd')
 
-      -- LSP diagnostic signs
-      local signs = { Error = "󰅚", Warn = "󰀪", Hint = "󰌶", Info = "" }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-      end
+      -- lsp diagnostic signs
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.HINT] = "",
+            [vim.diagnostic.severity.INFO] = ""
+          }
+        }
+      })
+
+      -- completion
+      vim.o.completeopt = "menuone,noinsert,noselect"
+
+      vim.keymap.set("i", "<C-Space>", function()
+        vim.fn.feedkeys(
+          vim.api.nvim_replace_termcodes("<C-x><C-o>", true, true, true),
+          "n"
+        )
+      end, { desc = "Trigger LSP completion" })
+
+      vim.keymap.set("i", "j", function()
+        if vim.fn.pumvisible() == 1 then
+          return "<C-n>"   -- move down
+        else
+          return "j"       -- insert literal j
+        end
+      end, { expr = true })
+
+      vim.keymap.set("i", "k", function()
+        if vim.fn.pumvisible() == 1 then
+          return "<C-p>"   -- move up
+        else
+          return "k"       -- insert literal k
+        end
+      end, { expr = true })
+
+      vim.keymap.set("i", "<CR>", function()
+        if vim.fn.pumvisible() == 1 then
+          return "<C-y>"   -- accept selected
+        else
+          return "<CR>"    -- normal Enter
+        end
+      end, { expr = true })
+
+      vim.keymap.set("i", "<Esc>", function()
+        if vim.fn.pumvisible() == 1 then
+          return "<C-e>"   -- cancel popup
+        else
+          return "<Esc>"
+        end
+      end, { expr = true })
 
       -- format on save
       vim.api.nvim_create_autocmd("BufWritePre", {
@@ -139,9 +232,6 @@
         indent = { enable = true },
       })
 
-      -- autopairs
-      require('nvim-autopairs').setup()
-
       -- telescope
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
@@ -154,13 +244,10 @@
     ];
 
     plugins = with pkgs.vimPlugins; [
-      cmp-nvim-lsp
       gitsigns-nvim
       kanagawa-nvim
       lualine-nvim
       neo-tree-nvim
-      nvim-autopairs
-      nvim-cmp
       nvim-treesitter.withAllGrammars
       telescope-file-browser-nvim
       telescope-nvim
