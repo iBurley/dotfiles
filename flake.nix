@@ -5,10 +5,6 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nautilus-scripts = {
-      url = "github:iBurley/nautilus-scripts";
-      flake = false;
-    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
   };
@@ -16,7 +12,6 @@
   outputs =
     {
       home-manager,
-      nautilus-scripts,
       nixpkgs,
       nixpkgs-unstable,
       ...
@@ -47,7 +42,7 @@
               useUserPackages = true;
               users.iburley = import ./home/home.nix;
               extraSpecialArgs = {
-                inherit nautilus-scripts pkgs-unstable;
+                inherit pkgs-unstable;
               };
             };
             nixpkgs.pkgs = pkgs;
