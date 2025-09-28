@@ -42,23 +42,23 @@ keymap("n", "<leader>gc", require("fzf-lua").git_commits, { desc = "Git commits"
 
 -- SPLITS
 keymap("n", "<leader>h", function()
-	vim.cmd("leftabove vsplit")
-	require("fzf-lua").files()
+  vim.cmd("leftabove vsplit")
+  require("fzf-lua").files()
 end, { desc = "Split left and open file picker" })
 
 keymap("n", "<leader>j", function()
-	vim.cmd("rightbelow split")
-	require("fzf-lua").files()
+  vim.cmd("rightbelow split")
+  require("fzf-lua").files()
 end, { desc = "Split down and open file picker" })
 
 keymap("n", "<leader>k", function()
-	vim.cmd("leftabove split")
-	require("fzf-lua").files()
+  vim.cmd("leftabove split")
+  require("fzf-lua").files()
 end, { desc = "Split up and open file picker" })
 
 keymap("n", "<leader>l", function()
-	vim.cmd("rightbelow vsplit")
-	require("fzf-lua").files()
+  vim.cmd("rightbelow vsplit")
+  require("fzf-lua").files()
 end, { desc = "Split right and open file picker" })
 
 -- COLORSCHEME
@@ -66,7 +66,7 @@ require("kanagawa").load("wave")
 
 -- AUTO PAIRS
 require("nvim-autopairs").setup({
-	check_ts = true,
+  check_ts = true,
 })
 
 -- GIT SIGNS
@@ -74,86 +74,86 @@ require("gitsigns").setup()
 
 -- STATUS LINE
 require("lualine").setup({
-	options = {
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
-	},
-	sections = {
-		lualine_b = {
-			{ "branch", icon = "" },
-			{ "diff" },
-		},
-		lualine_c = {
-			{ "filename" },
-			{
-				"diagnostics",
-				symbols = {
-					error = " ",
-					warn = " ",
-					hint = " ",
-					info = " ",
-				},
-			},
-		},
-		lualine_x = {
-			{ "filetype", icon = "" },
-		},
-	},
+  options = {
+    component_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
+  },
+  sections = {
+    lualine_b = {
+      { "branch", icon = "" },
+      { "diff" },
+    },
+    lualine_c = {
+      { "filename" },
+      {
+        "diagnostics",
+        symbols = {
+          error = " ",
+          warn = " ",
+          hint = " ",
+          info = " ",
+        },
+      },
+    },
+    lualine_x = {
+      { "filetype", icon = "" },
+    },
+  },
 })
 
 -- FILE TREE
 require("neo-tree").setup()
 
 vim.api.nvim_create_autocmd("VimEnter", {
-	desc = "Auto-open neo-tree on startup",
-	callback = function()
-		require("neo-tree.command").execute({ action = "show" })
-	end,
+  desc = "Auto-open neo-tree on startup",
+  callback = function()
+    require("neo-tree.command").execute({ action = "show" })
+  end,
 })
 
 -- TREESITTER
 require("nvim-treesitter.configs").setup({
-	highlight = { enable = true },
-	indent = { enable = true },
+  highlight = { enable = true },
+  indent = { enable = true },
 })
 
 -- DIAGNOSTICS
 vim.diagnostic.config({
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = "",
-			[vim.diagnostic.severity.WARN] = "",
-			[vim.diagnostic.severity.HINT] = "",
-			[vim.diagnostic.severity.INFO] = "",
-		},
-	},
-	virtual_text = {
-		prefix = "",
-		spacing = 2,
-	},
-	underline = true,
-	severity_sort = true,
-	float = {
-		focusable = false,
-		style = "minimal",
-		border = "rounded",
-		source = "if_many",
-		header = "",
-		prefix = "",
-	},
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.HINT] = "",
+      [vim.diagnostic.severity.INFO] = "",
+    },
+  },
+  virtual_text = {
+    prefix = "",
+    spacing = 2,
+  },
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "if_many",
+    header = "",
+    prefix = "",
+  },
 })
 
 -- COMPLETION
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 vim.api.nvim_create_autocmd("LspAttach", {
-	desc = "Enable completion when LSP attaches",
-	callback = function(event)
-		vim.lsp.completion.enable(true, event.data.client_id, event.buf, { autotrigger = true })
-	end,
+  desc = "Enable completion when LSP attaches",
+  callback = function(event)
+    vim.lsp.completion.enable(true, event.data.client_id, event.buf, { autotrigger = true })
+  end,
 })
 
 -- REQUIRE LSP
-require ('lsp.bashls')
-require ('lsp.luals')
-require ('lsp.nixd')
+require("lsp.bashls")
+require("lsp.luals")
+require("lsp.nixd")

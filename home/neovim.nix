@@ -22,7 +22,6 @@
       nixd
       nixfmt-rfc-style
       shfmt
-      stylua
     ];
 
     plugins = with pkgs.vimPlugins; [
