@@ -24,8 +24,6 @@
     '';
     shellAliases = {
       dots = "nvim ~/.dotfiles";
-      flkup = "nix flake update --flake ~/.dotfiles";
-      nixrb = "sudo nixos-rebuild switch --flake ~/.dotfiles";
       xcopy = "xclip -i -selection clipboard";
       xpaste = "xclip -o -selection clipboard";
       yt-mp3 = "yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 --output '%(title)s.%(ext)s'";
