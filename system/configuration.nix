@@ -4,6 +4,7 @@
 
   imports = [
     ./hardware-configuration.nix
+    ./ollama.nix
     ./shell.nix
     ./steam.nix
     ./virtualization.nix
