@@ -53,8 +53,6 @@
   };
   services.gnome.core-apps.enable = false;
 
-  services.flatpak.enable = true;
-
   services.printing.enable = true;
 
   services.clamav = {
