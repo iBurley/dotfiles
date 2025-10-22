@@ -6,8 +6,6 @@
       YELLOW_BOLD="\[\033[1;33m\]"
       RESET="\[\033[0m\]"
 
-      ARROW_GLYPH="󰅂"
-
       set_prompt() {
         local git_branch=$(git branch 2>/dev/null | grep '^*' | cut -d' ' -f2-)
         local git_section=""
@@ -16,7 +14,7 @@
           git_section=" ''${YELLOW_BOLD}''${git_branch}''${RESET}"
         fi
 
-        PS1="''${GREEN_BOLD}\w''${RESET}''${git_section} ''${GREEN_BOLD}''${ARROW_GLYPH}''${RESET} "
+        PS1="''${GREEN_BOLD}\w''${RESET}''${git_section} "
         printf "\033[6 q"
       }
 
