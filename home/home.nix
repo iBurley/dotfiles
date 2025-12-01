@@ -27,13 +27,15 @@
 
   programs.git = {
     enable = true;
-    extraConfig.init = {
-      credential.helper = "store";
-      defaultBranch = "main";
-      ignores = [ "*.env" ];
+    settings = {
+      init = {
+        credential.helper = "store";
+        defaultBranch = "main";
+        ignores = [ "*.env" ];
+      };
+      user.email = "10081177+iBurley@users.noreply.github.com";
+      user.name = "iBurley";
     };
-    userEmail = "10081177+iBurley@users.noreply.github.com";
-    userName = "iBurley";
   };
 
   xdg.configFile."user-dirs.dirs".force = true;

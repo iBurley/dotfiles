@@ -21,7 +21,7 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
-    noto-fonts-emoji
+    noto-fonts-color-emoji
   ];
 
   networking = {
@@ -46,19 +46,11 @@
 
   programs.nix-ld.enable = true;
 
-  services.xserver = {
-    enable = true;
-    desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
-  };
+  services.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
   services.gnome.core-apps.enable = false;
 
   services.printing.enable = true;
-
-  services.clamav = {
-    scanner.enable = true;
-    updater.enable = true;
-  };
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
