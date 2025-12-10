@@ -30,7 +30,7 @@
       prismlauncher
       simple-scan
       spotify
-      xclip
+      wl-clipboard
       yt-dlp
     ])
     ++ (with pkgs-unstable; [
