@@ -24,11 +24,22 @@
         Value = true;
       };
       EncryptedMediaExtensions.Enabled = true;
-      Extensions.Install = [
-        "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi"
-        "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
-        "https://addons.mozilla.org/firefox/downloads/latest/youtube_auto_like/latest.xpi"
-      ];
+      ExtensionSettings = {
+        "adguardadblocker@adguard.com" = {
+          installation_mode = "normal_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi";
+          private_browsing = true;
+        };
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+          installation_mode = "normal_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+          private_browsing = true;
+        };
+        "{21b3b6ae-1582-4db8-84b3-b6cc45a4a92c}" = {
+          installation_mode = "normal_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/youtube_auto_like/latest.xpi";
+        };
+      };
       FirefoxHome = {
         Highlights = false;
         Pocket = false;
@@ -45,6 +56,7 @@
         SponsoredSuggestions = false;
         WebSuggestions = false;
       };
+      GenerativeAI.Enabled = false;
       HardwareAcceleration = true;
       HttpsOnlyMode = "enabled";
       NoDefaultBookmarks = true;
