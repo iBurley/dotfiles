@@ -9,8 +9,13 @@
     enable = true;
     settings = {
       general = {
+        defaultgov = "schedutil";
+        desiredgov = "performance";
         renice = 10;
         softrealtime = "auto";
+      };
+      cpu = {
+        pin_cores = "yes";
       };
       gpu = {
         apply_gpu_optimisations = "accept-responsibility";
