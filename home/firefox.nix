@@ -35,6 +35,11 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
           private_browsing = true;
         };
+        "sponsorBlocker@ajay.app" = {
+          default_area = "menupanel";
+          installation_mode = "normal_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+        };
         "{21b3b6ae-1582-4db8-84b3-b6cc45a4a92c}" = {
           installation_mode = "normal_installed";
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/youtube_auto_like/latest.xpi";
