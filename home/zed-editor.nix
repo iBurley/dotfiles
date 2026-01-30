@@ -6,14 +6,19 @@
     enable = true;
     package = pkgs-unstable.zed-editor;
     extensions = [
+      "basher"
       "docker-compose"
       "html"
       "kanagawa"
+      "lua"
       "nix"
     ];
     extraPackages = with pkgs; [
       nixd
       nixfmt-rfc-style
+      shellcheck
+      shfmt
+      stylua
     ];
     userSettings = {
       theme = {
@@ -49,7 +54,6 @@
       indent_guides.enabled = false;
       project_panel.indent_guides.show = "never";
       collaboration_panel.button = false;
-      chat_panel.button = "never";
       notification_panel.button = false;
       show_call_status_icon = false;
       tabs = {
@@ -65,7 +69,23 @@
       };
       debugger.button = false;
       languages = {
+        Lua = {
+          format_on_save = "on";
+          formatter = {
+            external = {
+              command = "stylua";
+              arguments = [
+                "--syntax=LuaJIT"
+                "--respect-ignores"
+                "--stdin-filepath"
+                "{buffer_path}"
+                "-"
+              ];
+            };
+          };
+        };
         Nix = {
+          format_on_save = "on";
           formatter.external.command = "nixfmt";
           language_servers = [
             "nixd"
