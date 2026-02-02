@@ -33,6 +33,7 @@
       ui_font_family = "JetBrainsMono Nerd Font Mono";
       ui_font_weight = 500;
       ui_font_size = 14;
+      active_pane_modifiers.border_size = 1;
       # vim_mode = true;
       toolbar = {
         breadcrumbs = false;
