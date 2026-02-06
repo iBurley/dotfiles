@@ -14,9 +14,7 @@
         renice = 10;
         softrealtime = "auto";
       };
-      cpu = {
-        pin_cores = "yes";
-      };
+      cpu.pin_cores = "yes";
       gpu = {
         apply_gpu_optimisations = "accept-responsibility";
         gpu_device = 1;
@@ -27,6 +25,7 @@
 
   programs.gamescope = {
     enable = true;
+    capSysNice = true;
     args = [
       "-W 1920"
       "-H 1080"
@@ -34,8 +33,6 @@
       "-f"
       "--expose-wayland"
       "--force-grab-cursor"
-      "--hdr-enabled"
-      "--hdr-itm-enable"
       "--immediate-flips"
       "--rt"
     ];
@@ -43,8 +40,6 @@
 
   programs.steam.enable = true;
 
-  users.users.iburley = {
-    extraGroups = [ "gamemode" ];
-  };
+  users.users.iburley.extraGroups = [ "gamemode" ];
 
 }
