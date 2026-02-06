@@ -72,17 +72,15 @@
       languages = {
         Lua = {
           format_on_save = "on";
-          formatter = {
-            external = {
-              command = "stylua";
-              arguments = [
-                "--syntax=LuaJIT"
-                "--respect-ignores"
-                "--stdin-filepath"
-                "{buffer_path}"
-                "-"
-              ];
-            };
+          formatter.external = {
+            command = "stylua";
+            arguments = [
+              "--syntax=LuaJIT"
+              "--respect-ignores"
+              "--stdin-filepath"
+              "{buffer_path}"
+              "-"
+            ];
           };
         };
         Nix = {
@@ -95,15 +93,9 @@
         };
       };
       lsp.lua-language-server.settings.Lua = {
-        diagnostics = {
-          globals = [ "vim" ];
-        };
-        runtime = {
-          version = "LuaJIT";
-        };
-        telemetry = {
-          enable = false;
-        };
+        diagnostics.globals = [ "vim" ];
+        runtime.version = "LuaJIT";
+        telemetry.enable = false;
       };
     };
   };

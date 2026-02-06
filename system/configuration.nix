@@ -70,9 +70,7 @@
     isNormalUser = true;
   };
 
-  services.xserver.excludePackages = with pkgs; [
-    xterm
-  ];
+  services.xserver.excludePackages = with pkgs; [ xterm ];
 
   nix = {
     gc = {
