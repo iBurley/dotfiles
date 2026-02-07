@@ -1,18 +1,17 @@
 {
 
   virtualisation = {
-    libvirtd.enable = true;
-    libvirtd.qemu.swtpm.enable = true;
-    spiceUSBRedirection.enable = true;
-  };
-
-  virtualisation = {
-    containers.enable = true;
-    podman = {
+    libvirtd = {
       enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
+      qemu.swtpm.enable = true;
     };
+    spiceUSBRedirection.enable = true;
+    #containers.enable = true;
+    #podman = {
+    #  enable = true;
+    #  dockerCompat = true;
+    #  defaultNetwork.settings.dns_enabled = true;
+    #};
   };
 
   users.users.iburley = {
