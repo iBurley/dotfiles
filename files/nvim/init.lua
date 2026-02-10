@@ -102,7 +102,7 @@ require("lualine").setup({
 })
 
 -- FILE TREE
-require("neo-tree").setup()
+require("neo-tree").setup({})
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	desc = "Auto-open neo-tree on startup",
