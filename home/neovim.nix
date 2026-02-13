@@ -21,7 +21,9 @@
       lua-language-server
       nixd
       nixfmt-rfc-style
+      shellcheck
       shfmt
+      stylua
     ];
 
     plugins = with pkgs.vimPlugins; [

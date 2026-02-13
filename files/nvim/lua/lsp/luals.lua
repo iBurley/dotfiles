@@ -15,6 +15,7 @@ vim.lsp.config.lua_ls = {
 				library = vim.api.nvim_get_runtime_file("", true),
 				checkThirdParty = false,
 			},
+			format = { enable = false },
 			telemetry = {
 				enable = false,
 			},
@@ -28,6 +29,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	desc = "Format Lua files on save",
 	pattern = "*.lua",
 	callback = function()
-		vim.lsp.buf.format({ timeout_ms = 2000 })
+		vim.cmd("%!stylua -")
 	end,
 })

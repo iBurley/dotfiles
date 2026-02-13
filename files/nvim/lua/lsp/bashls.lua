@@ -6,6 +6,7 @@ vim.lsp.config.bashls = {
 	settings = {
 		bashIde = {
 			globPattern = "*@(.sh|.inc|.bash|.command)",
+			shellcheckPath = "shellcheck",
 		},
 	},
 }
@@ -14,8 +15,8 @@ vim.lsp.enable("bashls")
 -- FORMAT ON SAVE
 vim.api.nvim_create_autocmd("BufWritePre", {
 	desc = "Format Bash files on save",
-	pattern = "*.sh",
+	pattern = { "*.sh", "*.bash" },
 	callback = function()
-		vim.lsp.buf.format({ timeout_ms = 2000 })
+		vim.cmd("%!shfmt -i 2")
 	end,
 })
