@@ -10,11 +10,11 @@
     environmentVariables = {
       OLLAMA_FLASH_ATTENTION = "1";
       OLLAMA_GPU_LAYERS = "-1";
+      OLLAMA_KEEP_ALIVE = "0";
       OLLAMA_MAX_LOADED_MODELS = "1";
       OLLAMA_NUM_GPU = "1";
       OLLAMA_NUM_PARALLEL = "1";
     };
-    loadModels = [ "qwen3-vl:8b" ];
   };
 
   services.open-webui = {
