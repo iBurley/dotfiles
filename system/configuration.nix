@@ -3,7 +3,6 @@
 {
 
   imports = [
-    ./firefox.nix
     ./hardware-configuration.nix
     ./ollama.nix
     ./shell.nix
