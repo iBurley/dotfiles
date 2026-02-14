@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
 
   hardware.graphics = {
@@ -25,20 +27,26 @@
 
   programs.gamescope = {
     enable = true;
-    capSysNice = true;
     args = [
-      "-W 1920"
-      "-H 1080"
-      "-r 144"
-      "-f"
+      "--output-width 1920"
+      "--output-height 1080"
+      "--nested-refresh 144"
+      "--fullscreen"
       "--expose-wayland"
+      "--backend=sdl"
       "--force-grab-cursor"
       "--immediate-flips"
       "--rt"
     ];
   };
 
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    extraPackages = with pkgs; [
+      gamemode
+      gamescope
+    ];
+  };
 
   users.users.iburley.extraGroups = [ "gamemode" ];
 
