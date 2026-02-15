@@ -11,10 +11,12 @@
       DisableFirefoxStudies = true;
       DisableFormHistory = true;
       DisableMasterPasswordCreation = true;
+      DisableProfileImport = true;
       DisableSetDesktopBackground = true;
       DisableTelemetry = true;
       DisplayBookmarksToolbar = "never";
       DisplayMenuBar = "default-off";
+      DNSOverHTTPS.Enabled = false;
       EnableTrackingProtection = {
         Category = "strict";
         Cryptomining = true;
@@ -208,11 +210,24 @@
           IconURL = "https://stackoverflow.com/favicon.ico";
         }
         {
+          Name = "Wikipedia";
+          Alias = "@wk";
+          URLTemplate = "https://en.wikipedia.org/wiki/Special:Search?search={searchTerms}";
+          IconURL = "https://en.wikipedia.org/static/favicon/wikipedia.ico";
+        }
+        {
           Name = "YouTube";
           Alias = "@yt";
           URLTemplate = "https://www.youtube.com/results?search_query={searchTerms}";
           IconURL = "https://www.youtube.com/favicon.ico";
         }
+      ];
+      SearchEngines.Remove = [
+        "Amazon.com"
+        "Bing"
+        "eBay"
+        "Perplexity"
+        "Wikipedia (en)"
       ];
       SearchSuggestEnabled = false;
       ShowHomeButton = true;
