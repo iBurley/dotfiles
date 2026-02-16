@@ -34,6 +34,7 @@
       yt-dlp
     ])
     ++ (with pkgs-unstable; [
+      (alpaca.override { ollama = ollama-rocm; })
       (bottles.override { removeWarningPopup = true; })
     ]);
 

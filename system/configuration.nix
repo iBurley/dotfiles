@@ -4,10 +4,9 @@
 
   imports = [
     ./hardware-configuration.nix
-    ./ollama.nix
+    #./ollama.nix
     ./shell.nix
     ./steam.nix
-    ./virtualization.nix
   ];
 
   boot = {
@@ -62,9 +61,18 @@
     pulse.enable = true;
   };
 
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu.swtpm.enable = true;
+    };
+    spiceUSBRedirection.enable = true;
+  };
+
   users.users.iburley = {
     description = "iBurley";
     extraGroups = [
+      "libvirtd"
       "networkmanager"
       "wheel"
     ];
