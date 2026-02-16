@@ -21,11 +21,15 @@
       PROMPT_COMMAND='set_prompt'
     '';
     shellAliases = {
+      ls = "ls --color --group-directories-first";
+      myip = "curl -s4 https://icanhazip.com";
       yt-mp3 = "yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 --output '%(title)s.%(ext)s'";
     };
     interactiveShellInit = ''
+      export HISTIGNORE="&:[ ]*:clear:exit:history:ls:myip:nvim:pwd:top"
+
       yt-clip () {
-        yt-dlp -f "bv*[height<=1080]+ba" --download-sections "*$1-$2" $3 -q --no-warnings -P '~/Videos' -o 'Clip - %(title)s.%(ext)s' --remux-video mp4
+        yt-dlp -f "bv*[height<=1080]+ba/b[height<=1080]" --download-sections "*$1-$2" --force-keyframes-at-cuts --remux-video mp4 -q --no-warnings -P '~/Videos' -o 'Clip - %(title)s.%(ext)s' "$3"
       }
     '';
   };
