@@ -49,10 +49,7 @@
       };
       FirefoxHome = {
         Highlights = false;
-        Pocket = false;
         Search = false;
-        Snippets = false;
-        SponsoredPocket = false;
         SponsoredStories = false;
         SponsoredTopSites = false;
         Stories = false;
