@@ -47,7 +47,23 @@
 
   services.desktopManager.gnome.enable = true;
   services.displayManager.gdm.enable = true;
-  services.gnome.core-apps.enable = false;
+  environment.gnome.excludePackages = with pkgs; [
+    baobab
+    decibels
+    geary
+    gnome-characters
+    gnome-connections
+    gnome-contacts
+    gnome-disk-utility
+    gnome-maps
+    gnome-shell-extensions
+    gnome-tour
+    gnome-weather
+    seahorse
+    showtime
+    snapshot
+    yelp
+  ];
 
   services.printing.enable = true;
 
@@ -77,8 +93,6 @@
     ];
     isNormalUser = true;
   };
-
-  services.xserver.excludePackages = with pkgs; [ xterm ];
 
   nix = {
     gc = {
