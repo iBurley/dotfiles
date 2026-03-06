@@ -4,6 +4,7 @@
 
   imports = [
     ./hardware-configuration.nix
+    ./ptt.nix
     ./shell.nix
     ./steam.nix
   ];
