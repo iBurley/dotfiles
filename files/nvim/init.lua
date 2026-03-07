@@ -69,6 +69,9 @@ require("nvim-autopairs").setup({
 	check_ts = true,
 })
 
+-- Colorizer
+require("colorizer").setup()
+
 -- GIT SIGNS
 require("gitsigns").setup()
 

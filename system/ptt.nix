@@ -6,7 +6,6 @@ let
   offSound = "${pkgs.sound-theme-freedesktop}/share/sounds/freedesktop/stereo/dialog-information.oga";
 
   pttScript = pkgs.writeShellScriptBin "wayland-ptt" ''
-    set -e
     ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
 
     ${pkgs.evtest}/bin/evtest "${devicePath}" | while IFS= read -r line; do
@@ -24,10 +23,6 @@ let
 in
 {
 
-  services.udev.extraRules = ''
-    KERNEL=="event*", ATTRS{name}=="PCsensor FootSwitch", MODE="0660", GROUP="input"
-  '';
-
   systemd.user.services.wayland-ptt = {
     description = "System-wide Push-to-Talk";
     after = [
@@ -35,12 +30,10 @@ in
       "wireplumber.service"
     ];
     wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
 
     serviceConfig = {
       ExecStart = "${pttScript}/bin/wayland-ptt";
       Restart = "always";
-      RestartSec = 3;
     };
   };
 
