@@ -4,6 +4,7 @@
 
   home.packages =
     (with pkgs; [
+      dino
       discord
       ffmpeg
       file-roller
