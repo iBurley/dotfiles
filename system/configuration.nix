@@ -3,7 +3,9 @@
 {
 
   imports = [
+    ./firefox.nix
     ./hardware-configuration.nix
+    ./packages.nix
     ./ptt.nix
     ./shell.nix
     ./steam.nix
@@ -72,7 +74,6 @@
     fuzzel
     lazygit
     mako
-    nwg-look
     swayidle
     swaylock
     xwayland-satellite

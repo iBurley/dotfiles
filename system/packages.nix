@@ -2,13 +2,13 @@
 
 {
 
-  home.packages =
+  environment.systemPackages =
     (with pkgs; [
-      dino
       discord
       ffmpeg
       file-roller
       fragments
+      gajim
       gnome-boxes
       imagemagick
       libnotify
@@ -17,6 +17,7 @@
       prismlauncher
       spotify
       wl-clipboard
+      wl-screenrec
       yt-dlp
     ])
     ++ (with pkgs-unstable; [

@@ -2,10 +2,8 @@
 
   imports = [
     ./dconf.nix
-    ./firefox.nix
     ./mpv.nix
     ./neovim.nix
-    ./packages.nix
     ./zed-editor.nix
   ];
 
