@@ -1,3 +1,7 @@
+-- LEADER
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- KEYMAPS
 local keymap = vim.keymap.set
 keymap("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })

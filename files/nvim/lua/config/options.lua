@@ -1,7 +1,3 @@
--- LEADER KEYS
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- BASIC SETTINGS
 vim.opt.backup = false
 vim.opt.clipboard = "unnamedplus"
