@@ -23,19 +23,6 @@
       ../files/nautilus-scripts/upload-to-pastebin.sh;
   };
 
-  programs.git = {
-    enable = true;
-    settings = {
-      init = {
-        credential.helper = "store";
-        defaultBranch = "main";
-        ignores = [ "*.env" ];
-      };
-      user.email = "10081177+iBurley@users.noreply.github.com";
-      user.name = "iBurley";
-    };
-  };
-
   xdg.configFile."user-dirs.dirs".force = true;
   xdg.userDirs = {
     enable = true;

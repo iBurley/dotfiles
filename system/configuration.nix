@@ -5,6 +5,7 @@
   imports = [
     ./firefox.nix
     ./hardware-configuration.nix
+    #./neovim.nix
     ./packages.nix
     ./ptt.nix
     ./shell.nix
@@ -97,6 +98,18 @@
       qemu.swtpm.enable = true;
     };
     spiceUSBRedirection.enable = true;
+  };
+
+  programs.git = {
+    enable = true;
+    config = {
+      init.defaultBranch = "main";
+      credential.helper = "store";
+      user = {
+        name = "iBurley";
+        email = "10081177+iBurley@users.noreply.github.com";
+      };
+    };
   };
 
   users.users.iburley = {
