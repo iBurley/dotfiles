@@ -2,11 +2,9 @@
 
 {
 
-  home.file = {
-    ".config/nvim/init.lua".source = ../files/nvim/init.lua;
-    ".config/nvim/lua/lsp/bashls.lua".source = ../files/nvim/lua/lsp/bashls.lua;
-    ".config/nvim/lua/lsp/luals.lua".source = ../files/nvim/lua/lsp/luals.lua;
-    ".config/nvim/lua/lsp/nixd.lua".source = ../files/nvim/lua/lsp/nixd.lua;
+  home.file.".config/nvim/" = {
+    source = ../files/nvim;
+    recursive = true;
   };
 
   programs.neovim = {
