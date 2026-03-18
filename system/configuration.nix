@@ -5,7 +5,6 @@
   imports = [
     ./firefox.nix
     ./hardware-configuration.nix
-    #./neovim.nix
     ./packages.nix
     ./ptt.nix
     ./shell.nix
