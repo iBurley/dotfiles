@@ -2,21 +2,33 @@
 
 {
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+  # environment.systemPackages = with pkgs; [
+  #   openrazer-daemon
+  #   razer-cli
+  # ];
+
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+    # openrazer.enable = true;
   };
 
   programs.gamemode = {
     enable = true;
     settings = {
+      cpu.pin_cores = "yes";
+      # custom = {
+      #   start = "razer-cli --poll 8000"; - 8000hz not working
+      #   end = "razer-cli --poll 500";
+      # };
       general = {
         defaultgov = "schedutil";
         desiredgov = "performance";
         renice = 10;
         softrealtime = "auto";
       };
-      cpu.pin_cores = "yes";
       gpu = {
         apply_gpu_optimisations = "accept-responsibility";
         gpu_device = 1;
@@ -48,6 +60,9 @@
     ];
   };
 
-  users.users.iburley.extraGroups = [ "gamemode" ];
+  users.users.iburley.extraGroups = [
+    "gamemode"
+    # "openrazer"
+  ];
 
 }
