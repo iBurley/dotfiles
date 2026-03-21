@@ -9,9 +9,8 @@
     environmentVariables = {
       OLLAMA_FLASH_ATTENTION = "1";
       OLLAMA_KEEP_ALIVE = "5m";
-      OLLAMA_KV_CACHE_TYPE = "bf16";
       OLLAMA_MAX_LOADED_MODELS = "1";
-      OLLAMA_NUM_PARALLEL = "2";
+      OLLAMA_NUM_PARALLEL = "1";
     };
   };
 
