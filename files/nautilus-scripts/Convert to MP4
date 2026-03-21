@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Check if ffmpeg is installed
-if ! command -v ffmpeg &>/dev/null; then
+if ! command -v ffmpeg >/dev/null 2>&1; then
   notify-send -a "File Operation" "ffmpeg is not installed. Please install it to use this script."
   exit 1
 fi

@@ -1,16 +1,20 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Source API key from .env
 if [ -f "$HOME/.local/share/nautilus/scripts/.env" ]; then
-  source "$HOME/.local/share/nautilus/scripts/.env"
+  . "$HOME/.local/share/nautilus/scripts/.env"
 else
   notify-send -a "File Operation" "No .env file found. Please create one with your API key."
   exit 1
 fi
 
-# Check if curl is installed
-if ! command -v curl &>/dev/null; then
+# Check if curl and wl-copy are installed
+if ! command -v curl >/dev/null 2>&1; then
   notify-send -a "File Operation" "curl is not installed. Please install it to use this script."
+  exit 1
+fi
+if ! command -v wl-copy >/dev/null 2>&1; then
+  notify-send -a "File Operation" "wl-copy is not installed. Please install it to use this script."
   exit 1
 fi
 
@@ -23,6 +27,7 @@ for file in "$@"; do
   link=$(echo "$response" | grep -o '"link":"[^"]*' | cut -d'"' -f4)
 
   if [ -n "$link" ]; then
+    echo "$link" | wl-copy
     notify-send -a "File Operation" "Upload complete!"
     xdg-open "$link"
   else
