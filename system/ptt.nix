@@ -9,15 +9,18 @@ let
     ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
 
     ${pkgs.evtest}/bin/evtest "${devicePath}" | while IFS= read -r line; do
-      if [[ "$line" == *"(KEY_F24), value 1"* ]]; then
+      case "$line" in
+      *"(KEY_F24), value 1"*)
         ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
         ${pkgs.procps}/bin/pkill pw-play || true
         ${pkgs.pipewire}/bin/pw-play "${onSound}" &
-      elif [[ "$line" == *"(KEY_F24), value 0"* ]]; then
+        ;;
+      *"(KEY_F24), value 0"*)
         ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
         ${pkgs.procps}/bin/pkill pw-play || true
         ${pkgs.pipewire}/bin/pw-play "${offSound}" &
-      fi
+        ;;
+      esac
     done
   '';
 in
