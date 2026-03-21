@@ -5,18 +5,28 @@
     policies = {
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
+      BrowserDataBackup = {
+        AllowBackup = false;
+        AllowRestore = false;
+      };
+      CaptivePortal = false;
       Cookies.Behavior = "reject-tracker-and-partition-foreign";
       DisableBuiltinPDFViewer = true;
+      DisableFeedbackCommands = true;
       DisableFirefoxAccounts = true;
       DisableFirefoxStudies = true;
+      DisableForgetButton = true;
       DisableFormHistory = true;
-      DisableMasterPasswordCreation = true;
       DisableProfileImport = true;
       DisableSetDesktopBackground = true;
       DisableTelemetry = true;
       DisplayBookmarksToolbar = "never";
       DisplayMenuBar = "default-off";
-      DNSOverHTTPS.Enabled = false;
+      DNSOverHTTPS = {
+        Enabled = true;
+        Fallback = false;
+        ProviderURL = "https://dns.quad9.net/dns-query";
+      };
       EnableTrackingProtection = {
         Category = "strict";
         Cryptomining = true;
@@ -63,6 +73,11 @@
       GenerativeAI.Enabled = false;
       HardwareAcceleration = true;
       HttpsOnlyMode = "enabled";
+      InstallAddonsPermission = {
+        Default = false;
+        Allow = [ "https://addons.mozilla.org" ];
+      };
+      NetworkPrediction = false;
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
       OverrideFirstRunPage = "";
@@ -79,6 +94,7 @@
       };
       PictureInPicture.Enabled = true;
       PopupBlocking.Default = true;
+      PostQuantumKeyAgreementEnabled = true;
       Preferences = {
         "browser.compactmode.show" = true;
         "browser.newtabpage.activity-stream.system.showWeather" = false;
@@ -127,11 +143,20 @@
           currentVersion = 20;
         };
         "general.autoScroll" = true;
-        "layers.acceleration.force-enabled" = true;
+        "gfx.webrender.all" = true;
+        "media.ffmpeg.vaapi.enabled" = true;
         "media.hardware-video-decoding.force-enabled" = true;
+        "media.peerconnection.enabled" = false;
+        "privacy.globalprivacycontrol.enabled" = true;
+        "widget.dmabuf.force-enabled" = true;
       };
       PrimaryPassword = false;
       RequestedLocales = "en-US";
+      SanitizeOnShutdown = {
+        Cache = true;
+        Downloads = true;
+        FormData = true;
+      };
       SearchBar = "unified";
       SearchEngines.Add = [
         {
@@ -230,6 +255,14 @@
       ShowHomeButton = true;
       SkipTermsOfUse = true;
       TranslateEnabled = true;
+      UserMessaging = {
+        ExtensionRecommendations = false;
+        FeatureRecommendations = false;
+        UrlbarInterventions = false;
+        SkipOnboarding = true;
+        MoreFromMozilla = false;
+        FirefoxLabs = false;
+      };
     };
   };
 

@@ -20,7 +20,7 @@
     settings = {
       cpu.pin_cores = "yes";
       # custom = {
-      #   start = "razer-cli --poll 8000"; - 8000hz not working
+      #   start = "razer-cli --poll 8000"; # 8000hz not working
       #   end = "razer-cli --poll 500";
       # };
       general = {

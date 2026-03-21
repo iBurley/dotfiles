@@ -68,18 +68,6 @@
     yelp
   ];
 
-  programs.niri.enable = true;
-  environment.systemPackages = with pkgs; [
-    foot
-    fuzzel
-    lazygit
-    mako
-    swayidle
-    swaylock
-    xwayland-satellite
-    yazi
-  ];
-
   services.printing.enable = true;
 
   services.pulseaudio.enable = false;
