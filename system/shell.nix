@@ -28,6 +28,14 @@
     interactiveShellInit = ''
       export HISTIGNORE="&:[ ]*:clear:exit:history:ls:myip:nvim:pwd:top"
 
+      gpt() {
+        ollama run gpt-oss:20b --hidethinking "$@" | glow
+      }
+
+      qwen() {
+        ollama run qwen3.5:9b --hidethinking "$@" | glow
+      }
+
       yt-clip () {
         yt-dlp -f "bv*[height<=1080]+ba/b[height<=1080]" --download-sections "*$1-$2" --force-keyframes-at-cuts --remux-video mp4 -q --no-warnings -P '~/Videos' -o 'Clip - %(title)s.%(ext)s' "$3"
       }

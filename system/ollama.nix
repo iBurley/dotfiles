@@ -1,6 +1,8 @@
-{ pkgs-unstable, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
+
+  environment.systemPackages = with pkgs; [ glow ];
 
   services.ollama = {
     enable = true;
@@ -14,12 +16,12 @@
     };
   };
 
-  services.open-webui = {
-    enable = true;
-    environment = {
-      OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
-      WEBUI_AUTH = "False";
-    };
-  };
+  # services.open-webui = {
+  #   enable = true;
+  #   environment = {
+  #     OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
+  #     WEBUI_AUTH = "False";
+  #   };
+  # };
 
 }
