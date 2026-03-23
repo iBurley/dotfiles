@@ -9,9 +9,9 @@
       "basher"
       "docker-compose"
       "html"
-      "kanagawa"
       "lua"
       "nix"
+      "vague"
     ];
     extraPackages = with pkgs; [
       nixd
@@ -23,8 +23,7 @@
     userSettings = {
       theme = {
         mode = "system";
-        light = "Kanagawa Lotus";
-        dark = "Kanagawa Wave";
+        dark = "Vague";
       };
       buffer_font_family = "JetBrainsMono Nerd Font Mono";
       buffer_font_size = 12;

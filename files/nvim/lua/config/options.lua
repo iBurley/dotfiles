@@ -8,6 +8,7 @@ vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.incsearch = true
 vim.opt.number = true
+vim.opt.pumheight = 10
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 10
 vim.opt.shiftwidth = 2

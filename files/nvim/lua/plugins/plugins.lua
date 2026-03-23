@@ -4,10 +4,22 @@ require("nvim-autopairs").setup({
 })
 
 -- COLORIZER
-require("colorizer").setup()
-
--- COLORSCHEME
-require("kanagawa").load("wave")
+require("colorizer").setup({
+	filetypes = { "*" },
+	options = {
+		parsers = {
+			names = { enable = false },
+		},
+		display = {
+			mode = "virtualtext",
+			virtualtext = {
+				char = "■",
+				position = "after",
+				hl_mode = "foreground",
+			},
+		},
+	},
+})
 
 -- GIT SIGNS
 require("gitsigns").setup()
@@ -49,3 +61,7 @@ require("nvim-treesitter.configs").setup({
 	highlight = { enable = true },
 	indent = { enable = true },
 })
+
+-- VAGUE
+require("vague").setup()
+vim.cmd("colorscheme vague")

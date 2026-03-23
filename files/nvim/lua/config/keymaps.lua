@@ -37,3 +37,22 @@ keymap("n", "<leader>l", function()
 	vim.cmd("rightbelow vsplit")
 	require("fzf-lua").files()
 end, { desc = "Split right and open file picker" })
+
+-- COMPLETION
+keymap("i", "<Tab>", function()
+	if vim.fn.pumvisible() == 1 then
+		return "<C-n>"
+	end
+	local col = vim.fn.col(".") - 1
+	if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+		return "<Tab>"
+	end
+	return "<Tab>"
+end, { expr = true, desc = "Smart Tab completion/indent" })
+
+keymap("i", "<S-Tab>", function()
+	if vim.fn.pumvisible() == 1 then
+		return "<C-p>"
+	end
+	return "<C-d>"
+end, { expr = true, desc = "Backwards completion or outdent" })
