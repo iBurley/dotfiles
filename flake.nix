@@ -1,19 +1,19 @@
 {
 
   inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
   outputs =
     {
-      home-manager,
       nixpkgs,
       nixpkgs-unstable,
+      home-manager,
       ...
     }:
     let
@@ -30,9 +30,7 @@
     {
       nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = {
-          inherit pkgs-unstable;
-        };
+        specialArgs = { inherit pkgs-unstable; };
         modules = [
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
@@ -41,9 +39,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.iburley = import ./home/home.nix;
-              extraSpecialArgs = {
-                inherit pkgs-unstable;
-              };
+              extraSpecialArgs = { inherit pkgs-unstable; };
             };
             nixpkgs.pkgs = pkgs;
           }

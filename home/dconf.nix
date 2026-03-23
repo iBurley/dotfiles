@@ -3,12 +3,10 @@
 {
 
   dconf.settings = {
-    "org/gnome/desktop/app-folders" = {
-      folder-children = [
-        "Office"
-        "Utilities"
-      ];
-    };
+    "org/gnome/desktop/app-folders".folder-children = [
+      "Office"
+      "Utilities"
+    ];
     "org/gnome/desktop/app-folders/folders/Office" = {
       apps = [
         "startcenter.desktop"
@@ -72,9 +70,7 @@
       dynamic-workspaces = true;
       edge-tiling = true;
     };
-    "org/gnome/mutter/wayland/keybindings" = {
-      restore-shortcuts = [ ];
-    };
+    "org/gnome/mutter/wayland/keybindings".restore-shortcuts = [ ];
     "org/gnome/nautilus/icon-view".default-zoom-level = "small-plus";
     "org/gnome/settings-daemon/plugins/media-keys" = {
       help = [ ];
@@ -84,7 +80,6 @@
       screenreader = [ ];
     };
     "org/gnome/shell" = {
-      #app-picker-layout = []; # placeholder
       disable-user-extensions = true;
       favorite-apps = [
         "firefox.desktop"

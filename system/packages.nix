@@ -4,11 +4,13 @@
 
   environment.systemPackages =
     (with pkgs; [
+      alacritty
       discord
       ffmpeg
       file-roller
       fragments
       gajim
+      ghostty
       gnome-boxes
       imagemagick
       libnotify
