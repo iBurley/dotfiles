@@ -232,6 +232,12 @@
           IconURL = "https://stackoverflow.com/favicon.ico";
         }
         {
+          Name = "Steam";
+          Alias = "@st";
+          URLTemplate = "https://store.steampowered.com/search?term={searchTerms}";
+          IconURL = "https://store.steampowered.com/favicon.ico";
+        }
+        {
           Name = "Wikipedia";
           Alias = "@wk";
           URLTemplate = "https://en.wikipedia.org/wiki/Special:Search?search={searchTerms}";
