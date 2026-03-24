@@ -7,11 +7,11 @@
       RESET="\[\033[0m\]"
 
       set_prompt() {
-        local git_branch=$(git branch 2>/dev/null | grep '^*' | cut -d' ' -f2-)
-        local git_section=""
+        local git_branch git_section
 
-        if [[ -n "$git_branch" ]]; then
-          git_section=" ''${YELLOW_BOLD}''${git_branch}''${RESET}"
+        if [[ -f .git/HEAD ]]; then
+          read -r git_branch < .git/HEAD
+          git_section=" ''${YELLOW_BOLD}''${git_branch##*/}''${RESET}"
         fi
 
         PS1="''${GREEN_BOLD}\w''${RESET}''${git_section} "
