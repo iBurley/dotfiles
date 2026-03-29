@@ -15,6 +15,8 @@
       imagemagick
       libnotify
       libreoffice
+      libspelling
+      mumble
       newsflash
       prismlauncher
       spotify
