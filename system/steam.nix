@@ -2,27 +2,15 @@
 
 {
 
-  # environment.systemPackages = with pkgs; [
-  #   openrazer-daemon
-  #   razer-cli
-  # ];
-
-  hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-    # openrazer.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
 
   programs.gamemode = {
     enable = true;
     settings = {
       cpu.pin_cores = "yes";
-      # custom = {
-      #   start = "razer-cli --poll 8000"; # 8000hz not working
-      #   end = "razer-cli --poll 500";
-      # };
       general = {
         defaultgov = "schedutil";
         desiredgov = "performance";
@@ -62,7 +50,6 @@
 
   users.users.iburley.extraGroups = [
     "gamemode"
-    # "openrazer"
   ];
 
 }
