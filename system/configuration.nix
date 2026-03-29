@@ -4,12 +4,12 @@
 
   imports = [
     ./firefox.nix
-    ./gaming.nix
     ./hardware-configuration.nix
     ./ollama.nix
     ./packages.nix
     ./ptt.nix
     ./shell.nix
+    ./steam.nix
   ];
 
   boot = {
