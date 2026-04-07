@@ -74,8 +74,8 @@
       HardwareAcceleration = true;
       HttpsOnlyMode = "enabled";
       InstallAddonsPermission = {
+        Allow = [ "https://addons.mozilla.org" ]; # not working
         Default = false;
-        Allow = [ "https://addons.mozilla.org" ];
       };
       NetworkPrediction = false;
       NoDefaultBookmarks = true;

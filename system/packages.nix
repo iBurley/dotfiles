@@ -10,12 +10,10 @@
       file-roller
       fragments
       gajim
-      ghostty
       gnome-boxes
       imagemagick
       libnotify
       libreoffice
-      libspelling
       mumble
       newsflash
       prismlauncher
@@ -27,6 +25,7 @@
     ++ (with pkgs-unstable; [
       # (alpaca.override { ollama = ollama-rocm; })
       (bottles.override { removeWarningPopup = true; })
+      foot
     ]);
 
 }
