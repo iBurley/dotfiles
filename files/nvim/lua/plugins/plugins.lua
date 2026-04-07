@@ -4,22 +4,7 @@ require("nvim-autopairs").setup({
 })
 
 -- COLORIZER
-require("colorizer").setup({
-	filetypes = { "*" },
-	options = {
-		parsers = {
-			names = { enable = false },
-		},
-		display = {
-			mode = "virtualtext",
-			virtualtext = {
-				char = "■",
-				position = "after",
-				hl_mode = "foreground",
-			},
-		},
-	},
-})
+require("colorizer").setup()
 
 -- GIT SIGNS
 require("gitsigns").setup()
@@ -35,8 +20,7 @@ require("lualine").setup({
 			{ "branch", icon = "" },
 			{ "diff" },
 		},
-		lualine_c = {
-			{ "filename" },
+		lualine_x = {
 			{
 				"diagnostics",
 				symbols = {
@@ -46,8 +30,6 @@ require("lualine").setup({
 					info = " ",
 				},
 			},
-		},
-		lualine_x = {
 			{ "filetype", icon = "" },
 		},
 	},
