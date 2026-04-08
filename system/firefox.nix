@@ -3,6 +3,7 @@
   programs.firefox = {
     enable = true;
     policies = {
+      AIControls.Default.Value = "blocked";
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
       BrowserDataBackup = {
@@ -77,6 +78,7 @@
         Allow = [ "https://addons.mozilla.org" ]; # not working
         Default = false;
       };
+      IPProtectionAvailable = false;
       NetworkPrediction = false;
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
