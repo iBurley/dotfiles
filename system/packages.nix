@@ -4,7 +4,6 @@
 
   environment.systemPackages =
     (with pkgs; [
-      alacritty
       discord
       ffmpeg
       file-roller
@@ -19,13 +18,10 @@
       prismlauncher
       spotify
       wl-clipboard
-      wl-screenrec
       yt-dlp
     ])
     ++ (with pkgs-unstable; [
-      # (alpaca.override { ollama = ollama-rocm; })
       (bottles.override { removeWarningPopup = true; })
-      foot
     ]);
 
 }
