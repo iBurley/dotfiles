@@ -38,6 +38,9 @@ require("lualine").setup({
 -- NEO-TREE
 require("neo-tree").setup({})
 
+-- RENDER MARKDOWN
+require("render-markdown").enable()
+
 -- TREESITTER
 require("nvim-treesitter.configs").setup({
 	highlight = { enable = true },

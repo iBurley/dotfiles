@@ -27,12 +27,12 @@
     plugins = with pkgs.vimPlugins; [
       fzf-lua
       gitsigns-nvim
-      # kanagawa-nvim
       lualine-nvim
       neo-tree-nvim
       nvim-autopairs
       nvim-colorizer-lua
       nvim-treesitter.withAllGrammars
+      render-markdown-nvim
       vague-nvim
     ];
   };
