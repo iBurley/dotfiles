@@ -246,6 +246,12 @@
           IconURL = "https://en.wikipedia.org/static/favicon/wikipedia.ico";
         }
         {
+          Name = "Wolfram Alpha";
+          Alias = "@wa";
+          URLTemplate = "https://www.wolframalpha.com/input?i={searchTerms}";
+          IconURL = "https://www.wolframalpha.com/_next/static/images/favicon_b48d893b991ff67016124a4d51822e63.ico";
+        }
+        {
           Name = "YouTube";
           Alias = "@yt";
           URLTemplate = "https://www.youtube.com/results?search_query={searchTerms}";
