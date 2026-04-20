@@ -20,6 +20,7 @@
     tmp.cleanOnBoot = true;
   };
 
+  systemd.services.ModemManager.enable = false;
   systemd.services.NetworkManager-wait-online.enable = false;
 
   fonts.packages = with pkgs; [
@@ -69,7 +70,10 @@
     yelp
   ];
 
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    startWhenNeeded = true;
+  };
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
