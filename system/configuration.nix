@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
 
@@ -52,6 +52,7 @@
 
   services.desktopManager.gnome.enable = true;
   services.displayManager.gdm.enable = true;
+  services.geoclue2.enable = false;
   environment.gnome.excludePackages = with pkgs; [
     baobab
     decibels
@@ -91,6 +92,8 @@
     };
     spiceUSBRedirection.enable = true;
   };
+  systemd.services.libvirtd.wantedBy = lib.mkForce [ ];
+  systemd.services.libvirtd-config.wantedBy = lib.mkForce [ ];
 
   programs.git = {
     enable = true;
@@ -130,9 +133,8 @@
   nix = {
     gc = {
       automatic = true;
-      dates = "daily";
+      dates = "weekly";
       options = "--delete-older-than 7d";
-      persistent = true;
     };
     optimise.automatic = true;
     settings = {

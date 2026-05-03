@@ -1,8 +1,6 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs-unstable, ... }:
 
 {
-
-  environment.systemPackages = with pkgs; [ glow ];
 
   services.ollama = {
     enable = true;

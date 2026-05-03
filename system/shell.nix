@@ -28,12 +28,10 @@
     interactiveShellInit = ''
       export HISTIGNORE="&:[ ]*:clear:exit:history:ls:myip:nvim:pwd:top"
 
-      gpt() {
-        ollama run gpt-oss:20b --hidethinking "$@" | glow
-      }
-
-      qwen() {
-        ollama run qwen3.5:9b --hidethinking "$@" | glow
+      llm () {
+        prompt="$* Be concise but complete."
+        [ ! -t 0 ] && prompt="$(cat) $prompt"
+        curl -s http://localhost:11434/api/generate -d "$(jq -n --arg p "$prompt" '{model:"gemma4:e4b",prompt:$p,stream:false}')" | jq -r '.response' | glow
       }
 
       yt-clip () {

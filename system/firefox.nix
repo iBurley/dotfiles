@@ -43,6 +43,11 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi";
           private_browsing = true;
         };
+        "adguard-extra@adguard.com" = {
+          installation_mode = "normal_installed";
+          install_url = "https://agrd.io/adguard_extra_firefox_release";
+          private_browsing = true;
+        };
         "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
           installation_mode = "normal_installed";
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";

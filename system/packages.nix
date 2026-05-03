@@ -9,8 +9,10 @@
       file-roller
       fragments
       gajim
+      glow
       gnome-boxes
       imagemagick
+      jq
       libnotify
       libreoffice
       mumble
@@ -21,7 +23,7 @@
       yt-dlp
     ])
     ++ (with pkgs-unstable; [
-      (bottles.override { removeWarningPopup = true; })
+      # (bottles.override { removeWarningPopup = true; })
     ]);
 
 }
