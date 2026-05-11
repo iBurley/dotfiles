@@ -8,7 +8,6 @@
   programs.gamemode = {
     enable = true;
     settings = {
-      cpu.pin_cores = "yes";
       general = {
         desiredgov = "performance";
         renice = 10;

@@ -22,8 +22,8 @@
     ];
     userSettings = {
       theme = {
-        mode = "system";
         dark = "Vague";
+        light = "Vague";
       };
       buffer_font_family = "JetBrainsMono Nerd Font Mono";
       buffer_font_size = 12;
@@ -46,27 +46,29 @@
       };
       gutter = {
         runnables = false;
+        bookmarks = false;
         breakpoints = false;
         folds = false;
         min_line_number_digits = 1;
       };
-      indent_guides.enabled = false;
-      project_panel.indent_guides.show = "never";
+      project_panel.dock = "left";
+      outline_panel.dock = "left";
       collaboration_panel.button = false;
-      notification_panel.button = false;
+      git_panel.dock = "left";
       show_call_status_icon = false;
       tabs = {
         git_status = true;
-        file_icons = true;
       };
       tab_size = 2;
+      telemetry = {
+        diagnostics = false;
+        metrics = false;
+      };
       disable_ai = true;
       git.inline_blame.enabled = false;
       terminal = {
-        toolbar.breadcrumbs = false;
         font_weight = 500;
       };
-      debugger.button = false;
       languages = {
         Lua = {
           format_on_save = "on";
@@ -95,6 +97,7 @@
         runtime.version = "LuaJIT";
         telemetry.enable = false;
       };
+      debugger.button = false;
     };
   };
 
