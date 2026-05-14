@@ -5,14 +5,6 @@
   programs.zed-editor = {
     enable = true;
     package = pkgs-unstable.zed-editor;
-    extensions = [
-      "basher"
-      "docker-compose"
-      "html"
-      "lua"
-      "nix"
-      "vague"
-    ];
     extraPackages = with pkgs; [
       nixd
       nixfmt-rfc-style
@@ -68,6 +60,14 @@
       git.inline_blame.enabled = false;
       terminal = {
         font_weight = 500;
+      };
+      auto_install_extensions = {
+        "basher" = true;
+        "docker-compose" = true;
+        "html" = true;
+        "lua" = true;
+        "nix" = true;
+        "vague" = true;
       };
       languages = {
         Lua = {
