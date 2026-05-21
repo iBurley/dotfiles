@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
 
   hardware.graphics = {
@@ -35,10 +37,13 @@
       "--immediate-flips"
     ];
     # capSysNice = true; # broken currently
-    env.SDL_VIDEODRIVER = "x11";
+    env.SDL_VIDEODRIVER = "x11"; # workaround for GNOME
   };
 
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+  };
 
   users.users.iburley.extraGroups = [
     "gamemode"

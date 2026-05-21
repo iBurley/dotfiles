@@ -5,7 +5,7 @@
   imports = [
     ./firefox.nix
     ./hardware-configuration.nix
-    ./ollama.nix
+    # ./ollama.nix
     ./packages.nix
     ./ptt.nix
     ./shell.nix
@@ -70,6 +70,11 @@
     snapshot
     yelp
   ];
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
 
   services.printing = {
     enable = true;
