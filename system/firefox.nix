@@ -153,7 +153,8 @@
         "gfx.webrender.all" = true;
         "media.ffmpeg.vaapi.enabled" = true;
         "media.hardware-video-decoding.force-enabled" = true;
-        "media.peerconnection.enabled" = false;
+        "media.peerconnection.ice.default_address_only" = true;
+        "media.peerconnection.ice.no_host" = true;
         "privacy.globalprivacycontrol.enabled" = true;
         "widget.dmabuf.force-enabled" = true;
       };

@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -97,14 +97,12 @@
     };
     spiceUSBRedirection.enable = true;
   };
-  systemd.services.libvirtd.wantedBy = lib.mkForce [ ];
-  systemd.services.libvirtd-config.wantedBy = lib.mkForce [ ];
 
   programs.git = {
     enable = true;
     config = {
       init.defaultBranch = "main";
-      credential.helper = "store";
+      credential.helper = "${pkgs.gitFull}/libexec/git-core/git-credential-libsecret";
       user = {
         name = "iBurley";
         email = "10081177+iBurley@users.noreply.github.com";
