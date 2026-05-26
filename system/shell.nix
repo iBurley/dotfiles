@@ -28,12 +28,6 @@
     interactiveShellInit = ''
       export HISTIGNORE="&:[ ]*:clear:exit:history:ls:myip:nvim:pwd:top"
 
-      llm () {
-        local prompt="$* Be concise but complete."
-        [[ ! -t 0 ]] && prompt="$(cat) $prompt"
-        curl -s http://localhost:11434/api/generate -d "$(jq -nc --arg p "$prompt" --arg m "gemma4:e4b" '{model:$m,prompt:$p,stream:false}')" | jq -r '.response' | glow
-      }
-
       yt-clip () {
         yt-dlp -f "bv*[height<=1080]+ba/b[height<=1080]" --download-sections "*$1-$2" --force-keyframes-at-cuts --remux-video mp4 -q --no-warnings -P '~/Videos' -o 'Clip - %(title)s.%(ext)s' "$3"
       }

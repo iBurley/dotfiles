@@ -1,6 +1,19 @@
-{ pkgs-unstable, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
+
+  environment.systemPackages = with pkgs; [
+    jq
+    glow
+  ];
+
+  programs.bash.interactiveShellInit = ''
+    llm () {
+      local prompt="$* Be concise but complete."
+      [[ ! -t 0 ]] && prompt="$(cat) $prompt"
+      curl -s http://localhost:11434/api/generate -d "$(jq -nc --arg p "$prompt" --arg m "gemma4:e4b" '{model:$m,prompt:$p,stream:false}')" | jq -r '.response' | glow
+    }
+  '';
 
   services.ollama = {
     enable = true;

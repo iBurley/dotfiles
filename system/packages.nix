@@ -7,15 +7,12 @@
       ffmpeg
       file-roller
       fragments
-      glow
       gnome-boxes
       imagemagick
-      jq
       libnotify
       libreoffice
       newsflash
       prismlauncher
-      spotify
       wl-clipboard
       yt-dlp
     ])

@@ -5,10 +5,11 @@
   imports = [
     ./firefox.nix
     ./hardware-configuration.nix
-    # ./ollama.nix
+    ./ollama.nix
     ./packages.nix
     ./ptt.nix
     ./shell.nix
+    ./spotify.nix
     ./steam.nix
   ];
 
