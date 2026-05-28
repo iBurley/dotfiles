@@ -7,12 +7,18 @@
       RESET="\[\033[0m\]"
 
       set_prompt() {
-        local git_branch git_section
+        local dir="$PWD" ref git_section=""
 
-        if [[ -f .git/HEAD ]]; then
-          read -r git_branch < .git/HEAD
-          git_section=" ''${YELLOW_BOLD}''${git_branch##*/}''${RESET}"
-        fi
+        while [ -n "$dir" ]; do
+          if [ -f "$dir/.git/HEAD" ]; then
+            read -r ref < "$dir/.git/HEAD"
+            case "$ref" in
+              ref:*) git_section=" ''${YELLOW_BOLD}''${ref##*/}''${RESET}" ;;
+            esac
+            break
+          fi
+          dir=''${dir%/*}
+        done
 
         PS1="''${GREEN_BOLD}\w''${RESET}''${git_section} "
         printf "\033[6 q"

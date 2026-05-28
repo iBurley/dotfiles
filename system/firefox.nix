@@ -180,10 +180,16 @@
           IconURL = "https://hub.docker.com/favicon.ico";
         }
         {
+          Name = "Emojipedia";
+          Alias = "@ep";
+          URLTemplate = "https://emojipedia.org/en/search?q={searchTerms}";
+          IconURL = "https://emojipedia.org/favicon.ico";
+        }
+        {
           Name = "Flathub";
           Alias = "@fh";
           URLTemplate = "https://flathub.org/apps/search?q={searchTerms}";
-          IconURL = "https://flathub.org/favicon.png";
+          IconURL = "https://flathub.org/favicon.ico";
         }
         {
           Name = "GitHub";
@@ -196,6 +202,18 @@
           Alias = "@gn";
           URLTemplate = "https://github.com/search?q=language%3ANix+NOT+is%3Afork+{searchTerms}&type=code";
           IconURL = "https://github.com/favicon.ico";
+        }
+        {
+          Name = "Google Maps";
+          Alias = "@gm";
+          URLTemplate = "https://www.google.com/maps/search/{searchTerms}";
+          IconURL = "https://www.google.com/images/branding/product/ico/maps_32dp.ico";
+        }
+        {
+          Name = "Google Search";
+          Alias = "@go";
+          URLTemplate = "https://www.google.com/search?q={searchTerms}";
+          IconURL = "https://www.google.com/favicon.ico";
         }
         {
           Name = "Home Manager";
@@ -249,7 +267,7 @@
           Name = "Wikipedia";
           Alias = "@wk";
           URLTemplate = "https://en.wikipedia.org/wiki/Special:Search?search={searchTerms}";
-          IconURL = "https://en.wikipedia.org/static/favicon/wikipedia.ico";
+          IconURL = "https://en.wikipedia.org/favicon.ico";
         }
         {
           Name = "Wolfram Alpha";
@@ -268,6 +286,7 @@
         "Amazon.com"
         "Bing"
         "eBay"
+        "Google"
         "Perplexity"
         "Wikipedia (en)"
       ];
