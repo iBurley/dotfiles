@@ -15,6 +15,7 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
+      spicetify-nix,
       ...
     }@inputs:
     let
@@ -33,14 +34,13 @@
         inherit system;
         specialArgs = { inherit pkgs-unstable inputs; };
         modules = [
-          ./system/configuration.nix
-          inputs.spicetify-nix.nixosModules.default
+          ./hosts/desktop
+          spicetify-nix.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.iburley = import ./home/home.nix;
               extraSpecialArgs = { inherit pkgs-unstable; };
             };
             nixpkgs.pkgs = pkgs;

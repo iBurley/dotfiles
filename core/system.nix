@@ -2,17 +2,6 @@
 
 {
 
-  imports = [
-    ./firefox.nix
-    ./hardware-configuration.nix
-    ./ollama.nix
-    ./packages.nix
-    ./ptt.nix
-    ./shell.nix
-    ./spotify.nix
-    ./steam.nix
-  ];
-
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader.efi.canTouchEfiVariables = true;
@@ -29,10 +18,7 @@
     noto-fonts-color-emoji
   ];
 
-  networking = {
-    hostName = "desktop";
-    networkmanager.enable = true;
-  };
+  networking.networkmanager.enable = true;
 
   time.timeZone = "America/New_York";
 
@@ -47,34 +33,6 @@
     LC_PAPER = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
-  };
-
-  programs.nix-ld.enable = true;
-
-  services.desktopManager.gnome.enable = true;
-  services.displayManager.gdm.enable = true;
-  services.geoclue2.enable = false;
-  environment.gnome.excludePackages = with pkgs; [
-    baobab
-    decibels
-    geary
-    gnome-characters
-    gnome-connections
-    gnome-contacts
-    gnome-disk-utility
-    gnome-maps
-    gnome-shell-extensions
-    gnome-tour
-    gnome-weather
-    seahorse
-    showtime
-    snapshot
-    yelp
-  ];
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = "adwaita-dark";
   };
 
   services.printing = {
