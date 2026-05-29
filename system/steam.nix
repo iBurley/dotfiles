@@ -23,23 +23,6 @@
     };
   };
 
-  programs.gamescope = {
-    enable = true;
-    args = [
-      "--output-width 1920"
-      "--output-height 1080"
-      "--nested-refresh 144"
-      "--expose-wayland"
-      "--backend=sdl"
-      # "--rt" # needs capSysNice
-      "--fullscreen"
-      "--force-grab-cursor"
-      "--immediate-flips"
-    ];
-    # capSysNice = true; # broken currently
-    env.SDL_VIDEODRIVER = "x11"; # workaround for GNOME
-  };
-
   programs.steam = {
     enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
