@@ -20,7 +20,7 @@
           package = pkgs-unstable.zed-editor;
           extraPackages = with pkgs; [
             nixd
-            nixfmt-rfc-style
+            nixfmt
             shellcheck
             shfmt
             stylua

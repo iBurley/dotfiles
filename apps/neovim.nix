@@ -22,16 +22,18 @@
 
         programs.neovim = {
           enable = true;
+          defaultEditor = true;
           viAlias = true;
           vimAlias = true;
           vimdiffAlias = true;
-          defaultEditor = true;
+          withRuby = false; # # home.stateVersion less than 26.05
+          withPython3 = false; # home.stateVersion less than 26.05
 
           extraPackages = with pkgs; [
             bash-language-server
             lua-language-server
             nixd
-            nixfmt-rfc-style
+            nixfmt
             shellcheck
             shfmt
             stylua

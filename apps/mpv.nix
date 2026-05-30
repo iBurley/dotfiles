@@ -11,7 +11,7 @@
   config = lib.mkIf config.apps.mpv.enable {
 
     home-manager.users.iburley =
-      { pkgs-unstable, ... }:
+      { pkgs, ... }:
 
       {
 
@@ -49,7 +49,7 @@
             vulkan-async-transfer = "yes";
             ytdl-format = "bv*+ba/b";
           };
-          package = pkgs-unstable.celluloid;
+          package = pkgs.celluloid;
         };
 
         dconf.settings = {

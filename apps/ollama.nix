@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  pkgs-unstable,
   ...
 }:
 
@@ -27,7 +26,7 @@
 
     services.ollama = {
       enable = true;
-      package = pkgs-unstable.ollama-rocm;
+      package = pkgs.ollama-rocm;
       rocmOverrideGfx = "11.0.0";
       environmentVariables = {
         OLLAMA_FLASH_ATTENTION = "1";

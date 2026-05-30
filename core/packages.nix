@@ -4,6 +4,7 @@
 
   environment.systemPackages =
     (with pkgs; [
+      discord
       ffmpeg
       imagemagick
       libnotify
@@ -13,7 +14,7 @@
       yt-dlp
     ])
     ++ (with pkgs-unstable; [
-      (discord.override { withOpenASAR = true; })
+      # unstable packages
     ]);
 
 }

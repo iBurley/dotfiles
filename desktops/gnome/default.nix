@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  pkgs-unstable,
   ...
 }:
 
@@ -16,16 +15,13 @@
 
   config = lib.mkIf config.desktops.gnome.enable {
 
-    environment.systemPackages =
-      (with pkgs; [
-        file-roller
-        fragments
-        gnome-boxes
-        newsflash
-      ])
-      ++ (with pkgs-unstable; [
-        # (bottles.override { removeWarningPopup = true; })
-      ]);
+    environment.systemPackages = with pkgs; [
+      (bottles.override { removeWarningPopup = true; })
+      file-roller
+      fragments
+      gnome-boxes
+      newsflash
+    ];
 
     services.desktopManager.gnome.enable = true;
     services.displayManager.gdm.enable = true;
@@ -66,6 +62,7 @@
         xdg.userDirs = {
           enable = true;
           music = "/mnt/Storage/Music";
+          setSessionVariables = false; # home.stateVersion less than 26.05
         };
       };
 

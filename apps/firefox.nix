@@ -224,19 +224,19 @@
           {
             Name = "Home Manager";
             Alias = "@hm";
-            URLTemplate = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-25.11";
+            URLTemplate = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-26.05";
             IconURL = "https://home-manager-options.extranix.com/images/favicon.png";
           }
           {
             Name = "NixOS Options";
             Alias = "@no";
-            URLTemplate = "https://search.nixos.org/options?channel=25.11&query={searchTerms}";
+            URLTemplate = "https://search.nixos.org/options?channel=26.05&query={searchTerms}";
             IconURL = "https://search.nixos.org/favicon.png";
           }
           {
             Name = "NixOS Packages";
             Alias = "@np";
-            URLTemplate = "https://search.nixos.org/packages?channel=25.11&query={searchTerms}";
+            URLTemplate = "https://search.nixos.org/packages?channel=26.05&query={searchTerms}";
             IconURL = "https://search.nixos.org/favicon.png";
           }
           {
