@@ -33,7 +33,6 @@
       gnome-characters
       gnome-connections
       gnome-contacts
-      gnome-disk-utility
       gnome-maps
       gnome-shell-extensions
       gnome-tour

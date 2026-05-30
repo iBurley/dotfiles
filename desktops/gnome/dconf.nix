@@ -27,6 +27,7 @@
           };
           "org/gnome/desktop/app-folders/folders/Utilities" = {
             apps = [
+              "org.gnome.DiskUtility.desktop"
               "org.gnome.Papers.desktop"
               "org.gnome.Extensions.desktop"
               "org.gnome.FileRoller.desktop"
