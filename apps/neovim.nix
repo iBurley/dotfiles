@@ -26,8 +26,6 @@
           viAlias = true;
           vimAlias = true;
           vimdiffAlias = true;
-          withRuby = false; # # home.stateVersion less than 26.05
-          withPython3 = false; # home.stateVersion less than 26.05
 
           extraPackages = with pkgs; [
             bash-language-server

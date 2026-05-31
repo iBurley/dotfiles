@@ -61,7 +61,6 @@
         xdg.userDirs = {
           enable = true;
           music = "/mnt/Storage/Music";
-          setSessionVariables = false; # home.stateVersion less than 26.05
         };
       };
 
