@@ -53,7 +53,7 @@
       { ... }:
       {
         home.file.".local/share/nautilus/scripts/" = {
-          source = ../../files/nautilus-scripts;
+          source = ../../dotfiles/nautilus-scripts;
           recursive = true;
         };
 
