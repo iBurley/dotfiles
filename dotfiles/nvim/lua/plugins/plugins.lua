@@ -4,10 +4,12 @@ require("nvim-autopairs").setup({
 })
 
 -- COLORIZER
-require("colorizer").setup()
+require("colorizer").setup({
+	user_default_options = { names = false },
+})
 
 -- GIT SIGNS
-require("gitsigns").setup()
+require("gitsigns").setup({})
 
 -- LUALINE
 require("lualine").setup({
@@ -39,14 +41,8 @@ require("lualine").setup({
 require("neo-tree").setup({})
 
 -- RENDER MARKDOWN
-require("render-markdown").enable()
-
--- TREESITTER
-require("nvim-treesitter.configs").setup({
-	highlight = { enable = true },
-	indent = { enable = true },
-})
+require("render-markdown").setup({})
 
 -- VAGUE
-require("vague").setup()
+require("vague").setup({})
 vim.cmd("colorscheme vague")

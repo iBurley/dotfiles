@@ -1,7 +1,7 @@
 -- BASIC SETTINGS
+vim.opt.autocomplete = true
 vim.opt.backup = false
 vim.opt.clipboard = "unnamedplus"
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.cursorline = true
 vim.opt.expandtab = true
 vim.opt.hlsearch = true

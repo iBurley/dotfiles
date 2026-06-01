@@ -10,12 +10,24 @@ keymap("n", "<C-k>", "<C-w>k", { desc = "Move to top window" })
 keymap("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 keymap("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle file tree" })
 keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostic details" })
-keymap("n", "<leader>ff", require("fzf-lua").files, { desc = "Find files" })
-keymap("n", "<leader>fb", require("fzf-lua").buffers, { desc = "Find buffers" })
-keymap("n", "<leader>fw", require("fzf-lua").live_grep, { desc = "Live grep search" })
-keymap("n", "<leader>fc", require("fzf-lua").grep_cword, { desc = "Search word under cursor" })
-keymap("n", "<leader>fd", require("fzf-lua").diagnostics_document, { desc = "Find diagnostics in file" })
-keymap("n", "<leader>gc", require("fzf-lua").git_commits, { desc = "Git commits" })
+keymap("n", "<leader>ff", function()
+	require("fzf-lua").files()
+end, { desc = "Find files" })
+keymap("n", "<leader>fb", function()
+	require("fzf-lua").buffers()
+end, { desc = "Find buffers" })
+keymap("n", "<leader>fw", function()
+	require("fzf-lua").live_grep()
+end, { desc = "Live grep search" })
+keymap("n", "<leader>fc", function()
+	require("fzf-lua").grep_cword()
+end, { desc = "Search word under cursor" })
+keymap("n", "<leader>fd", function()
+	require("fzf-lua").diagnostics_document()
+end, { desc = "Find diagnostics in file" })
+keymap("n", "<leader>gc", function()
+	require("fzf-lua").git_commits()
+end, { desc = "Git commits" })
 
 -- SPLITS
 keymap("n", "<leader>h", function()
@@ -47,7 +59,7 @@ keymap("i", "<Tab>", function()
 	if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
 		return "<Tab>"
 	end
-	return "<Tab>"
+	return "<C-x><C-o>"
 end, { expr = true, desc = "Smart Tab completion/indent" })
 
 keymap("i", "<S-Tab>", function()

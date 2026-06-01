@@ -1,4 +1,6 @@
 -- NIXD CONFIGURATION
+local hostname = vim.fn.hostname()
+
 vim.lsp.config.nixd = {
 	cmd = { "nixd" },
 	filetypes = { "nix" },
@@ -13,10 +15,14 @@ vim.lsp.config.nixd = {
 			},
 			options = {
 				nixos = {
-					expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.desktop.options",
+					expr = ("(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.%s.options"):format(
+						hostname
+					),
 				},
 				home_manager = {
-					expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.desktop.options.home-manager.users.type.getSubOptions []",
+					expr = ("(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.%s.options.home-manager.users.type.getSubOptions []"):format(
+						hostname
+					),
 				},
 			},
 		},
