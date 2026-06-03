@@ -51,6 +51,7 @@
 
     home-manager.users.iburley =
       { ... }:
+
       {
 
         home.file.".local/share/nautilus/scripts/" = {

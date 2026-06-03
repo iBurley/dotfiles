@@ -24,6 +24,7 @@
             source = ../../dotfiles/fuzzel/scripts/sound-output.sh;
             executable = true;
           };
+          "mako".source = ../../dotfiles/mako;
           "niri".source = ../../dotfiles/niri;
           "yazi".source = ../../dotfiles/yazi;
         };

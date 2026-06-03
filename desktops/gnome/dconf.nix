@@ -8,6 +8,7 @@
       { lib, ... }:
 
       {
+
         dconf.settings = {
           "org/gnome/desktop/app-folders".folder-children = [
             "Office"
@@ -125,7 +126,9 @@
             sort-order = "descending";
           };
         };
+
       };
+
   };
 
 }
