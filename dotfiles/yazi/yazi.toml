@@ -1,0 +1,13 @@
+[mgr]
+ratio          = [ 0, 4, 4 ]
+sort_by        = "natural"
+
+[preview]
+max_width       = 600
+max_height      = 900
+cache_dir       = ""
+image_delay     = 0
+
+[opener]
+
+[open]

@@ -78,8 +78,11 @@
               "basher" = true;
               "docker-compose" = true;
               "html" = true;
+              "ini" = true;
+              "kdl" = true;
               "lua" = true;
               "nix" = true;
+              "toml" = true;
               "vague" = true;
             };
             languages = {

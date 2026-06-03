@@ -1,0 +1,94 @@
+input {
+  mouse {
+     accel-profile "flat"
+  }
+}
+
+output "DP-2" {
+  mode "1920x1080@143.999"
+}
+
+layout {
+  gaps 5
+  preset-column-widths {
+    proportion 0.25
+    proportion 0.5
+    proportion 0.75
+  }
+  default-column-width { proportion 0.5; }
+  focus-ring {
+    width 2
+    active-color "#7e98e8"
+    inactive-color "#cdcdcd"
+  }
+}
+
+hotkey-overlay {
+  skip-at-startup
+}
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+cursor {
+  xcursor-theme "Adwaita"
+}
+
+window-rule {
+  match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+  open-floating true
+}
+
+binds {
+  Mod+Shift+Slash { show-hotkey-overlay; }
+  Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
+  Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+  Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+  Mod+O repeat=false { toggle-overview; }
+  Mod+Q repeat=false { close-window; }
+  Mod+H { focus-column-left; }
+  Mod+J { focus-window-or-workspace-down; }
+  Mod+K { focus-window-or-workspace-up; }
+  Mod+L { focus-column-right; }
+  Mod+Ctrl+H { move-column-left; }
+  Mod+Ctrl+J { move-window-down-or-to-workspace-down; }
+  Mod+Ctrl+K { move-window-up-or-to-workspace-up; }
+  Mod+Ctrl+L { move-column-right; }
+  Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+  Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
+  Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+  Mod+Ctrl+WheelScrollUp cooldown-ms=150 { move-column-to-workspace-up; }
+  Mod+Shift+WheelScrollDown { focus-column-right; }
+  Mod+Shift+WheelScrollUp { focus-column-left; }
+  Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+  Mod+Ctrl+Shift+WheelScrollUp { move-column-left; }
+  Mod+BracketLeft { consume-or-expel-window-left; }
+  Mod+BracketRight { consume-or-expel-window-right; }
+  Mod+Comma { consume-window-into-column; }
+  Mod+Period { expel-window-from-column; }
+  Mod+R { switch-preset-column-width; }
+  Mod+Shift+R { switch-preset-window-height; }
+  Mod+Ctrl+R { reset-window-height; }
+  Mod+F { maximize-column; }
+  Mod+Shift+F { fullscreen-window; }
+  Mod+M { maximize-window-to-edges; }
+  Mod+Ctrl+F { expand-column-to-available-width; }
+  Mod+C { center-column; }
+  Mod+Ctrl+C { center-visible-columns; }
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Equal { set-column-width "+10%"; }
+  Mod+Shift+Minus { set-window-height "-10%"; }
+  Mod+Shift+Equal { set-window-height "+10%"; }
+  Mod+V { toggle-window-floating; }
+  Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+  Mod+W { toggle-column-tabbed-display; }
+  Print { screenshot; }
+  Ctrl+Print { screenshot-screen; }
+  Alt+Print { screenshot-window; }
+  Mod+Shift+E { quit; }
+  Ctrl+Alt+Delete { quit; }
+  Mod+Escape hotkey-overlay-title="Power Menu" { spawn "~/.config/fuzzel/scripts/power.sh"; }
+  Mod+S hotkey-overlay-title="Sound Output Menu" { spawn "~/.config/fuzzel/scripts/sound-output.sh"; }
+  Mod+Shift+S hotkey-overlay-title="Sound Input Menu" { spawn "~/.config/fuzzel/scripts/sound-input.sh"; }
+}

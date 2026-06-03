@@ -17,6 +17,7 @@
   apps.zed.enable = true;
 
   desktops.gnome.enable = true;
+  desktops.niri.enable = true;
 
   networking.hostName = "desktop";
 

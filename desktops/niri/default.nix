@@ -8,7 +8,7 @@
 {
 
   imports = [
-    #
+    ./dotfiles.nix
   ];
 
   options.desktops.niri.enable = lib.mkEnableOption "Niri Window Manager";

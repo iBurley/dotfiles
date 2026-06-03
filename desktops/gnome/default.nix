@@ -52,6 +52,7 @@
     home-manager.users.iburley =
       { ... }:
       {
+
         home.file.".local/share/nautilus/scripts/" = {
           source = ../../dotfiles/nautilus-scripts;
           recursive = true;
@@ -62,6 +63,22 @@
           enable = true;
           music = "/mnt/Storage/Music";
         };
+
+        programs.mpv.package = pkgs.celluloid;
+
+        dconf.settings = {
+          "io/github/celluloid-player/celluloid" = {
+            always-show-title-buttons = false;
+            always-use-floating-controls = true;
+            always-use-floating-header-bar = true;
+            autofit-enable = true;
+            csd-enable = true;
+            draggable-video-area-enable = true;
+            mpv-config-enable = true;
+            mpv-config-file = "file:///home/iburley/.config/mpv/mpv.conf";
+          };
+        };
+
       };
 
   };

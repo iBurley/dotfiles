@@ -11,7 +11,7 @@
   config = lib.mkIf config.apps.mpv.enable {
 
     home-manager.users.iburley =
-      { pkgs, ... }:
+      { ... }:
 
       {
 
@@ -48,20 +48,6 @@
             vulkan-async-compute = "yes";
             vulkan-async-transfer = "yes";
             ytdl-format = "bv*+ba/b";
-          };
-          package = pkgs.celluloid;
-        };
-
-        dconf.settings = {
-          "io/github/celluloid-player/celluloid" = {
-            always-show-title-buttons = false;
-            always-use-floating-controls = true;
-            always-use-floating-header-bar = true;
-            autofit-enable = true;
-            csd-enable = true;
-            draggable-video-area-enable = true;
-            mpv-config-enable = true;
-            mpv-config-file = "file:///home/iburley/.config/mpv/mpv.conf";
           };
         };
 

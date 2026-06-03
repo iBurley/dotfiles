@@ -15,11 +15,6 @@
 
       {
 
-        home.file.".config/nvim/" = {
-          source = ../dotfiles/nvim;
-          recursive = true;
-        };
-
         programs.neovim = {
           enable = true;
           defaultEditor = true;
@@ -48,6 +43,8 @@
             vague-nvim
           ];
         };
+
+        xdg.configFile.nvim.source = ../dotfiles/nvim;
 
         xdg.desktopEntries.nvim = {
           name = "Neovim wrapper";
