@@ -258,6 +258,12 @@
             IconURL = "https://www.reddit.com/favicon.ico";
           }
           {
+            Name = "Reverb";
+            Alias = "@rv";
+            URLTemplate = "https://reverb.com/marketplace?query={searchTerms}";
+            IconURL = "https://www.reverb.com/favicon.ico";
+          }
+          {
             Name = "Stack Overflow";
             Alias = "@so";
             URLTemplate = "https://stackoverflow.com/search?q={searchTerms}";
